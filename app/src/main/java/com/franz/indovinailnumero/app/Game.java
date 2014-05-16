@@ -170,9 +170,9 @@ public class Game extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void Ricomincia(View view){
+    public void ricomincia(View view){
         final Intent intent= new Intent(this, MainActivity.class);
-        if(finito==false) {
+        if(!finito) {
             // 1. Instantiate an AlertDialog.Builder with its constructor
             AlertDialog.Builder builder = new AlertDialog.Builder(Game.this);
 

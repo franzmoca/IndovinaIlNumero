@@ -77,7 +77,7 @@
         android:layout_alignParentBottom="true"
         android:textIsSelectable="false"
         android:id="@+id/textView4"
-        android:onClick="Ricomincia"
+        android:onClick="ricomincia"
         android:clickable="true" />
 
     <TextView
