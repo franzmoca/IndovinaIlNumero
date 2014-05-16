@@ -23,12 +23,19 @@ public class Game extends ActionBarActivity {
 
     public int fine, inizio, guess;
     public int i=5;
+    public int attempts=0;
     public boolean finito=false;
 
     MediaPlayer error,applausi,fail;
 
 
+
+
+
+
     public void checkWin(View view){
+        float punteggio;
+
         Button inserisci = (Button)findViewById(R.id.button);
         InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(inserisci.getWindowToken(), 0);
@@ -65,6 +72,9 @@ public class Game extends ActionBarActivity {
                             mediaPlayer.start();
                         }
                     });
+                    attempts++;
+                    punteggio=(5-attempts)*(fine-inizio)/2;
+                    numero.setText("Il tuo punteggio è: "+punteggio);
 
                     finito=true;
 
@@ -74,11 +84,13 @@ public class Game extends ActionBarActivity {
                     if (guess < this.guess) {
                         alto_basso.setText("Troppo basso!");
                         i--;
+                        attempts++;
                         if(i>0)
                             error.start();
                     } else {
                         alto_basso.setText("Troppo alto!");
                         i--;
+                        attempts++;
                         if(i>0)
                             error.start();
                     }
@@ -88,21 +100,14 @@ public class Game extends ActionBarActivity {
                     alto_basso.setText("");
                     numero.setText("Il numero da indovinare era\n" + this.guess);
                     vinto.setText("Hai\nPerso!!");
+
                     fail.start();
                     finito=true;
 
 
 
                 }
-            } /*else {
-                tentativi.setText("");
-                alto_basso.setText("");
-                numero.setText("Il numero da indovinare era\n" + guess);
-                vinto.setText("Hai\nPerso!!");
-                fail.start();
-                finito=true;
-
-            }*/
+            }
         }catch(Exception e){
             // 1. Instantiate an AlertDialog.Builder with its constructor
             AlertDialog.Builder builder = new AlertDialog.Builder(Game.this);
