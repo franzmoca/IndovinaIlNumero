@@ -28,7 +28,7 @@ public class Game extends ActionBarActivity {
     MediaPlayer error,applausi,fail;
 
 
-    public void Inserisci(View view){
+    public void checkWin(View view){
         Button inserisci = (Button)findViewById(R.id.button);
         InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(inserisci.getWindowToken(), 0);
@@ -130,9 +130,6 @@ public class Game extends ActionBarActivity {
 
 
     }
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -165,6 +162,7 @@ public class Game extends ActionBarActivity {
         // as you specify inizio parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
+            Log.d("settings","click");
             return true;
         }
         return super.onOptionsItemSelected(item);

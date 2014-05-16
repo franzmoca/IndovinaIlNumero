@@ -46,7 +46,7 @@
         android:textColor="#000000"
         android:background="#99ffb5"
         android:clickable="true"
-        android:onClick="Inserisci"/>
+        android:onClick="checkWin"/>
 
     <TextView
         android:layout_width="fill_parent"
