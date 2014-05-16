@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">IndovinaIlNumero</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="info">Scegli il range dei numeri</string>
+    <string name="from">1</string>
+    <string name="totext">to</string>
+    <string name="to">100</string>
+    <string name="start_game">Start\nGame</string>
+    <string name="title_activity_game">Game</string>
+    <string name="inserisci">Indovina il numero</string>
+    <string name="bottoneInserisci">Inserisci</string>
+    <string name="ins"></string>
+    <string name="tentativi">Hai 5 tentativi a disposizione</string>
+    <string name="hai_vinto"></string>
+    <string name="how_much"></string>
+    <string name="numero"></string>
+</resources>
