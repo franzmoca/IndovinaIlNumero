@@ -17,6 +17,7 @@ import android.widget.TextView;
 import static java.lang.Integer.parseInt;
 
 //PROVA VCS
+//PROVA 3
 public class MainActivity extends ActionBarActivity {
 
     public final static String FINE = "com.franz.guessthenumber.app.inizio";

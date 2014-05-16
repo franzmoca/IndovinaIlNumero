@@ -183,7 +183,8 @@ public class Game extends ActionBarActivity {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
 
-                            startActivity(intent);
+                            setResult(1);
+                            finish();
                         }
                     }
             );
