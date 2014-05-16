@@ -224,7 +224,6 @@ public class Game extends ActionBarActivity {
                         public void onClick(DialogInterface dialogInterface, int i) {
                             setResult(0);
                             finish();
-                            // Abandon audio focus when playback complete
                             dialogInterface.cancel();
                         }
                     }
