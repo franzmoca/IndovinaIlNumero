@@ -170,12 +170,50 @@ public class Game extends ActionBarActivity {
             Log.d("settings","click");
             return true;
         }
+        if (id==R.id.action_ricomincia){
+            // 1. Instantiate an AlertDialog.Builder with its constructor
+            AlertDialog.Builder builder = new AlertDialog.Builder(Game.this);
+
+            // 2. Chain together various setter methods to set the dialog characteristics
+            builder.setMessage("Vuoi ricominciare?")
+                    .setTitle("");
+
+            builder.setPositiveButton("Si",
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            //aggiungo tutti sti stop perchè capita che io inizio una nuova partita ma ancora sento il suono del fail di prima, in questo modo invece interrompo tutto
+                            error.stop();
+                            fail.stop();
+                            applausi.stop();
+                            setResult(1);
+
+                            finish();
+
+                        }
+                    }
+            );
+            builder.setNegativeButton("No",
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.cancel();
+                        }
+                    }
+            );
+            // 3. Get the AlertDialog from create()
+            AlertDialog dialog = builder.create();
+
+            dialog.show();
+            return true;
+
+        }
         return super.onOptionsItemSelected(item);
     }
 
     public void ricomincia(View view){
         final Intent intent= new Intent(this, MainActivity.class);
-        if(!finito) {
+        if(!finito) {/*
             // 1. Instantiate an AlertDialog.Builder with its constructor
             AlertDialog.Builder builder = new AlertDialog.Builder(Game.this);
 
@@ -207,7 +245,7 @@ public class Game extends ActionBarActivity {
             // 3. Get the AlertDialog from create()
             AlertDialog dialog = builder.create();
 
-            dialog.show();
+            dialog.show();*/
 
         }else{
 
