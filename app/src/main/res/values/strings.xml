@@ -2,7 +2,6 @@
 <resources>
 
     <string name="app_name">IndovinaIlNumero</string>
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="info">Scegli il range dei numeri</string>
     <string name="from">1</string>
@@ -17,4 +16,5 @@
     <string name="hai_vinto"></string>
     <string name="how_much"></string>
     <string name="numero"></string>
+    <string name="rinizia">Ricomincia</string>
 </resources>

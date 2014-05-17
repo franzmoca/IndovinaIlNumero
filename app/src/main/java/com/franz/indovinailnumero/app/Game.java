@@ -24,127 +24,117 @@ import java.util.Random;
 public class Game extends ActionBarActivity {
 
     public int fine, inizio, guess;
-    public int i=5;
-    public int attempts=0;
-    public boolean finito=false;
+    public int i = 5;
+    public int attempts = 0;
+    public boolean finito = false;
     public SoundPoolHelper mp;
     int fail, error, applausi;
 
 
-
     public void checkWin(View view) {
-        if (!finito) {
-            float punteggio;
-            Button inserisci = (Button) findViewById(R.id.button);
-            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(inserisci.getWindowToken(), 0);
 
-            TextView inputText = (TextView) findViewById(R.id.editText3);
-            String guess1 = inputText.getText() + "";
-            try {
-                int guess = Integer.parseInt(guess1);
+        Button inserisci = (Button) findViewById(R.id.button);
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(inserisci.getWindowToken(), 0);
 
+        TextView edit = (TextView) findViewById(R.id.editText3);
+        String guess1 = edit.getText() + "";
+        try {
+            int guess = Integer.parseInt(guess1);
+            TextView tentativi = (TextView) findViewById(R.id.textView2);
+            TextView alto_basso = (TextView) findViewById(R.id.textView3);
+             attempts++;
+            if (guess == this.guess) {
+                endGame(true);
+            } else {
+                i--;
+                if (i > 0)
+                    mp.play(error);
+                edit.setText("");
+                tentativi.setText("Ti sono rimasti ancora " + i + " tentativi");
+                if (guess < this.guess)
+                    alto_basso.setText("Troppo basso!");
+                else
+                    alto_basso.setText("Troppo alto!");
+            }
+            if (i == 0) {
+                endGame(false);
+            }
 
-                TextView tentativi = (TextView) findViewById(R.id.textView2);
-                TextView alto_basso = (TextView) findViewById(R.id.textView3);
-                TextView vinto = (TextView) findViewById(R.id.textView4);
-                TextView numero = (TextView) findViewById(R.id.textView5);
-                EditText edit = (EditText) findViewById(R.id.editText3);
-                TextView indovina=(TextView) findViewById(R.id.textView);
-                Button hai_vinto=(Button)findViewById(R.id.button);
-                ViewGroup layout_edit = (ViewGroup) edit.getParent();
-                ViewGroup layout_bottone=(ViewGroup) hai_vinto.getParent();
+        }//fine try
+        catch (Exception e) {
+            // 1. Instantiate an AlertDialog.Builder with its constructor
+            AlertDialog.Builder builder = new AlertDialog.Builder(Game.this);
 
-                if (i > 0) {
-                    if (guess == this.guess) {
-                        tentativi.setText("");
-                        alto_basso.setText("");
-                        indovina.setText("");
-                        layout_edit.removeView(edit);
-                        layout_bottone.removeView(hai_vinto);
+            // 2. Chain together various setter methods to set the dialog characteristics
+            builder.setMessage("Devi inserire un numero!")
+                    .setTitle("Errore!");
 
-                        vinto.setVisibility(1);
-                        vinto.setText("Hai\nVinto!!");
-                        mp.play(applausi);
-                        attempts++;
-                        punteggio = (6 - attempts) * (fine - inizio) / 2;
-                        numero.setText("Il tuo punteggio è: " + punteggio);
-
-                        finito = true;
-
-                    } else {
-                        edit.setText("");
-                        tentativi.setText("Ti sono rimasti ancora " + (i - 1) + " tentativi");
-                        if (guess < this.guess) {
-                            alto_basso.setText("Troppo basso!");
-                            i--;
-                            attempts++;
-                            if (i > 0)
-                                mp.play(error);
-                        } else {
-                            alto_basso.setText("Troppo alto!");
-                            i--;
-                            attempts++;
-                            if (i > 0)
-                                mp.play(error);
+            builder.setPositiveButton("Ok",
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.cancel();
                         }
                     }
-                    if (i == 0) {
-                        tentativi.setText("");
-                        alto_basso.setText("");
-                        indovina.setText("");
-                        layout_edit.removeView(edit);
-                        layout_bottone.removeView(hai_vinto);
-                        numero.setText("Il numero da indovinare era\n" + this.guess);
-                        vinto.setVisibility(1);
-                        vinto.setText("Hai\nPerso!!");
+            );
 
-                        mp.play(fail);
-                        finito = true;
-                    }
-                }
-            }//fine try
-            catch (Exception e) {
-                // 1. Instantiate an AlertDialog.Builder with its constructor
-                AlertDialog.Builder builder = new AlertDialog.Builder(Game.this);
-
-                // 2. Chain together various setter methods to set the dialog characteristics
-                builder.setMessage("Devi inserire un numero!")
-                        .setTitle("Errore!");
-
-                builder.setPositiveButton("Ok",
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                dialogInterface.cancel();
-                            }
-                        }
-                );
-
-                // 3. Get the AlertDialog from create()
-                AlertDialog dialog = builder.create();
-                dialog.show();
-            }//Fine Catch
-        } //Fine if finito
+            // 3. Get the AlertDialog from create()
+            AlertDialog dialog = builder.create();
+            dialog.show();
+        }//Fine Catch
     } //fine funzione
+
+    public void endGame(boolean win) { //True = vittoria,False = sconfitta
+        finito = true;
+        TextView tentativi = (TextView) findViewById(R.id.textView2);
+        TextView alto_basso = (TextView) findViewById(R.id.textView3);
+        TextView vinto = (TextView) findViewById(R.id.textView4);
+        TextView numero = (TextView) findViewById(R.id.textView5);
+        EditText edit = (EditText) findViewById(R.id.editText3);
+        TextView indovina = (TextView) findViewById(R.id.textView);
+        Button hai_vinto = (Button) findViewById(R.id.button);
+        ViewGroup layout_edit = (ViewGroup) edit.getParent();
+        ViewGroup layout_bottone = (ViewGroup) hai_vinto.getParent();
+
+        tentativi.setText("");
+        alto_basso.setText("");
+        indovina.setText("");
+        layout_edit.removeView(edit);
+        layout_bottone.removeView(hai_vinto);
+        vinto.setVisibility(View.VISIBLE);
+        vinto.setText("Hai\n" + (win ? "vinto" : "perso"));
+        mp.play(win ? applausi : fail);
+        if (win) {
+            float punteggio;
+            punteggio = (6 - attempts) * (fine - inizio) / 2;
+            numero.setText("Il tuo punteggio è: " + punteggio);
+        } else
+            numero.setText("Il numero da indovinare era\n" + this.guess);
+
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-        Intent intent=getIntent();
+        Intent intent = getIntent();
+
+        String i = intent.getStringExtra(MainActivity.INIZIO);
+        inizio = Integer.parseInt(i);
 
         String f = intent.getStringExtra(MainActivity.FINE);
-        fine =Integer.parseInt(f);
-        String i = intent.getStringExtra(MainActivity.INIZIO);
-        inizio =Integer.parseInt(i);
+        fine = Integer.parseInt(f);
+
         Random random = new Random();
-        guess =random.nextInt(fine - inizio +1)+ inizio;
+        guess = random.nextInt(fine - inizio + 1) + inizio;
         Log.d("guess", "Numero generato: " + guess);
         //Inizializzo i suoni
-        mp = new SoundPoolHelper(1,this);
-        fail = mp.load(this,R.raw.fail,1);
-        error = mp.load(this,R.raw.error,1);
-        applausi = mp.load(this,R.raw.applausi,1);
+        mp = new SoundPoolHelper(1, this);
+        fail = mp.load(this, R.raw.fail, 1);
+        error = mp.load(this, R.raw.error, 1);
+        applausi = mp.load(this, R.raw.applausi, 1);
     }
 
 
@@ -163,10 +153,10 @@ public class Game extends ActionBarActivity {
         // as you specify inizio parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
-            Log.d("settings","click");
+            Log.d("settings", "click");
             return true;
         }
-        if (id==R.id.action_ricomincia){
+        if (id == R.id.action_ricomincia) {
             // 1. Instantiate an AlertDialog.Builder with its constructor
             AlertDialog.Builder builder = new AlertDialog.Builder(Game.this);
 
@@ -184,7 +174,6 @@ public class Game extends ActionBarActivity {
                             mp.unload(applausi);
                             setResult(1);
                             finish();
-
                         }
                     }
             );
@@ -206,42 +195,8 @@ public class Game extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void ricomincia(View view){
-        if(!finito) {/*
-            // 1. Instantiate an AlertDialog.Builder with its constructor
-            AlertDialog.Builder builder = new AlertDialog.Builder(Game.this);
-
-            // 2. Chain together various setter methods to set the dialog characteristics
-            builder.setMessage("Vuoi ricominciare?")
-                    .setTitle("");
-
-            builder.setPositiveButton("Si",
-                    new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            //aggiungo tutti sti stop perchè capita che io inizio una nuova partita ma ancora sento il suono del fail di prima, in questo modo invece interrompo tutto
-                            error.stop();
-                            fail.stop();
-                            applausi.stop();
-                            setResult(1);
-                            finish();
-                        }
-                    }
-            );
-            builder.setNegativeButton("No",
-                    new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            dialogInterface.cancel();
-                        }
-                    }
-            );
-            // 3. Get the AlertDialog from create()
-            AlertDialog dialog = builder.create();
-
-            dialog.show();*/
-
-        }else{
+    public void ricomincia(View view) {
+        if (finito) {
 
             // 1. Instantiate an AlertDialog.Builder with its constructor
             AlertDialog.Builder builder = new AlertDialog.Builder(Game.this);
@@ -279,9 +234,42 @@ public class Game extends ActionBarActivity {
             AlertDialog dialog = builder.create();
 
             dialog.show();
+        } /*else {
+            // 1. Instantiate an AlertDialog.Builder with its constructor
+            AlertDialog.Builder builder = new AlertDialog.Builder(Game.this);
+
+            // 2. Chain together various setter methods to set the dialog characteristics
+            builder.setMessage("Vuoi ricominciare?")
+                    .setTitle("");
+
+            builder.setPositiveButton("Si",
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            //aggiungo tutti sti stop perchè capita che io inizio una nuova partita ma ancora sento il suono del fail di prima, in questo modo invece interrompo tutto
+                            error.stop();
+                            fail.stop();
+                            applausi.stop();
+                            setResult(1);
+                            finish();
+                        }
+                    }
+            );
+            builder.setNegativeButton("No",
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.cancel();
+                        }
+                    }
+            );
+            // 3. Get the AlertDialog from create()
+            AlertDialog dialog = builder.create();
+
+            dialog.show();*/
+
         }
 
     }
 
-}
 
