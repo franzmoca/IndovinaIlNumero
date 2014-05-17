@@ -187,7 +187,10 @@ public class Game extends ActionBarActivity {
                     new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
-
+                            //aggiungo tutti sti stop perchè capita che io inizio una nuova partita ma ancora sento il suono del fail di prima, in questo modo invece interrompo tutto
+                            error.stop();
+                            fail.stop();
+                            applausi.stop();
                             setResult(1);
                             finish();
                         }
@@ -219,6 +222,9 @@ public class Game extends ActionBarActivity {
                     new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
+                            error.stop();
+                            fail.stop();
+                            applausi.stop();
                             setResult(1);
                             finish();
                         }
@@ -228,6 +234,9 @@ public class Game extends ActionBarActivity {
                     new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
+                            error.stop();
+                            fail.stop();
+                            applausi.stop();
                             setResult(0);
                             finish();
                             dialogInterface.cancel();
