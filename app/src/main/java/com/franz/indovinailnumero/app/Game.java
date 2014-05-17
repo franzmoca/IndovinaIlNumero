@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -49,16 +50,24 @@ public class Game extends ActionBarActivity {
                 TextView vinto = (TextView) findViewById(R.id.textView4);
                 TextView numero = (TextView) findViewById(R.id.textView5);
                 EditText edit = (EditText) findViewById(R.id.editText3);
+                TextView indovina=(TextView) findViewById(R.id.textView);
+                Button hai_vinto=(Button)findViewById(R.id.button);
+                ViewGroup layout_edit = (ViewGroup) edit.getParent();
+                ViewGroup layout_bottone=(ViewGroup) hai_vinto.getParent();
 
                 if (i > 0) {
                     if (guess == this.guess) {
                         tentativi.setText("");
                         alto_basso.setText("");
+                        indovina.setText("");
+                        layout_edit.removeView(edit);
+                        layout_bottone.removeView(hai_vinto);
 
+                        vinto.setVisibility(1);
                         vinto.setText("Hai\nVinto!!");
                         mp.play(applausi);
                         attempts++;
-                        punteggio = (5 - attempts) * (fine - inizio) / 2;
+                        punteggio = (6 - attempts) * (fine - inizio) / 2;
                         numero.setText("Il tuo punteggio è: " + punteggio);
 
                         finito = true;
@@ -83,7 +92,11 @@ public class Game extends ActionBarActivity {
                     if (i == 0) {
                         tentativi.setText("");
                         alto_basso.setText("");
+                        indovina.setText("");
+                        layout_edit.removeView(edit);
+                        layout_bottone.removeView(hai_vinto);
                         numero.setText("Il numero da indovinare era\n" + this.guess);
+                        vinto.setVisibility(1);
                         vinto.setText("Hai\nPerso!!");
 
                         mp.play(fail);
