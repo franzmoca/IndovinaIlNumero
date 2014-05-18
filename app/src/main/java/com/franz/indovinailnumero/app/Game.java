@@ -43,7 +43,7 @@ public class Game extends ActionBarActivity {
             int guess = Integer.parseInt(guess1);
             TextView tentativi = (TextView) findViewById(R.id.textView2);
             TextView alto_basso = (TextView) findViewById(R.id.textView3);
-             attempts++;
+            attempts++;
             if (guess == this.guess) {
                 endGame(true);
             } else {
@@ -100,8 +100,12 @@ public class Game extends ActionBarActivity {
         tentativi.setText("");
         alto_basso.setText("");
         indovina.setText("");
-        layout_edit.removeView(edit);
-        layout_bottone.removeView(hai_vinto);
+        if (layout_edit != null) {
+            layout_edit.removeView(edit);
+        }
+        if (layout_bottone != null) {
+            layout_bottone.removeView(hai_vinto);
+        }
         vinto.setVisibility(View.VISIBLE);
         vinto.setText("Hai\n" + (win ? "vinto" : "perso"));
         mp.play(win ? applausi : fail);
@@ -157,119 +161,68 @@ public class Game extends ActionBarActivity {
             return true;
         }
         if (id == R.id.action_ricomincia) {
-            // 1. Instantiate an AlertDialog.Builder with its constructor
-            AlertDialog.Builder builder = new AlertDialog.Builder(Game.this);
-
-            // 2. Chain together various setter methods to set the dialog characteristics
-            builder.setMessage("Vuoi ricominciare?")
-                    .setTitle("");
-
-            builder.setPositiveButton("Si",
-                    new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            //aggiungo tutti sti stop perchè capita che io inizio una nuova partita ma ancora sento il suono del fail di prima, in questo modo invece interrompo tutto
-                            mp.unload(error);
-                            mp.unload(fail);
-                            mp.unload(applausi);
-                            setResult(1);
-                            finish();
-                        }
-                    }
-            );
-            builder.setNegativeButton("No",
-                    new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            dialogInterface.cancel();
-                        }
-                    }
-            );
-            // 3. Get the AlertDialog from create()
-            AlertDialog dialog = builder.create();
-
-            dialog.show();
+            ricomincia();
             return true;
 
         }
         return super.onOptionsItemSelected(item);
     }
 
-    public void ricomincia(View view) {
-        if (finito) {
+    private void ricomincia(){
+        // 1. Instantiate an AlertDialog.Builder with its constructor
+        AlertDialog.Builder builder = new AlertDialog.Builder(Game.this);
+        // 2. Chain together various setter methods to set the dialog characteristics
+        builder.setMessage("Vuoi rigiocare?")
+                .setTitle("Partita Conclusa");
+        builder.setPositiveButton("Si",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        mp.stop(applausi);
+                        mp.stop(fail);
 
-            // 1. Instantiate an AlertDialog.Builder with its constructor
-            AlertDialog.Builder builder = new AlertDialog.Builder(Game.this);
+                        mp.unload(error);
+                        mp.unload(fail);
+                        mp.unload(applausi);
 
-            // 2. Chain together various setter methods to set the dialog characteristics
-            builder.setMessage("Vuoi rigiocare?")
-                    .setTitle("Partita Conclusa");
-
-            builder.setPositiveButton("Si",
-                    new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            mp.unload(error);
-                            mp.unload(fail);
-                            mp.unload(applausi);
-                            setResult(1);
-                            finish();
-                        }
+                        mp.release();
+                        setResult(1);
+                        finish();
                     }
-            );
-            builder.setNegativeButton("No",
-                    new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
+                }
+        );
+        builder.setNegativeButton("No",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                        if(finito) {
+                            mp.stop(applausi);
+                            mp.stop(fail);
+
                             mp.unload(error);
                             mp.unload(fail);
                             mp.unload(applausi);
+
+                            mp.release();
                             setResult(0);
                             finish();
-                            dialogInterface.cancel();
                         }
+                        dialogInterface.cancel();
                     }
-            );
-            // 3. Get the AlertDialog from create()
-            AlertDialog dialog = builder.create();
+                }
+        );
+        // 3. Get the AlertDialog from create()
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
 
-            dialog.show();
-        } /*else {
-            // 1. Instantiate an AlertDialog.Builder with its constructor
-            AlertDialog.Builder builder = new AlertDialog.Builder(Game.this);
-
-            // 2. Chain together various setter methods to set the dialog characteristics
-            builder.setMessage("Vuoi ricominciare?")
-                    .setTitle("");
-
-            builder.setPositiveButton("Si",
-                    new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            //aggiungo tutti sti stop perchè capita che io inizio una nuova partita ma ancora sento il suono del fail di prima, in questo modo invece interrompo tutto
-                            error.stop();
-                            fail.stop();
-                            applausi.stop();
-                            setResult(1);
-                            finish();
-                        }
-                    }
-            );
-            builder.setNegativeButton("No",
-                    new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            dialogInterface.cancel();
-                        }
-                    }
-            );
-            // 3. Get the AlertDialog from create()
-            AlertDialog dialog = builder.create();
-
-            dialog.show();*/
-
+    public void ricomincia(View view) {
+        if (finito) {
+            ricomincia();
         }
 
     }
+}
 
 
