@@ -17,4 +17,7 @@
     <string name="how_much"></string>
     <string name="numero"></string>
     <string name="rinizia">Ricomincia</string>
+    <string name="title_activity_level_game">LevelGame</string>
+    <string name="hello_world">Hello world!</string>
+
 </resources>
