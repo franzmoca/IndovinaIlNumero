@@ -12,7 +12,7 @@
     <string name="inserisci">Indovina il numero</string>
     <string name="bottoneInserisci">Inserisci</string>
     <string name="ins"></string>
-    <string name="tentativi">Hai 5 tentativi a disposizione</string>
+    <string name="tentativi">5 tentativi</string>
     <string name="hai_vinto"></string>
     <string name="how_much"></string>
     <string name="numero"></string>
