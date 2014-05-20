@@ -41,6 +41,7 @@ public class LevelGame extends ActionBarActivity {
     public boolean finito = false;
     public SoundPoolHelper mp;
     int fail, error, applausi;
+    EditText edit;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -64,6 +65,9 @@ public class LevelGame extends ActionBarActivity {
         fail = mp.load(this, R.raw.fail, 1);
         error = mp.load(this, R.raw.error, 1);
         applausi = mp.load(this, R.raw.applausi, 1);
+        //blocco la tastiera
+        edit = (EditText) findViewById(R.id.editText3);
+        edit.setKeyListener(null);
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -236,8 +240,49 @@ public class LevelGame extends ActionBarActivity {
             numero.setText("Il tuo punteggio è: " + punteggio);
         } else
             numero.setText("Il numero da indovinare era\n" + this.guess);
+    }
+    // Will be called for every Button that is clicked
+    public void input(View v){
+
+        switch ( v.getId()) {
+            case R.id.tasto1: edit.append("1");
+                break;
+            case R.id.tasto2:   edit.append("2");
+                break;
+            case R.id.tasto3:  edit.append("3");
+                break;
+            case R.id.tasto4:   edit.append("4");
+                break;
+            case R.id.tasto5:  edit.append("5");
+                break;
+            case R.id.tasto6:  edit.append("6");
+                break;
+            case R.id.tasto7:   edit.append("7");
+                break;
+            case R.id.tasto8:   edit.append("8");
+                break;
+            case R.id.tasto9:  edit.append("9");
+                break;
+            case R.id.tasto0:  edit.append("0");
+                break;
+            case R.id.tasto00:  edit.append("00");
+                break;
+            case R.id.tastoC:
+                edit.setText(removeLastChar(edit.getText()+""));
+           /*
+            default: monthString = "Invalid month";
+                break;*/
+        }
 
 
+        Log.v("APP", "Pressed: "+v.getTag());
+    }
+    //tastoC
+    public String removeLastChar(String s) {
+        if (s == null || s.length() == 0) {
+            return s;
+        }
+        return s.substring(0, s.length() - 1);
     }
 }
 

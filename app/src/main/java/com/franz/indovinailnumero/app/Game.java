@@ -32,7 +32,7 @@ public class Game extends ActionBarActivity {
     public boolean finito = false;
     public SoundPoolHelper mp;
     int fail, error, applausi,tock;
-
+    EditText edit;
 
 
 
@@ -146,15 +146,13 @@ public class Game extends ActionBarActivity {
         fail = mp.load(this, R.raw.fail, 1);
         error = mp.load(this, R.raw.error, 1);
         applausi = mp.load(this, R.raw.applausi, 1);
-        tock=mp.load(this, R.raw.tock, 1);
+        //tock=mp.load(this, R.raw.tock, 1);
 
         //blocco la tastiera
-        EditText editT = (EditText) findViewById(R.id.EditInserisciNumero);
-        editT.setKeyListener(null);
+        edit = (EditText) findViewById(R.id.EditInserisciNumero);
+        edit.setKeyListener(null);
 
-
-
-    }
+   }
 
 
     @Override
@@ -241,59 +239,32 @@ public class Game extends ActionBarActivity {
 
     // Will be called for every Button that is clicked
     public void input(View v){
-        mp.play(tock);
-        EditText edit = (EditText) findViewById(R.id.EditInserisciNumero);
-         Button tasto1 =(Button)findViewById(R.id.tasto1);
-         Button tasto2 =(Button)findViewById(R.id.tasto2);
-         Button tasto3 =(Button)findViewById(R.id.tasto3);
-         Button tasto4 =(Button)findViewById(R.id.tasto4);
-         Button tasto5 =(Button)findViewById(R.id.tasto5);
-         Button tasto6 =(Button)findViewById(R.id.tasto6);
-         Button tasto7 =(Button)findViewById(R.id.tasto7);
-         Button tasto8 =(Button)findViewById(R.id.tasto8);
-         Button tasto9 =(Button)findViewById(R.id.tasto9);
-         Button tasto0 =(Button)findViewById(R.id.tasto0);
-         Button tasto00 =(Button)findViewById(R.id.tasto00);
-         Button tastoC =(Button)findViewById(R.id.tastoC);
-        String edit2=edit.getText()+"";
-        String T1 =(String) tasto1.getText();
-        String T2 =(String) tasto2.getText();
-        String T3 =(String) tasto3.getText();
-        String T4 = (String)tasto4.getText();
-        String T5 = (String)tasto5.getText();
-        String T6 = (String)tasto6.getText();
-        String T7 =(String) tasto7.getText();
-        String T8 =(String) tasto8.getText();
-        String T9 =(String) tasto9.getText();
-        String T0 = (String)tasto0.getText();
-        String T00 =(String) tasto00.getText();
-        String TC=(String)tastoC.getText();
 
         switch ( v.getId()) {
-            case R.id.tasto1: edit.append(T1);
+            case R.id.tasto1: edit.append("1");
                 break;
-            case R.id.tasto2:   edit.append(T2);
+            case R.id.tasto2:   edit.append("2");
                 break;
-            case R.id.tasto3:  edit.append(T3);
+            case R.id.tasto3:  edit.append("3");
                 break;
-            case R.id.tasto4:   edit.append(T4);
+            case R.id.tasto4:   edit.append("4");
                 break;
-            case R.id.tasto5:  edit.append(T5);
+            case R.id.tasto5:  edit.append("5");
                 break;
-            case R.id.tasto6:  edit.append(T6);
+            case R.id.tasto6:  edit.append("6");
                 break;
-            case R.id.tasto7:   edit.append(T7);
+            case R.id.tasto7:   edit.append("7");
                 break;
-            case R.id.tasto8:   edit.append(T8);
+            case R.id.tasto8:   edit.append("8");
                 break;
-            case R.id.tasto9:  edit.append(T9);
+            case R.id.tasto9:  edit.append("9");
                 break;
-            case R.id.tasto0:  edit.append(T0);
+            case R.id.tasto0:  edit.append("0");
                 break;
-            case R.id.tasto00:  edit.append(T00);
+            case R.id.tasto00:  edit.append("00");
                 break;
             case R.id.tastoC:
-                              edit.setText(removeLastChar(edit2));
+                              edit.setText(removeLastChar(edit.getText()+""));
            /*
             default: monthString = "Invalid month";
                 break;*/

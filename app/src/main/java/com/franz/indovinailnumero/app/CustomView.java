@@ -86,11 +86,11 @@ public class CustomView extends View {
         canvas.drawArc(rect, 0, 360, false, paint1);
         canvas.drawArc(rect, iRedLow, eRedLow, false, paint2);
         canvas.drawArc(rect, iRedHight, eRedHight, false, paint2);
-        lowArc.reset();
+
         lowArc.addArc(rect,eRedLow-90,-eRedLow);
         highArc.addArc(rect,iRedHight,eRedHight);
-        canvas.drawTextOnPath(""+lowNumber, lowArc, 0, 20, mPaintText);
-        canvas.drawTextOnPath(""+highNumber, highArc, 0, 20, mPaintText);
+        canvas.drawTextOnPath(""+lowNumber, lowArc, 10, 20, mPaintText);
+        canvas.drawTextOnPath(""+highNumber, highArc, 10, 20, mPaintText);
         lowArc.close();
         highArc.close();
         lowArc.reset();
