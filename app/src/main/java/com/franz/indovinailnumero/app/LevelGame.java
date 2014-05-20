@@ -170,11 +170,13 @@ public class LevelGame extends ActionBarActivity {
                 tentativi.setText(i + " tentativi");
                 if (guess < this.guess) {
                     alto_basso.setText("X è più alto di " + guess);
-                    cv.updatePosition(false, guess, 100);
+                    if(guess<=fine)
+                        cv.updatePosition(false, guess, fine-inizio+1);
                 }
                 else {
                     alto_basso.setText("X è più basso di " + guess);
-                    cv.updatePosition(true,guess,100);
+                    if(guess>=inizio)
+                      cv.updatePosition(true,guess,fine-inizio+1);
                 }
             }
             if (i == 0) {
