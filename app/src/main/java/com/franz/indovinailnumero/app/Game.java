@@ -31,18 +31,19 @@ public class Game extends ActionBarActivity {
     int fail, error, applausi;
 
 
+
     public void checkWin(View view) {
 
-        Button inserisci = (Button) findViewById(R.id.button);
+        Button inserisci = (Button) findViewById(R.id.BottoneInserisci);
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(inserisci.getWindowToken(), 0);
 
-        TextView edit = (TextView) findViewById(R.id.editText3);
+        EditText edit = (EditText) findViewById(R.id.EditInserisciNumero);
         String guess1 = edit.getText() + "";
         try {
             int guess = Integer.parseInt(guess1);
             TextView tentativi = (TextView) findViewById(R.id.textView2);
-            TextView alto_basso = (TextView) findViewById(R.id.textView3);
+            TextView alto_basso = (TextView) findViewById(R.id.AltoBasso);
             attempts++;
             if (guess == this.guess) {
                 endGame(true);
@@ -88,12 +89,12 @@ public class Game extends ActionBarActivity {
     public void endGame(boolean win) { //True = vittoria,False = sconfitta
         finito = true;
         TextView tentativi = (TextView) findViewById(R.id.textView2);
-        TextView alto_basso = (TextView) findViewById(R.id.textView3);
-        TextView vinto = (TextView) findViewById(R.id.textView4);
-        TextView numero = (TextView) findViewById(R.id.textView5);
-        EditText edit = (EditText) findViewById(R.id.editText3);
+        TextView alto_basso = (TextView) findViewById(R.id.AltoBasso);
+        TextView vinto = (TextView) findViewById(R.id.VintoPerso);
+        TextView numero = (TextView) findViewById(R.id.tentativiRimasti);
+        EditText edit = (EditText) findViewById(R.id.EditInserisciNumero);
         TextView indovina = (TextView) findViewById(R.id.textView);
-        Button hai_vinto = (Button) findViewById(R.id.button);
+        Button hai_vinto = (Button) findViewById(R.id.BottoneInserisci);
         ViewGroup layout_edit = (ViewGroup) edit.getParent();
         ViewGroup layout_bottone = (ViewGroup) hai_vinto.getParent();
 
@@ -139,6 +140,11 @@ public class Game extends ActionBarActivity {
         fail = mp.load(this, R.raw.fail, 1);
         error = mp.load(this, R.raw.error, 1);
         applausi = mp.load(this, R.raw.applausi, 1);
+
+        //blocco la tastiera
+        EditText edit = (EditText) findViewById(R.id.EditInserisciNumero);
+       // edit.setKeyListener(null);
+
     }
 
 
@@ -223,6 +229,46 @@ public class Game extends ActionBarActivity {
         }
 
     }
+
+    // Will be called for every Button that is clicked
+    public void input(View v){
+        EditText edit = (EditText) findViewById(R.id.EditInserisciNumero);
+        Button tasto1 =(Button)findViewById(R.id.tasto1);
+        Button tasto2 =(Button)findViewById(R.id.tasto2);
+        Button tasto3 =(Button)findViewById(R.id.tasto3);
+        Button tasto4 =(Button)findViewById(R.id.tasto4);
+        Button tasto5 =(Button)findViewById(R.id.tasto5);
+        Button tasto6 =(Button)findViewById(R.id.tasto6);
+        Button tasto7 =(Button)findViewById(R.id.tasto7);
+        Button tasto8 =(Button)findViewById(R.id.tasto8);
+        Button tasto9 =(Button)findViewById(R.id.tasto9);
+        Button tasto0 =(Button)findViewById(R.id.tasto0);
+        Button tasto00 =(Button)findViewById(R.id.tasto00);
+        Button tastoC =(Button)findViewById(R.id.tastoC);
+        String T1 = tasto1.getText() + "";
+        String T2 = tasto2.getText() + "";
+        String T3 = tasto3.getText() + "";
+        String T4 = tasto4.getText() + "";
+        String T5 = tasto5.getText() + "";
+        String T6 = tasto6.getText() + "";
+        String T7 = tasto7.getText() + "";
+        String T8 = tasto8.getText() + "";
+        String T9 = tasto9.getText() + "";
+        String T0 = tasto0.getText() + "";
+        String T00 = tasto00.getText() + "";
+        edit.append(T1+T2+T3+T4+T5+T6+T7+T8+T9+T0+T00);
+
+
+
+
+
+
+        Log.v("APP", "Pressed: "+v.getTag());
+    }
+
 }
+
+
+
 
 

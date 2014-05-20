@@ -17,4 +17,18 @@
     <string name="how_much"></string>
     <string name="numero"></string>
     <string name="rinizia">Ricomincia</string>
+    <string name="tasto1">1</string>
+    <string name="tasto2">2</string>
+    <string name="tasto3">3</string>
+    <string name="tasto4">4</string>
+    <string name="tasto5">5</string>
+    <string name="tasto6">6</string>
+    <string name="tasto7">7</string>
+    <string name="tasto8">8</string>
+    <string name="tasto9">9</string>
+    <string name="tasto0">0</string>
+    <string name="tasto00">00</string>
+    <string name="tastoC">C</string>
+
+
 </resources>
