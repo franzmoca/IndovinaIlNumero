@@ -21,7 +21,7 @@
         android:textSize="30dp"
         android:layout_above="@+id/BottoneInserisci"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp" />
+        android:layout_marginBottom="20dp"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -99,7 +99,7 @@
 
     <TextView
         android:layout_width="fill_parent"
-        android:layout_height="100dp"
+        android:layout_height="80dp"
         android:text="@string/numero"
         android:id="@+id/tentativiRimasti"
         android:gravity="center"
@@ -112,6 +112,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:id="@+id/layoutTastiera"
         android:columnCount="4"
         android:orientation="horizontal"
         android:layout_alignParentLeft="true"
@@ -126,7 +127,9 @@
             style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
             android:id="@+id/tasto1"
             android:clickable="true"
-            android:onClick="input" />
+            android:onClick="input"
+            android:tag="1"
+            />
         <Button android:text="@string/tasto2"
             android:layout_width="81dp"
             android:layout_height="36dp"
@@ -134,7 +137,8 @@
             style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
             android:id="@+id/tasto2"
             android:clickable="true"
-            android:onClick="input" />
+            android:onClick="input"
+            android:tag="2"/>
         <Button android:text="@string/tasto3"
             android:layout_width="81dp"
             android:layout_height="36dp"
@@ -142,55 +146,8 @@
             style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
             android:id="@+id/tasto3"
             android:clickable="true"
-            android:onClick="input" />
-        <Button android:text="@string/tasto4"
-            android:layout_width="81dp"
-            android:layout_height="36dp"
-            android:layout_gravity="fill_horizontal|bottom|left"
-            style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
-            android:id="@+id/tasto4"
-            android:clickable="true"
-            android:onClick="input" />
-        <Button android:text="@string/tasto5"
-            android:layout_width="81dp"
-            android:layout_height="36dp"
-            android:layout_gravity="fill_horizontal|bottom|left"
-            style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
-            android:id="@+id/tasto5"
-            android:clickable="true"
-            android:onClick="input" />
-        <Button android:text="@string/tasto6"
-            android:layout_width="81dp"
-            android:layout_height="36dp"
-            android:layout_gravity="fill_horizontal|bottom|left"
-            style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
-            android:id="@+id/tasto6"
-            android:clickable="true"
-            android:onClick="input" />
-        <Button android:text="@string/tasto7"
-            android:layout_width="81dp"
-            android:layout_height="36dp"
-            android:layout_gravity="fill_horizontal|bottom|left"
-            style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
-            android:id="@+id/tasto7"
-            android:clickable="true"
-            android:onClick="input" />
-        <Button android:text="@string/tasto8"
-            android:layout_width="81dp"
-            android:layout_height="36dp"
-            android:layout_gravity="fill_horizontal|bottom|left"
-            style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
-            android:id="@+id/tasto8"
-            android:clickable="true"
-            android:onClick="input" />
-        <Button android:text="@string/tasto9"
-            android:layout_width="81dp"
-            android:layout_height="36dp"
-            android:layout_gravity="fill_horizontal|bottom|left"
-            style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
-            android:id="@+id/tasto9"
-            android:clickable="true"
-            android:onClick="input" />
+            android:onClick="input"
+            android:tag="3"/>
         <Button android:text="@string/tasto0"
             android:layout_width="81dp"
             android:layout_height="36dp"
@@ -198,7 +155,36 @@
             style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
             android:id="@+id/tasto0"
             android:clickable="true"
-            android:onClick="input" />
+            android:onClick="input"
+            android:tag="0"/>
+        <Button android:text="@string/tasto4"
+            android:layout_width="81dp"
+            android:layout_height="36dp"
+            android:layout_gravity="fill_horizontal|bottom|left"
+            style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
+            android:id="@+id/tasto4"
+            android:clickable="true"
+            android:onClick="input"
+            android:tag="5"
+            />
+        <Button android:text="@string/tasto5"
+            android:layout_width="81dp"
+            android:layout_height="36dp"
+            android:layout_gravity="fill_horizontal|bottom|left"
+            style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
+            android:id="@+id/tasto5"
+            android:clickable="true"
+            android:onClick="input"
+            android:tag="5"/>
+        <Button android:text="@string/tasto6"
+            android:layout_width="81dp"
+            android:layout_height="36dp"
+            android:layout_gravity="fill_horizontal|bottom|left"
+            style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
+            android:id="@+id/tasto6"
+            android:clickable="true"
+            android:onClick="input"
+            android:tag="6"/>
         <Button android:text="@string/tasto00"
             android:layout_width="81dp"
             android:layout_height="36dp"
@@ -206,7 +192,35 @@
             style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
             android:id="@+id/tasto00"
             android:clickable="true"
-            android:onClick="input" />
+            android:onClick="input"
+            android:tag="00"/>
+        <Button android:text="@string/tasto7"
+            android:layout_width="81dp"
+            android:layout_height="36dp"
+            android:layout_gravity="fill_horizontal|bottom|left"
+            style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
+            android:id="@+id/tasto7"
+            android:clickable="true"
+            android:onClick="input"
+            android:tag="7"/>
+        <Button android:text="@string/tasto8"
+            android:layout_width="81dp"
+            android:layout_height="36dp"
+            android:layout_gravity="fill_horizontal|bottom|left"
+            style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
+            android:id="@+id/tasto8"
+            android:clickable="true"
+            android:onClick="input"
+            android:tag="8"/>
+        <Button android:text="@string/tasto9"
+            android:layout_width="81dp"
+            android:layout_height="36dp"
+            android:layout_gravity="fill_horizontal|bottom|left"
+            style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
+            android:id="@+id/tasto9"
+            android:clickable="true"
+            android:onClick="input"
+            android:tag="9"/>
         <Button android:text="@string/tastoC"
             android:layout_width="81dp"
             android:layout_height="36dp"
@@ -217,5 +231,8 @@
             android:clickable="true"
             android:onClick="input" />
     </GridLayout>
+
+
+
 
 </RelativeLayout>

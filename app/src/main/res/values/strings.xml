@@ -29,6 +29,7 @@
     <string name="tasto0">0</string>
     <string name="tasto00">00</string>
     <string name="tastoC">C</string>
+    <string name="title_activity_level_game">LevelGame</string>
 
 
 </resources>

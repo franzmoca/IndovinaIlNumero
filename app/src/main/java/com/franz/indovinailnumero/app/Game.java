@@ -15,7 +15,9 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.GridLayout;
 import android.widget.TextView;
+import java.lang.*;
 
 import com.franz.indovinailnumero.app.util.SoundPoolHelper;
 
@@ -98,7 +100,8 @@ public class Game extends ActionBarActivity {
         Button hai_vinto = (Button) findViewById(R.id.BottoneInserisci);
         ViewGroup layout_edit = (ViewGroup) edit.getParent();
         ViewGroup layout_bottone = (ViewGroup) hai_vinto.getParent();
-
+        GridLayout layouttastiera=(GridLayout)findViewById(R.id.layoutTastiera);
+        layouttastiera.setVisibility(View.INVISIBLE);
         tentativi.setText("");
         alto_basso.setText("");
         indovina.setText("");
@@ -145,7 +148,7 @@ public class Game extends ActionBarActivity {
 
         //blocco la tastiera
         EditText edit = (EditText) findViewById(R.id.EditInserisciNumero);
-       // edit.setKeyListener(null);
+        edit.setKeyListener(null);
 
     }
 
@@ -235,6 +238,7 @@ public class Game extends ActionBarActivity {
     // Will be called for every Button that is clicked
     public void input(View v){
         EditText edit = (EditText) findViewById(R.id.EditInserisciNumero);
+        String edit2=edit.getText()+"";
         Button tasto1 =(Button)findViewById(R.id.tasto1);
         Button tasto2 =(Button)findViewById(R.id.tasto2);
         Button tasto3 =(Button)findViewById(R.id.tasto3);
@@ -258,14 +262,45 @@ public class Game extends ActionBarActivity {
         String T9 = tasto9.getText() + "";
         String T0 = tasto0.getText() + "";
         String T00 = tasto00.getText() + "";
-        edit.append(T1+T2+T3+T4+T5+T6+T7+T8+T9+T0+T00);
-
-
-
-
+        switch ( v.getId()) {
+            case R.id.tasto1: edit.append(T1);
+                break;
+            case R.id.tasto2:   edit.append(T2);
+                break;
+            case R.id.tasto3:  edit.append(T3);
+                break;
+            case R.id.tasto4:   edit.append(T4);
+                break;
+            case R.id.tasto5:  edit.append(T5);
+                break;
+            case R.id.tasto6:  edit.append(T6);
+                break;
+            case R.id.tasto7:   edit.append(T7);
+                break;
+            case R.id.tasto8:   edit.append(T8);
+                break;
+            case R.id.tasto9:  edit.append(T9);
+                break;
+            case R.id.tasto0:  edit.append(T0);
+                break;
+            case R.id.tasto00:  edit.append(T00);
+                break;
+            case R.id.tastoC:
+                              edit.setText(removeLastChar(edit2));
+           /*
+            default: monthString = "Invalid month";
+                break;*/
+        }
 
 
         Log.v("APP", "Pressed: "+v.getTag());
+    }
+    //tastoC
+    public String removeLastChar(String s) {
+        if (s == null || s.length() == 0) {
+            return s;
+        }
+        return s.substring(0, s.length() - 1);
     }
 
 }
