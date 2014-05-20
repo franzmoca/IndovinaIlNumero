@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Path;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -19,15 +20,18 @@ public class CustomView extends View {
     int w, h, bw, bh;
     float iRedHight;
     float eRedHight;
+    int lowNumber=0;
+    int highNumber=0;
     float iRedLow;
     float eRedLow;
     int px = -1, py = -1;
     float c = (float) 1.05;
-    Paint paint1;
-    Paint paint2;
-    Paint paint3;
-    Paint paint4;
-    Paint paint5;
+    Paint paint1;//Verde
+    Paint paint2;//Rosso
+    Paint mPaintText;//Testo
+    private Path lowArc;
+    private Path highArc;
+
     float mRadius;
     float anello;
 
@@ -35,11 +39,17 @@ public class CustomView extends View {
         super(context, attrs);
 
         iRedLow = 0;
-        eRedLow = 0;
+        eRedLow = -0;
         iRedHight = 360;
         eRedHight = 0;
         paint1 = new Paint();
         paint2 = new Paint();
+        mPaintText = new Paint();
+        lowArc =new Path();
+        highArc = new Path();
+        mPaintText.setStyle(Paint.Style.FILL_AND_STROKE);
+        mPaintText.setColor(Color.WHITE);
+        mPaintText.setTextSize(60f);
         rect = new RectF();
 
 
@@ -52,6 +62,9 @@ public class CustomView extends View {
         paint2.setAntiAlias(true);
         paint2.setStrokeCap(Paint.Cap.BUTT);
         paint2.setStyle(Paint.Style.STROKE);
+        mPaintText.setStyle(Paint.Style.FILL_AND_STROKE);
+        mPaintText.setColor(Color.WHITE);
+        mPaintText.setTextSize(60f);
 
     }
 
@@ -73,6 +86,15 @@ public class CustomView extends View {
         canvas.drawArc(rect, 0, 360, false, paint1);
         canvas.drawArc(rect, iRedLow, eRedLow, false, paint2);
         canvas.drawArc(rect, iRedHight, eRedHight, false, paint2);
+        lowArc.reset();
+        lowArc.addArc(rect,eRedLow-90,-eRedLow);
+        highArc.addArc(rect,iRedHight,eRedHight);
+        canvas.drawTextOnPath(""+lowNumber, lowArc, 0, 20, mPaintText);
+        canvas.drawTextOnPath(""+highNumber, highArc, 0, 20, mPaintText);
+        lowArc.close();
+        highArc.close();
+        lowArc.reset();
+        highArc.reset();
 
         /*
         canvas.drawArc(rect, 120, 60, false, paint1);
@@ -100,19 +122,23 @@ canvas.drawCircle(canvas.getWidth()/2, canvas.getHeight()/2, mRadius/2, paint5);
 
         if (alto) {
             if ((iRedHight+90) > n) {
+                highNumber=ins;
                 iRedHight = -90 + n;
                 eRedHight = 360 - n;
+                invalidate();
             }
         } else {
            if(eRedLow<n) {
+               lowNumber=ins;
                iRedLow = -90;
                eRedLow = n;
+               invalidate();
            }
 
         }
         //eGreen = iRedLow;
         Log.d("On Draw", "iRedHight: " + iRedHight + " eRedHight: " + eRedHight + " iRedLow: " + iRedLow + " eRedLow: " + eRedLow);
-        invalidate();
+
     }
 
     @Override
