@@ -20,6 +20,10 @@
             android:name="com.franz.indovinailnumero.app.Game"
             android:label="@string/title_activity_game" >
         </activity>
+        <activity
+            android:name="com.franz.indovinailnumero.app.LevelGame"
+            android:label="@string/title_activity_level_game" >
+        </activity>
     </application>
 
 </manifest>

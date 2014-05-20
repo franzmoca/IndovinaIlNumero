@@ -5,6 +5,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.media.AudioManager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -16,8 +17,6 @@ import android.widget.TextView;
 
 import static java.lang.Integer.parseInt;
 
-//PROVA VCS
-//PROVA 3
 public class MainActivity extends ActionBarActivity {
 
     public final static String FINE = "com.franz.guessthenumber.app.inizio";
@@ -27,6 +26,7 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT); //Forza la portrait mode
         setContentView(R.layout.activity_main);
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
     }
@@ -62,13 +62,71 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
+    public void circleMode(View view) {
+        try{
+            TextView inputText2 = (TextView)findViewById(R.id.editText2);
+            String fine =  inputText2.getText()+"";
+            TextView inputText=(TextView)findViewById(R.id.editText);
+            String inizio = inputText.getText()+"";
+            int a = parseInt(inizio);
+            int b = parseInt(fine);
+            if(a>b){
+                // 1. Instantiate an AlertDialog.Builder with its constructor
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+
+                // 2. Chain together various setter methods to set the dialog characteristics
+                builder.setMessage("'L vuoi capì che l'inizio dev'esse più piccolo della fine?")
+                        .setTitle("Sei tonto!");
+
+                builder.setPositiveButton("C'hai ragione",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.cancel();
+                            }
+                        }
+                );
+                // 3. Get the AlertDialog from create()
+                AlertDialog dialog = builder.create();
+
+                dialog.show();
+            }
+            else {
+                Intent intent = new Intent(MainActivity.this, LevelGame.class);
+                intent.putExtra(FINE, fine);
+                intent.putExtra(INIZIO, inizio);
+                MainActivity.this.startActivityForResult(intent, 0);
+            }
+        }catch(Exception e){
+            // 1. Instantiate an AlertDialog.Builder with its constructor
+            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+            // 2. Chain together various setter methods to set the dialog characteristics
+            builder.setMessage("Devi inserire dei numeri come parametro!")
+                    .setTitle("Errore!");
+            builder.setPositiveButton("Ok",
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                        }
+                    }
+            );
+            // 3. Get the AlertDialog from create()
+            AlertDialog dialog = builder.create();
+            dialog.show();
+
+        }
+    }
+
+
     public class RemoteControlReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
             if (Intent.ACTION_MEDIA_BUTTON.equals(intent.getAction())) {
                 KeyEvent event = intent.getParcelableExtra(Intent.EXTRA_KEY_EVENT);
-                if (KeyEvent.KEYCODE_MEDIA_PLAY == event.getKeyCode()) {
+                if (event != null) {
+                    if (KeyEvent.KEYCODE_MEDIA_PLAY == event.getKeyCode()) {
                     // Handle key press.
+                }
                 }
             }
         }
