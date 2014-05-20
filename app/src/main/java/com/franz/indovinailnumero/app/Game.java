@@ -193,10 +193,12 @@ public class Game extends ActionBarActivity {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         mp.stop(applausi);
                         mp.stop(fail);
+                        mp.stop(tock);
 
                         mp.unload(error);
                         mp.unload(fail);
                         mp.unload(applausi);
+                        mp.unload(tock);
 
                         mp.release();
                         setResult(1);

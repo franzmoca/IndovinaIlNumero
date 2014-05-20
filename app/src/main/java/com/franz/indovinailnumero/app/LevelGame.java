@@ -40,7 +40,7 @@ public class LevelGame extends ActionBarActivity {
     public int attempts = 0;
     public boolean finito = false;
     public SoundPoolHelper mp;
-    int fail, error, applausi;
+    int fail, error, applausi,tock;
     EditText edit;
 
     @Override
@@ -65,6 +65,7 @@ public class LevelGame extends ActionBarActivity {
         fail = mp.load(this, R.raw.fail, 1);
         error = mp.load(this, R.raw.error, 1);
         applausi = mp.load(this, R.raw.applausi, 1);
+        tock = mp.load(this,R.raw.tock, 1);
         //blocco la tastiera
         edit = (EditText) findViewById(R.id.editText3);
         edit.setKeyListener(null);
@@ -243,7 +244,7 @@ public class LevelGame extends ActionBarActivity {
     }
     // Will be called for every Button that is clicked
     public void input(View v){
-
+        mp.play(tock);
         switch ( v.getId()) {
             case R.id.tasto1: edit.append("1");
                 break;
