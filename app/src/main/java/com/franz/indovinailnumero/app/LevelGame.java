@@ -37,6 +37,7 @@ public class LevelGame extends ActionBarActivity {
     CustomView cv;
     public int fine,guess;
     public final  int inizio=1;
+    public int range;
     public int i = 5;
     public int attempts = 0;
     public boolean finito = false;
@@ -64,6 +65,8 @@ public class LevelGame extends ActionBarActivity {
         if(f!=null) {
             fine = Integer.parseInt(f);
         }
+        range=fine-inizio+1;
+        cv.range=range;
         Random random = new Random();
         guess = random.nextInt(fine - inizio + 1) + inizio;
         Log.d("guess", "Numero generato: " + guess);
@@ -174,12 +177,12 @@ public class LevelGame extends ActionBarActivity {
                 if (guess < this.guess) {
                     alto_basso.setText("Troppo basso!");
                     if(guess<=fine)
-                        cv.updatePosition(false, guess, fine-inizio+1);
+                        cv.updatePosition(false, guess);
                 }
                 else {
                     alto_basso.setText("Troppo alto!");
                     if(guess>=inizio)
-                        cv.updatePosition(true,guess,fine-inizio+1);
+                        cv.updatePosition(true,guess);
                 }
             }
             if (i == 0) {
@@ -198,9 +201,10 @@ public class LevelGame extends ActionBarActivity {
 
         TextView edit = (TextView) findViewById(R.id.editText3);
         String guess1 = edit.getText() + "";
-        int r = Integer.parseInt(guess1);
+
 
         try {
+                int r = Integer.parseInt(guess1);
                 checkWin(r);
 
         }//fine try

@@ -24,16 +24,23 @@ public class CustomView extends View {
     int highNumber=0;
     float iRedLow;
     float eRedLow;
-    int px = -1, py = -1;
     float c = (float) 1.05;
     Paint paint1;//Verde
     Paint paint2;//Rosso
     Paint mPaintText;//Testo
     private Path lowArc;
     private Path highArc;
+    boolean hackHigh = false;
+    boolean hackLow = false;
 
+    float iRedHighTemp = 0;
+    float eRedHighTemp = 0;
+    float iRedLowTemp = 0;
+    float eRedLowTemp = 0;
+    int range;
     float mRadius;
     float anello;
+
 
     public CustomView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -89,28 +96,45 @@ public class CustomView extends View {
         if(((eRedLow-90)>180||(eRedLow-90)<0)&&eRedLow!=0) {
             lowArc.addArc(rect, eRedLow - 105, 15);
         }else{
-            lowArc.addArc(rect, eRedLow - 90, -eRedLow);
+            lowArc.addArc(rect, eRedLow - 90+10, -eRedLow);
         }
+
         if((eRedHight-90)<180 && (eRedHight-90)>0) {
             highArc.addArc(rect, iRedHight+15, -15);
         }else{
             highArc.addArc(rect, iRedHight, eRedHight);
         }
+        //Disegno estremi
         if(highNumber==0){
-            highNumber=100;
-            highArc.addArc(rect, -97, +15);
-            canvas.drawTextOnPath(""+highNumber, highArc, 10, 20, mPaintText);
-            highNumber=0;
+            highArc.addArc(rect, -115, +18);
+            canvas.drawTextOnPath(""+range, highArc, 10, 20, mPaintText);
         }else{
             canvas.drawTextOnPath(""+highNumber, highArc, 10, 20, mPaintText);
 
         }
-        canvas.drawTextOnPath(""+lowNumber, lowArc, 10, 20, mPaintText);
+        if(highNumber!=0&&lowNumber==0){
+            lowArc.addArc(rect, -90, 15);
+            canvas.drawTextOnPath(""+1, lowArc, 10, 20, mPaintText);
+        }else{
+            canvas.drawTextOnPath(""+lowNumber, lowArc, 10, 20, mPaintText);
+
+        }
        // canvas.drawTextOnPath(""+highNumber, highArc, 10, 20, mPaintText);
         lowArc.close();
         highArc.close();
         lowArc.reset();
         highArc.reset();
+        if(hackHigh){
+            iRedHight=iRedHighTemp;
+            eRedHight=eRedHighTemp;
+            hackHigh = false;
+        }
+        if(hackLow){
+            iRedLow=iRedLowTemp;
+            eRedLow=eRedLowTemp;
+            hackLow = false;
+
+        }
 
         /*
         canvas.drawArc(rect, 120, 60, false, paint1);
@@ -132,10 +156,17 @@ canvas.drawCircle(canvas.getWidth()/2, canvas.getHeight()/2, mRadius/2, paint5);
     }
 
 
-    public void updatePosition(boolean alto, int ins, int range) {
+    public void updatePosition(boolean alto, int ins) {
+
         float n = (float) (ins * (360.0 / (float) range));
         Log.d("update: ", "n= " + n);
 
+        if(n>342){ //primo angolo"visibile" a tre cifre //Cambiare per due cifre?
+            hackHigh = true;
+            iRedHighTemp = -90 + n;
+            eRedHighTemp = 360 - n;
+            n=342-n/500;//pseudocambiamento
+        }
         if (alto) {
             if ((iRedHight+90) > n) {
                 highNumber=ins;
@@ -144,14 +175,20 @@ canvas.drawCircle(canvas.getWidth()/2, canvas.getHeight()/2, mRadius/2, paint5);
                 invalidate();
             }
         } else {
+            if(n<14){ //primo angolo"visibile" a tre cifre //Cambiare per due cifre?
+                hackLow = true;
+                iRedLowTemp = -90;
+                eRedHighTemp = n;
+                n=14-n/500;//pseudocambiamento
+            }
            if(eRedLow<n) {
                lowNumber=ins;
                iRedLow = -90;
                eRedLow = n;
                invalidate();
            }
-
         }
+
         //eGreen = iRedLow;
         Log.d("On Draw", "iRedHight: " + iRedHight + " eRedHight: " + eRedHight + " iRedLow: " + iRedLow + " eRedLow: " + eRedLow);
 
