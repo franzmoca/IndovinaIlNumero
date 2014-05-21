@@ -39,7 +39,7 @@ public class CustomView extends View {
         super(context, attrs);
 
         iRedLow = 0;
-        eRedLow = -0;
+        eRedLow = 0;
         iRedHight = 360;
         eRedHight = 0;
         paint1 = new Paint();
@@ -79,18 +79,34 @@ public class CustomView extends View {
         //Log.d("On Draw","mRadius: "+mRadius+" anello: "+anello);
         // Log.d("On Draw","iGreen: "+iGreen+" eGreen: "+eGreen+ " iRedLow: "+iRedLow+" eRedLow: "+eRedLow);
         paint1.setStrokeWidth(anello); //Larghezza tratto
-        paint2.setStrokeWidth(anello);
+        paint2.setStrokeWidth(anello+15);
 
 
         rect.set(canvas.getWidth() / 2 - mRadius, canvas.getHeight() / 2 - mRadius, canvas.getWidth() / 2 + mRadius, canvas.getHeight() / 2 + mRadius);
         canvas.drawArc(rect, 0, 360, false, paint1);
-        canvas.drawArc(rect, iRedLow, eRedLow, false, paint2);
+        canvas.drawArc(rect, iRedLow-1, eRedLow, false, paint2);
         canvas.drawArc(rect, iRedHight, eRedHight, false, paint2);
+        if(((eRedLow-90)>180||(eRedLow-90)<0)&&eRedLow!=0) {
+            lowArc.addArc(rect, eRedLow - 105, 15);
+        }else{
+            lowArc.addArc(rect, eRedLow - 90, -eRedLow);
+        }
+        if((eRedHight-90)<180 && (eRedHight-90)>0) {
+            highArc.addArc(rect, iRedHight+15, -15);
+        }else{
+            highArc.addArc(rect, iRedHight, eRedHight);
+        }
+        if(highNumber==0){
+            highNumber=100;
+            highArc.addArc(rect, -97, +15);
+            canvas.drawTextOnPath(""+highNumber, highArc, 10, 20, mPaintText);
+            highNumber=0;
+        }else{
+            canvas.drawTextOnPath(""+highNumber, highArc, 10, 20, mPaintText);
 
-        lowArc.addArc(rect,eRedLow-90,-eRedLow);
-        highArc.addArc(rect,iRedHight,eRedHight);
+        }
         canvas.drawTextOnPath(""+lowNumber, lowArc, 10, 20, mPaintText);
-        canvas.drawTextOnPath(""+highNumber, highArc, 10, 20, mPaintText);
+       // canvas.drawTextOnPath(""+highNumber, highArc, 10, 20, mPaintText);
         lowArc.close();
         highArc.close();
         lowArc.reset();
