@@ -62,7 +62,77 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
-    public void circleMode(View view) {
+/*    public void circleMode(View view) {
+        try{
+            TextView inputText2 = (TextView)findViewById(R.id.editText2);
+            String fine =  inputText2.getText()+"";
+            TextView inputText=(TextView)findViewById(R.id.editText);
+            String inizio = inputText.getText()+"";
+            int a = parseInt(inizio);
+            int b = parseInt(fine);
+            if(a>b){
+                // 1. Instantiate an AlertDialog.Builder with its constructor
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+
+                // 2. Chain together various setter methods to set the dialog characteristics
+                builder.setMessage("'L vuoi capì che l'inizio dev'esse più piccolo della fine?")
+                        .setTitle("Sei tonto!");
+
+                builder.setPositiveButton("C'hai ragione",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.cancel();
+                            }
+                        }
+                );
+                // 3. Get the AlertDialog from create()
+                AlertDialog dialog = builder.create();
+
+                dialog.show();
+            }
+            else {
+                Intent intent = new Intent(MainActivity.this, LevelGame.class);
+                intent.putExtra(FINE, fine);
+                intent.putExtra(INIZIO, inizio);
+                MainActivity.this.startActivityForResult(intent, 0);
+            }
+        }catch(Exception e){
+            // 1. Instantiate an AlertDialog.Builder with its constructor
+            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+            // 2. Chain together various setter methods to set the dialog characteristics
+            builder.setMessage("Devi inserire dei numeri come parametro!")
+                    .setTitle("Errore!");
+            builder.setPositiveButton("Ok",
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                        }
+                    }
+            );
+            // 3. Get the AlertDialog from create()
+            AlertDialog dialog = builder.create();
+            dialog.show();
+
+        }
+    }*/
+
+
+    public class RemoteControlReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (Intent.ACTION_MEDIA_BUTTON.equals(intent.getAction())) {
+                KeyEvent event = intent.getParcelableExtra(Intent.EXTRA_KEY_EVENT);
+                if (event != null) {
+                    if (KeyEvent.KEYCODE_MEDIA_PLAY == event.getKeyCode()) {
+                    // Handle key press.
+                }
+                }
+            }
+        }
+    }
+    public void StartGame(View view) {
+
         try{
             TextView inputText2 = (TextView)findViewById(R.id.editText2);
             String fine =  inputText2.getText()+"";
@@ -118,78 +188,4 @@ public class MainActivity extends ActionBarActivity {
     }
 
 
-    public class RemoteControlReceiver extends BroadcastReceiver {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            if (Intent.ACTION_MEDIA_BUTTON.equals(intent.getAction())) {
-                KeyEvent event = intent.getParcelableExtra(Intent.EXTRA_KEY_EVENT);
-                if (event != null) {
-                    if (KeyEvent.KEYCODE_MEDIA_PLAY == event.getKeyCode()) {
-                    // Handle key press.
-                }
-                }
-            }
-        }
-    }
-    public void StartGame(View view) {
-
-        try{
-            TextView inputText2 = (TextView)findViewById(R.id.editText2);
-            String fine =  inputText2.getText()+"";
-            TextView inputText=(TextView)findViewById(R.id.editText);
-            String inizio = inputText.getText()+"";
-            int a = parseInt(inizio);
-            int b = parseInt(fine);
-            if(a>b){
-                // 1. Instantiate an AlertDialog.Builder with its constructor
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-
-                // 2. Chain together various setter methods to set the dialog characteristics
-                builder.setMessage("'L vuoi capì che l'inizio dev'esse più piccolo della fine?")
-                        .setTitle("Sei tonto!");
-
-                builder.setPositiveButton("C'hai ragione",
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                dialogInterface.cancel();
-                            }
-                        }
-                );
-                // 3. Get the AlertDialog from create()
-                AlertDialog dialog = builder.create();
-
-                dialog.show();
-            }
-            else {
-                Intent intent = new Intent(MainActivity.this, Game.class);
-                intent.putExtra(FINE, fine);
-                intent.putExtra(INIZIO, inizio);
-                MainActivity.this.startActivityForResult(intent, 0);
-            }
-        }catch(Exception e){
-            // 1. Instantiate an AlertDialog.Builder with its constructor
-            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-            // 2. Chain together various setter methods to set the dialog characteristics
-            builder.setMessage("Devi inserire dei numeri come parametro!")
-                    .setTitle("Errore!");
-            builder.setPositiveButton("Ok",
-                    new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                        }
-                    }
-            );
-            // 3. Get the AlertDialog from create()
-            AlertDialog dialog = builder.create();
-            dialog.show();
-
-        }
-    }
-
-    public void GoToLivelli(View view){
-
-        Intent intent = new Intent(MainActivity.this, SceltaLivelli.class);
-        MainActivity.this.startActivityForResult(intent, 0);
-    }
 }
