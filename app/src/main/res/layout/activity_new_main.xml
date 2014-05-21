@@ -79,6 +79,15 @@
             android:layout_below="@+id/button3"
             android:layout_centerHorizontal="true" />
 
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Esci"
+            android:id="@+id/button5"
+            android:layout_below="@+id/button4"
+            android:layout_centerHorizontal="true"
+            android:onClick="Esci"/>
+
 
     </RelativeLayout>
 

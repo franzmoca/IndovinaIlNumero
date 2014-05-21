@@ -50,4 +50,9 @@ public class NewMain extends ActionBarActivity {
         Intent intent = new Intent(NewMain.this, SceltaLivelli.class);
         NewMain.this.startActivityForResult(intent, 0);
     }
+
+    public void Esci(View view){
+        setResult(0);
+        finish();
+    }
 }

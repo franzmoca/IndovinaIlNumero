@@ -199,6 +199,7 @@ public class LevelGame extends ActionBarActivity {
         TextView edit = (TextView) findViewById(R.id.editText3);
         String guess1 = edit.getText() + "";
         int r = Integer.parseInt(guess1);
+
         try {
                 checkWin(r);
 
@@ -225,6 +226,7 @@ public class LevelGame extends ActionBarActivity {
             AlertDialog dialog = builder.create();
             dialog.show();
         }//Fine Catch
+
     } //fine funzione
 
     public void endGame(boolean win) { //True = vittoria,False = sconfitta
