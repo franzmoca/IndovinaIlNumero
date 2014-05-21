@@ -89,14 +89,6 @@
         android:layout_below="@+id/editText"
         android:clickable="true" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/BottoneLivelli"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:text="Livelli"
-        android:onClick="GoToLivelli" />
+
 
 </RelativeLayout>
