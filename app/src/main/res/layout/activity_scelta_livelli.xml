@@ -10,7 +10,8 @@
      tools:context="com.franz.indovinailnumero.app.SceltaLivelli"
      android:clickable="false"
      android:useDefaultMargins="true"
-     android:background="#3baaff">
+     android:background="#3baaff"
+     android:onClick="Livello">
 
 
      <ImageView
@@ -18,73 +19,85 @@
          android:layout_height="wrap_content"
          android:id="@+id/tutorial"
          android:src="@drawable/tut"
-         android:clickable="true" />
+         android:clickable="true"
+         android:onClick="Livello" />
      <ImageView
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:id="@+id/livello1"
          android:src="@drawable/sfera"
-         android:clickable="true" />
+         android:clickable="true"
+         android:onClick="Livello" />
      <ImageView
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:id="@+id/livello2"
          android:src="@drawable/sfera"
-         android:clickable="true" />
+         android:clickable="true"
+         android:onClick="Livello" />
      <ImageView
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:id="@+id/livello3"
          android:src="@drawable/sfera"
-         android:clickable="true" />
+         android:clickable="true"
+         android:onClick="Livello" />
      <ImageView
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:id="@+id/livello4"
          android:src="@drawable/sfera"
-         android:clickable="true" />
+         android:clickable="true"
+         android:onClick="Livello" />
      <ImageView
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:id="@+id/livello5"
          android:src="@drawable/sfera"
-         android:clickable="true" />
+         android:clickable="true"
+         android:onClick="Livello" />
      <ImageView
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:id="@+id/livello6"
          android:src="@drawable/sfera"
-         android:clickable="true" />
+         android:clickable="true"
+         android:onClick="Livello" />
      <ImageView
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:id="@+id/livello7"
          android:src="@drawable/sfera"
-         android:clickable="true" />
+         android:clickable="true"
+         android:onClick="Livello" />
      <ImageView
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:id="@+id/livello8"
          android:src="@drawable/sfera"
-         android:clickable="true" />
+         android:clickable="true"
+         android:onClick="Livello" />
      <ImageView
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:id="@+id/livello9"
          android:src="@drawable/sfera"
-         android:clickable="true" />
+         android:clickable="true"
+         android:onClick="Livello" />
      <ImageView
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:id="@+id/livello10"
          android:src="@drawable/sfera"
-         android:clickable="true" />
+         android:clickable="true"
+         android:onClick="Livello" />
      <ImageView
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:id="@+id/livello11"
          android:src="@drawable/sfera"
-         android:clickable="true" />
+         android:clickable="true"
+         android:onClick="Livello" />
 
      <ImageView
          android:layout_width="105dp"

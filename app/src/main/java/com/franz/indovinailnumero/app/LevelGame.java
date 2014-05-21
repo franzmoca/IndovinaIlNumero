@@ -35,7 +35,8 @@ import java.util.Random;
 
 public class LevelGame extends ActionBarActivity {
     CustomView cv;
-    public int fine, inizio, guess;
+    public int fine,guess;
+    public final  int inizio=1;
     public int i = 5;
     public int attempts = 0;
     public boolean finito = false;
@@ -50,13 +51,19 @@ public class LevelGame extends ActionBarActivity {
         setContentView(R.layout.activity_level_game);
         cv=(CustomView)findViewById(R.id.customView);
         Intent intent = getIntent();
-
+        /*
         String i = intent.getStringExtra(MainActivity.INIZIO);
         inizio = Integer.parseInt(i);
+        */
+        String d =intent.getStringExtra(SceltaLivelli.FINE);
+        if(d!=null) {
+            fine = Integer.parseInt(d);
+        }
 
         String f = intent.getStringExtra(MainActivity.FINE);
-        fine = Integer.parseInt(f);
-
+        if(f!=null) {
+            fine = Integer.parseInt(f);
+        }
         Random random = new Random();
         guess = random.nextInt(fine - inizio + 1) + inizio;
         Log.d("guess", "Numero generato: " + guess);

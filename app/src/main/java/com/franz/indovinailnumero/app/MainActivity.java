@@ -20,7 +20,7 @@ import static java.lang.Integer.parseInt;
 public class MainActivity extends ActionBarActivity {
 
     public final static String FINE = "com.franz.guessthenumber.app.inizio";
-    public final static String INIZIO = "com.franz.guessthenumber.app.fine";
+   // public final static String INIZIO = "com.franz.guessthenumber.app.fine";
 
 
     @Override
@@ -136,11 +136,8 @@ public class MainActivity extends ActionBarActivity {
         try{
             TextView inputText2 = (TextView)findViewById(R.id.editText2);
             String fine =  inputText2.getText()+"";
-            TextView inputText=(TextView)findViewById(R.id.editText);
-            String inizio = inputText.getText()+"";
-            int a = parseInt(inizio);
             int b = parseInt(fine);
-            if(a>b){
+            if(b<1){
                 // 1. Instantiate an AlertDialog.Builder with its constructor
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
 
@@ -164,7 +161,7 @@ public class MainActivity extends ActionBarActivity {
             else {
                 Intent intent = new Intent(MainActivity.this, LevelGame.class);
                 intent.putExtra(FINE, fine);
-                intent.putExtra(INIZIO, inizio);
+                //intent.putExtra(INIZIO, inizio);
                 MainActivity.this.startActivityForResult(intent, 0);
             }
         }catch(Exception e){

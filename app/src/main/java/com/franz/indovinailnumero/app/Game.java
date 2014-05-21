@@ -26,8 +26,9 @@ import java.util.Random;
 
 public class Game extends ActionBarActivity {
 
-    public int fine, inizio, guess;
+    public int fine, guess;
     public int i = 5;
+    public final int inizio=1;
     public int attempts = 0;
     public boolean finito = false;
     public SoundPoolHelper mp;
@@ -132,8 +133,8 @@ public class Game extends ActionBarActivity {
         setContentView(R.layout.activity_game);
         Intent intent = getIntent();
 
-        String i = intent.getStringExtra(MainActivity.INIZIO);
-        inizio = Integer.parseInt(i);
+        /*String i = intent.getStringExtra(MainActivity.INIZIO);
+        inizio = Integer.parseInt(i);*/
 
         String f = intent.getStringExtra(MainActivity.FINE);
         fine = Integer.parseInt(f);

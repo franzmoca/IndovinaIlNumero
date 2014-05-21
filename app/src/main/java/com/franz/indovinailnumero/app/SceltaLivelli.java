@@ -1,5 +1,6 @@
 package com.franz.indovinailnumero.app;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -7,8 +8,10 @@ import android.view.MenuItem;
 import android.view.View;
 
 
-public class SceltaLivelli extends ActionBarActivity {
 
+public class SceltaLivelli extends ActionBarActivity {
+    public final static String FINE = "com.franz.guessthenumber.app.inizio.livello";
+    public String fine;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,5 +41,72 @@ public class SceltaLivelli extends ActionBarActivity {
     public void Indietro(View view){
         setResult(1);
         finish();
+    }
+
+    public void Livello(View v){
+        Intent intent = new Intent(SceltaLivelli.this, LevelGame.class);
+
+        switch ( v.getId()) {
+            case R.id.tutorial:
+                fine = "50";
+                intent.putExtra(FINE, fine);
+                SceltaLivelli.this.startActivityForResult(intent, 0);
+                break;
+            case R.id.livello1:
+                fine = "100";
+                intent.putExtra(FINE, fine);
+                SceltaLivelli.this.startActivityForResult(intent, 0);
+                break;
+            case R.id.livello2:
+                fine = "200";
+                intent.putExtra(FINE, fine);
+                SceltaLivelli.this.startActivityForResult(intent, 0);
+                break;
+            case R.id.livello3:
+                fine = "400";
+                intent.putExtra(FINE, fine);
+                SceltaLivelli.this.startActivityForResult(intent, 0);
+                break;
+            case R.id.livello4:
+                fine = "500";
+                intent.putExtra(FINE, fine);
+                SceltaLivelli.this.startActivityForResult(intent, 0);
+                break;
+            case R.id.livello5:
+                fine = "1000";
+                intent.putExtra(FINE, fine);
+                SceltaLivelli.this.startActivityForResult(intent, 0);
+                break;
+            case R.id.livello6:
+                fine = "2000";
+                intent.putExtra(FINE, fine);
+                SceltaLivelli.this.startActivityForResult(intent, 0);
+                break;
+            case R.id.livello7:
+                fine = "3000";
+                intent.putExtra(FINE, fine);
+                SceltaLivelli.this.startActivityForResult(intent, 0);
+                break;
+            case R.id.livello8:
+                fine = "4000";
+                intent.putExtra(FINE, fine);
+                SceltaLivelli.this.startActivityForResult(intent, 0);
+                break;
+            case R.id.livello9:
+                fine = "5000";
+                intent.putExtra(FINE, fine);
+                SceltaLivelli.this.startActivityForResult(intent, 0);
+                break;
+            case R.id.livello10:
+                fine = "6000";
+                intent.putExtra(FINE, fine);
+                SceltaLivelli.this.startActivityForResult(intent, 0);
+                break;
+            case R.id.livello11:
+                fine = "10000";
+                intent.putExtra(FINE, fine);
+                SceltaLivelli.this.startActivityForResult(intent, 0);
+                break;
+        }
     }
 }
