@@ -186,4 +186,10 @@ public class MainActivity extends ActionBarActivity {
 
         }
     }
+
+    public void GoToLivelli(View view){
+
+        Intent intent = new Intent(MainActivity.this, SceltaLivelli.class);
+        MainActivity.this.startActivityForResult(intent, 0);
+    }
 }

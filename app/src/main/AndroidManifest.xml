@@ -24,6 +24,10 @@
             android:name="com.franz.indovinailnumero.app.LevelGame"
             android:label="@string/title_activity_level_game" >
         </activity>
+        <activity
+            android:name="com.franz.indovinailnumero.app.SceltaLivelli"
+            android:label="@string/title_activity_scelta_livelli" >
+        </activity>
     </application>
 
 </manifest>

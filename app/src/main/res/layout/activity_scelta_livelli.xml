@@ -1,0 +1,98 @@
+ <GridLayout
+     xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:layout_alignParentTop="true"
+     android:layout_centerHorizontal="true"
+     android:columnCount="3"
+     android:rowCount="11"
+     tools:context="com.franz.indovinailnumero.app.SceltaLivelli"
+     android:clickable="false"
+     android:useDefaultMargins="true"
+     android:background="#3baaff">
+
+
+     <ImageView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:id="@+id/tutorial"
+         android:src="@drawable/sfera" />
+     <ImageView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:id="@+id/livello1"
+         android:src="@drawable/sfera"
+ />
+     <ImageView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:id="@+id/livello2"
+         android:src="@drawable/sfera"
+  />
+     <ImageView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:id="@+id/livello3"
+         android:src="@drawable/sfera"
+/>
+     <ImageView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:id="@+id/livello4"
+         android:src="@drawable/sfera"
+/>
+     <ImageView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:id="@+id/livello5"
+         android:src="@drawable/sfera"
+ />
+     <ImageView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:id="@+id/livello6"
+         android:src="@drawable/sfera"
+/>
+     <ImageView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:id="@+id/livello7"
+         android:src="@drawable/sfera"
+ />
+     <ImageView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:id="@+id/livello8"
+         android:src="@drawable/sfera"
+ />
+     <ImageView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:id="@+id/livello9"
+         android:src="@drawable/sfera"
+ />
+     <ImageView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:id="@+id/livello10"
+         android:src="@drawable/sfera"
+ />
+     <ImageView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:id="@+id/livello11"
+         android:src="@drawable/sfera"
+ />
+
+     <ImageView
+         android:layout_width="105dp"
+         android:layout_height="59dp"
+         android:id="@+id/imageView2"
+         android:layout_row="10"
+         android:layout_column="0"
+         android:src="@drawable/indietro"
+         android:onClick="Indietro" />
+
+ </GridLayout>
+
