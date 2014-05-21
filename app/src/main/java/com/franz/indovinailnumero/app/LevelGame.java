@@ -158,17 +158,8 @@ public class LevelGame extends ActionBarActivity {
         }
 
     }
+    private void checkWin(int guess){
 
-    public void checkWin(View view) {
-
-        Button inserisci = (Button) findViewById(R.id.button);
-        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.hideSoftInputFromWindow(inserisci.getWindowToken(), 0);
-
-        TextView edit = (TextView) findViewById(R.id.editText3);
-        String guess1 = edit.getText() + "";
-        try {
-            int guess = Integer.parseInt(guess1);
             TextView tentativi = (TextView) findViewById(R.id.textView2);
             TextView alto_basso = (TextView) findViewById(R.id.textView);
             attempts++;
@@ -181,19 +172,35 @@ public class LevelGame extends ActionBarActivity {
                 edit.setText("");
                 tentativi.setText(i + " tentativi");
                 if (guess < this.guess) {
-                    alto_basso.setText("X è più alto di " + guess);
+                    alto_basso.setText("Troppo basso!");
                     if(guess<=fine)
                         cv.updatePosition(false, guess, fine-inizio+1);
                 }
                 else {
-                    alto_basso.setText("X è più basso di " + guess);
+                    alto_basso.setText("Troppo alto!");
                     if(guess>=inizio)
-                      cv.updatePosition(true,guess,fine-inizio+1);
+                        cv.updatePosition(true,guess,fine-inizio+1);
                 }
             }
             if (i == 0) {
                 endGame(false);
             }
+
+
+
+
+    }
+    public void checkWin(View view) {
+
+        Button inserisci = (Button) findViewById(R.id.button);
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(inserisci.getWindowToken(), 0);
+
+        TextView edit = (TextView) findViewById(R.id.editText3);
+        String guess1 = edit.getText() + "";
+        int r = Integer.parseInt(guess1);
+        try {
+                checkWin(r);
 
         }//fine try
         catch (Exception e) {

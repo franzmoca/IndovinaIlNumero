@@ -48,22 +48,22 @@ public class SceltaLivelli extends ActionBarActivity {
 
         switch ( v.getId()) {
             case R.id.tutorial:
-                fine = "50";
+                fine = "10";
                 intent.putExtra(FINE, fine);
                 SceltaLivelli.this.startActivityForResult(intent, 0);
                 break;
             case R.id.livello1:
-                fine = "100";
+                fine = "50";
                 intent.putExtra(FINE, fine);
                 SceltaLivelli.this.startActivityForResult(intent, 0);
                 break;
             case R.id.livello2:
-                fine = "200";
+                fine = "100";
                 intent.putExtra(FINE, fine);
                 SceltaLivelli.this.startActivityForResult(intent, 0);
                 break;
             case R.id.livello3:
-                fine = "400";
+                fine = "200";
                 intent.putExtra(FINE, fine);
                 SceltaLivelli.this.startActivityForResult(intent, 0);
                 break;
