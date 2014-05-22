@@ -33,6 +33,10 @@
     <string name="title_activity_scelta_livelli">SceltaLivelli</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_new_main">NewMain</string>
-    
+    <string name="EstremoInferiore">Medium Text</string>
+    <string name="EstremoSuperiore">Medium Text</string>
+    <string name="trattin0">Small Text</string>
+    <string name="trattino">-</string>
+
 
 </resources>

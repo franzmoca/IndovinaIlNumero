@@ -44,6 +44,9 @@ public class LevelGame extends ActionBarActivity {
     public SoundPoolHelper mp;
     int fail, error, applausi,tock;
     EditText edit;
+    //max e min mi servono come estremi e la textview si chiama "estremi"
+    int min=1;
+    int max;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -51,6 +54,9 @@ public class LevelGame extends ActionBarActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT); //Forza la portrait mode
         setContentView(R.layout.activity_level_game);
         cv=(CustomView)findViewById(R.id.customView);
+
+        TextView estremi=(TextView)findViewById(R.id.estremi);
+
 
         Intent intent = getIntent();
         /*
@@ -66,6 +72,9 @@ public class LevelGame extends ActionBarActivity {
         if(f!=null) {
             fine = Integer.parseInt(f);
         }
+
+        max=fine;
+        estremi.setText(min+"-"+max);
         range=fine-inizio+1;
         cv.range=range;
         Random random = new Random();
@@ -166,6 +175,8 @@ public class LevelGame extends ActionBarActivity {
 
             TextView tentativi = (TextView) findViewById(R.id.textView2);
             TextView alto_basso = (TextView) findViewById(R.id.textView);
+            TextView estremi=(TextView)findViewById(R.id.estremi);
+
             attempts++;
             if (guess == this.guess) {
                 endGame(true);
@@ -177,13 +188,32 @@ public class LevelGame extends ActionBarActivity {
                 tentativi.setText(i + " tentativi");
                 if (guess < this.guess) {
                     alto_basso.setText("Troppo basso!");
-                    if(guess<=fine)
-                        cv.updatePosition(false, guess);
+                    if(guess<min){
+                        estremi.setText(min+"-"+max);
+                        if(guess<=fine)
+                            cv.updatePosition(false, guess);
+                    }
+                    else {
+                        min = guess + 1;
+                        estremi.setText(min + "-" + max);
+                        if (guess <= fine)
+                            cv.updatePosition(false, guess);
+                    }
                 }
                 else {
                     alto_basso.setText("Troppo alto!");
-                    if(guess>=inizio)
-                        cv.updatePosition(true,guess);
+                    if(guess>max){
+                        estremi.setText(min+"-"+max);
+                        if(guess>=inizio)
+                            cv.updatePosition(true,guess);
+
+                    }
+                    else {
+                        max = guess - 1;
+                        estremi.setText(min + "-" + max);
+                        if (guess >= inizio)
+                            cv.updatePosition(true, guess);
+                    }
                 }
             }
             if (i == 0) {
@@ -244,6 +274,7 @@ public class LevelGame extends ActionBarActivity {
         Button hai_vinto = (Button) findViewById(R.id.button);
         ViewGroup layout_edit = (ViewGroup) edit.getParent();
         ViewGroup layout_bottone = (ViewGroup) hai_vinto.getParent();
+        TextView estremi=(TextView)findViewById(R.id.estremi);
 
         tentativi.setText("");
         indovina.setText("");
@@ -255,13 +286,17 @@ public class LevelGame extends ActionBarActivity {
         }
         vinto.setVisibility(View.VISIBLE);
         vinto.setText("Hai\n" + (win ? "vinto" : "perso"));
+
         mp.play(win ? applausi : fail);
         if (win) {
+            estremi.setVisibility(View.INVISIBLE);
             float punteggio;
             punteggio = (6 - attempts) * (fine - inizio) / 2;
             numero.setText("Il tuo punteggio è: " + punteggio);
-        } else
+        } else {
+            estremi.setVisibility(View.INVISIBLE);
             numero.setText("Il numero da indovinare era\n" + this.guess);
+        }
     }
     // Will be called for every Button that is clicked
     public void input(View v){
@@ -305,6 +340,26 @@ public class LevelGame extends ActionBarActivity {
             return s;
         }
         return s.substring(0, s.length() - 1);
+    }
+
+
+
+    public void PowerUp(View v){
+        switch ( v.getId()) {
+            case R.id.lanterna:
+               // Lanterna();
+                break;
+            case R.id.pergamena:
+               // Pergamena();
+                break;
+            case R.id.manididio:
+               // ManiDiDio();
+                break;
+            case R.id.yinyang:
+                break;
+            case R.id.statuadelbuddha:
+                break;
+        }
     }
 }
 
