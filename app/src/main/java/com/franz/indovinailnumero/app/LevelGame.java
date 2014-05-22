@@ -47,6 +47,8 @@ public class LevelGame extends ActionBarActivity {
     //max e min mi servono come estremi e la textview si chiama "estremi"
     int min=1;
     int max;
+    //boolean per manididio (mi setta mani a true), su checkwin se mani==true allora fa check dei 3 numeri altrimenti normale
+    boolean mani=false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -171,54 +173,52 @@ public class LevelGame extends ActionBarActivity {
         }
 
     }
-    private void checkWin(int guess){
+    private void checkWin(int guess) {
 
-            TextView tentativi = (TextView) findViewById(R.id.textView2);
-            TextView alto_basso = (TextView) findViewById(R.id.textView);
-            TextView estremi=(TextView)findViewById(R.id.estremi);
+        TextView tentativi = (TextView) findViewById(R.id.textView2);
+        TextView alto_basso = (TextView) findViewById(R.id.textView);
+        TextView estremi = (TextView) findViewById(R.id.estremi);
 
-            attempts++;
-            if (guess == this.guess) {
-                endGame(true);
+        attempts++;
+        if (guess == this.guess) {
+            endGame(true);
+        } else {
+            i--;
+            if (i > 0)
+                mp.play(error);
+            edit.setText("");
+            tentativi.setText(i + " tentativi");
+            if (guess < this.guess) {
+                alto_basso.setText("Troppo basso!");
+                if (guess < min) {
+                    estremi.setText(min + "-" + max);
+                    if (guess <= fine)
+                        cv.updatePosition(false, guess);
+                } else {
+                    min = guess + 1;
+                    estremi.setText(min + "-" + max);
+                    if (guess <= fine)
+                        cv.updatePosition(false, guess);
+                }
             } else {
-                i--;
-                if (i > 0)
-                    mp.play(error);
-                edit.setText("");
-                tentativi.setText(i + " tentativi");
-                if (guess < this.guess) {
-                    alto_basso.setText("Troppo basso!");
-                    if(guess<min){
-                        estremi.setText(min+"-"+max);
-                        if(guess<=fine)
-                            cv.updatePosition(false, guess);
-                    }
-                    else {
-                        min = guess + 1;
-                        estremi.setText(min + "-" + max);
-                        if (guess <= fine)
-                            cv.updatePosition(false, guess);
-                    }
-                }
-                else {
-                    alto_basso.setText("Troppo alto!");
-                    if(guess>max){
-                        estremi.setText(min+"-"+max);
-                        if(guess>=inizio)
-                            cv.updatePosition(true,guess);
+                alto_basso.setText("Troppo alto!");
+                if (guess > max) {
+                    estremi.setText(min + "-" + max);
+                    if (guess >= inizio)
+                        cv.updatePosition(true, guess);
 
-                    }
-                    else {
-                        max = guess - 1;
-                        estremi.setText(min + "-" + max);
-                        if (guess >= inizio)
-                            cv.updatePosition(true, guess);
-                    }
+                } else {
+                    max = guess - 1;
+                    estremi.setText(min + "-" + max);
+                    if (guess >= inizio)
+                        cv.updatePosition(true, guess);
                 }
             }
-            if (i == 0) {
-                endGame(false);
-            }
+
+        if (i == 0) {
+            endGame(false);
+        }
+    }
 
 
 
@@ -233,34 +233,66 @@ public class LevelGame extends ActionBarActivity {
         TextView edit = (TextView) findViewById(R.id.editText3);
         String guess1 = edit.getText() + "";
 
-
-        try {
+        if(mani==false) {
+            try {
                 int r = Integer.parseInt(guess1);
                 checkWin(r);
 
-        }//fine try
-        catch (Exception e) {
-            e.printStackTrace();
-            // 1. Instantiate an AlertDialog.Builder with its constructor
-            AlertDialog.Builder builder = new AlertDialog.Builder(LevelGame.this);
+            }//fine try
+            catch (Exception e) {
+                e.printStackTrace();
+                // 1. Instantiate an AlertDialog.Builder with its constructor
+                AlertDialog.Builder builder = new AlertDialog.Builder(LevelGame.this);
 
-            // 2. Chain together various setter methods to set the dialog characteristics
-            builder.setMessage("Devi inserire un numero!")
-                    .setTitle("Errore!");
+                // 2. Chain together various setter methods to set the dialog characteristics
+                builder.setMessage("Devi inserire un numero!")
+                        .setTitle("Errore!");
 
-            builder.setPositiveButton("Ok",
-                    new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            dialogInterface.cancel();
+                builder.setPositiveButton("Ok",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.cancel();
+                            }
                         }
-                    }
-            );
+                );
 
-            // 3. Get the AlertDialog from create()
-            AlertDialog dialog = builder.create();
-            dialog.show();
-        }//Fine Catch
+                // 3. Get the AlertDialog from create()
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            }//Fine Catch
+        }else if(mani==true){
+            try {
+                int r = Integer.parseInt(guess1);
+                checkWin(r);
+                checkWin(r-1);
+                checkWin(r+1);
+                mani=false;
+
+            }//fine try
+            catch (Exception e) {
+                e.printStackTrace();
+                // 1. Instantiate an AlertDialog.Builder with its constructor
+                AlertDialog.Builder builder = new AlertDialog.Builder(LevelGame.this);
+
+                // 2. Chain together various setter methods to set the dialog characteristics
+                builder.setMessage("Devi inserire un numero!")
+                        .setTitle("Errore!");
+
+                builder.setPositiveButton("Ok",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.cancel();
+                            }
+                        }
+                );
+
+                // 3. Get the AlertDialog from create()
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            }//Fine Catch
+        }
 
     } //fine funzione
 
@@ -349,6 +381,15 @@ public class LevelGame extends ActionBarActivity {
 
     }
 
+    private void Pergamena(){
+
+    }
+
+    private void ManiDiDio(){
+        mani=true;
+    }
+
+
     public void PowerUp(View v){
         switch ( v.getId()) {
             case R.id.lanterna:
@@ -358,7 +399,7 @@ public class LevelGame extends ActionBarActivity {
                // Pergamena();
                 break;
             case R.id.manididio:
-               // ManiDiDio();
+                ManiDiDio();
                 break;
             case R.id.yinyang:
                 break;
