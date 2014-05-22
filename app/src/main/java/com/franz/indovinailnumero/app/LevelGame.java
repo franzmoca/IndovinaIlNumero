@@ -342,12 +342,17 @@ public class LevelGame extends ActionBarActivity {
         return s.substring(0, s.length() - 1);
     }
 
+    private void Lanterna(){
+        TextView tentativi = (TextView) findViewById(R.id.textView2);
+        i++;
+        tentativi.setText(i + " tentativi");
 
+    }
 
     public void PowerUp(View v){
         switch ( v.getId()) {
             case R.id.lanterna:
-               // Lanterna();
+                Lanterna();
                 break;
             case R.id.pergamena:
                // Pergamena();
