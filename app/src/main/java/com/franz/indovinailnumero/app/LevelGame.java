@@ -51,6 +51,7 @@ public class LevelGame extends ActionBarActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT); //Forza la portrait mode
         setContentView(R.layout.activity_level_game);
         cv=(CustomView)findViewById(R.id.customView);
+
         Intent intent = getIntent();
         /*
         String i = intent.getStringExtra(MainActivity.INIZIO);
