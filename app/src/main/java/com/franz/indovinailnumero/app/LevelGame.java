@@ -398,9 +398,15 @@ public class LevelGame extends ActionBarActivity {
 
     private void Pergamena(){
         int numero_cifre= (int) (Math.floor(Math.log10(guess)) + 1);
+        Random random = new Random();
+        int index = random.nextInt(numero_cifre);
+        String hint = (""+guess).substring(index,index+1);
+        Log.d("Pergamena: ",hint);
 
 
     }
+
+
 
     private void ManiDiDio(){
         mani=true;
@@ -418,7 +424,7 @@ public class LevelGame extends ActionBarActivity {
                 }
                     break;
                 case R.id.pergamena:
-                    // Pergamena();
+                    Pergamena();
                     break;
                 case R.id.manididio:
                     ManiDiDio();
