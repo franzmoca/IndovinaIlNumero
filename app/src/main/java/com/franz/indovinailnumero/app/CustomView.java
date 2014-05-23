@@ -53,11 +53,11 @@ public class CustomView extends View {
 
 
         //Example values
-        paint1.setColor(Color.GREEN);
+        paint1.setColor(Color.parseColor("#fffff0"));
         paint1.setStrokeCap(Paint.Cap.BUTT);
         paint1.setStyle(Paint.Style.STROKE);
         paint1.setAntiAlias(true);
-        paint2.setColor(Color.RED);
+        paint2.setColor(Color.parseColor("#483c32"));
         paint2.setAntiAlias(true);
         paint2.setStrokeCap(Paint.Cap.BUTT);
         paint2.setStyle(Paint.Style.STROKE);

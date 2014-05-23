@@ -55,6 +55,8 @@ public class LevelGame extends ActionBarActivity {
     //Variabile locale in cui è salvato il punteggio
     TextView points;
     int punteggio;
+    //Powerup usato?
+    boolean powerup = true;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -242,6 +244,7 @@ public class LevelGame extends ActionBarActivity {
 
         TextView edit = (TextView) findViewById(R.id.editText3);
         String guess1 = edit.getText() + "";
+        powerup=true;
 
         if(mani==false) {
             try {
@@ -394,6 +397,8 @@ public class LevelGame extends ActionBarActivity {
     }
 
     private void Pergamena(){
+        int numero_cifre= (int) (Math.floor(Math.log10(guess)) + 1);
+
 
     }
 
@@ -403,11 +408,12 @@ public class LevelGame extends ActionBarActivity {
 
 
     public void PowerUp(View v) {
-        if (!finito) {
+        if (!finito&&powerup) {
+            powerup=false;
             switch (v.getId()) {
                 case R.id.lanterna:
-                    if(punteggio>=100) {
-                        setPoint((int) (punteggio - 100));
+                    if(punteggio>=400) {
+                        setPoint((int) (punteggio - 400));
                         Lanterna();
                 }
                     break;
@@ -439,10 +445,10 @@ public class LevelGame extends ActionBarActivity {
     public int gain(boolean win){
         int gain;
         if(win){
-            gain = (int) ((i+1)*range/4*(Math.log(range)/Math.log(2)))+range;
+            gain = (int) (10*(Math.log10(range)*10))*(i+1);
             return  gain;
         }else{
-            gain = (int) (Math.log(range)/Math.log(2))+(range-(max-min));
+            gain = (int) ((Math.log10(range))*(range - (max - min))/2);
             return  gain;
 
         }
