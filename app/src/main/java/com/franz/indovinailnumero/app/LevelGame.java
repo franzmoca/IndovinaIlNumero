@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -32,6 +33,8 @@ import com.franz.indovinailnumero.app.util.SoundPoolHelper;
 
 import java.util.Random;
 
+import static java.lang.Integer.parseInt;
+
 
 public class LevelGame extends ActionBarActivity {
     CustomView cv;
@@ -49,6 +52,9 @@ public class LevelGame extends ActionBarActivity {
     int max;
     //boolean per manididio (mi setta mani a true), su checkwin se mani==true allora fa check dei 3 numeri altrimenti normale
     boolean mani=false;
+    //Variabile locale in cui è salvato il punteggio
+    TextView points;
+    int punteggio;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -56,10 +62,13 @@ public class LevelGame extends ActionBarActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT); //Forza la portrait mode
         setContentView(R.layout.activity_level_game);
         cv=(CustomView)findViewById(R.id.customView);
+        points= (TextView) findViewById(R.id.soldi);
 
         TextView estremi=(TextView)findViewById(R.id.estremi);
 
-
+        //Prendo il punteggio salvato
+        getPoint();
+        //setPoint(1000);
         Intent intent = getIntent();
         /*
         String i = intent.getStringExtra(MainActivity.INIZIO);
@@ -67,12 +76,12 @@ public class LevelGame extends ActionBarActivity {
         */
         String d =intent.getStringExtra(SceltaLivelli.FINE);
         if(d!=null) {
-            fine = Integer.parseInt(d);
+            fine = parseInt(d);
         }
 
         String f = intent.getStringExtra(MainActivity.FINE);
         if(f!=null) {
-            fine = Integer.parseInt(f);
+            fine = parseInt(f);
         }
 
         max=fine;
@@ -81,6 +90,7 @@ public class LevelGame extends ActionBarActivity {
         cv.range=range;
         Random random = new Random();
         guess = random.nextInt(fine - inizio + 1) + inizio;
+
         Log.d("guess", "Numero generato: " + guess);
         //Inizializzo i suoni
         mp = new SoundPoolHelper(1, this);
@@ -235,7 +245,7 @@ public class LevelGame extends ActionBarActivity {
 
         if(mani==false) {
             try {
-                int r = Integer.parseInt(guess1);
+                int r = parseInt(guess1);
                 checkWin(r);
 
             }//fine try
@@ -263,10 +273,11 @@ public class LevelGame extends ActionBarActivity {
             }//Fine Catch
         }else if(mani==true){
             try {
-                int r = Integer.parseInt(guess1);
+                int r = parseInt(guess1);
+                i+=2;
                 checkWin(r);
-                checkWin(r-1);
-                checkWin(r+1);
+                checkWin((r-1)%range);
+                checkWin((r+1)%range);
                 mani=false;
 
             }//fine try
@@ -322,12 +333,13 @@ public class LevelGame extends ActionBarActivity {
         mp.play(win ? applausi : fail);
         if (win) {
             estremi.setVisibility(View.INVISIBLE);
-            float punteggio;
-            punteggio = (6 - attempts) * (fine - inizio) / 2;
-            numero.setText("Il tuo punteggio è: " + punteggio);
+            numero.setText("Il tuo punteggio è: " + gain(true));
+            setPoint(punteggio+gain(true));
         } else {
             estremi.setVisibility(View.INVISIBLE);
-            numero.setText("Il numero da indovinare era\n" + this.guess);
+            numero.setText("Il numero da indovinare era\n" + this.guess + " Punteggio è "+gain(false));
+            setPoint(punteggio+gain(true));
+
         }
     }
     // Will be called for every Button that is clicked
@@ -390,22 +402,51 @@ public class LevelGame extends ActionBarActivity {
     }
 
 
-    public void PowerUp(View v){
-        switch ( v.getId()) {
-            case R.id.lanterna:
-                Lanterna();
-                break;
-            case R.id.pergamena:
-               // Pergamena();
-                break;
-            case R.id.manididio:
-                ManiDiDio();
-                break;
-            case R.id.yinyang:
-                break;
-            case R.id.statuadelbuddha:
-                break;
+    public void PowerUp(View v) {
+        if (!finito) {
+            switch (v.getId()) {
+                case R.id.lanterna:
+                    if(punteggio>=100) {
+                        setPoint((int) (punteggio - 100));
+                        Lanterna();
+                }
+                    break;
+                case R.id.pergamena:
+                    // Pergamena();
+                    break;
+                case R.id.manididio:
+                    ManiDiDio();
+                    break;
+                case R.id.yinyang:
+                    break;
+                case R.id.statuadelbuddha:
+                    break;
+            }
         }
+    }
+    public void getPoint(){
+        SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+        punteggio = sharedPref.getInt(getString(R.string.punteggio), 1000);
+        points.setText(""+punteggio);
+    }
+    public void setPoint(int newpoint){
+        SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putInt(getString(R.string.punteggio), newpoint);
+        editor.commit();
+        getPoint();
+    }
+    public int gain(boolean win){
+        int gain;
+        if(win){
+            gain = (int) ((i+1)*range/4*(Math.log(range)/Math.log(2)))+range;
+            return  gain;
+        }else{
+            gain = (int) (Math.log(range)/Math.log(2))+(range-(max-min));
+            return  gain;
+
+        }
+
     }
 }
 

@@ -37,6 +37,7 @@
     <string name="EstremoSuperiore">Medium Text</string>
     <string name="trattin0">Small Text</string>
     <string name="trattino">-</string>
+    <string name="punteggio" />
 
 
 </resources>
