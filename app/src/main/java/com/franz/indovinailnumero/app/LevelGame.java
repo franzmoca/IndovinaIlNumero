@@ -28,6 +28,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.franz.indovinailnumero.app.util.SoundPoolHelper;
 
@@ -52,6 +53,7 @@ public class LevelGame extends ActionBarActivity {
     int max;
     //boolean per manididio (mi setta mani a true), su checkwin se mani==true allora fa check dei 3 numeri altrimenti normale
     boolean mani=false;
+    boolean guardone=false;
     //Variabile locale in cui è salvato il punteggio
     TextView points;
     int punteggio;
@@ -70,7 +72,7 @@ public class LevelGame extends ActionBarActivity {
 
         //Prendo il punteggio salvato
         getPoint();
-        //setPoint(1000);
+        //setPoint(100);
         Intent intent = getIntent();
         /*
         String i = intent.getStringExtra(MainActivity.INIZIO);
@@ -401,6 +403,8 @@ public class LevelGame extends ActionBarActivity {
         Random random = new Random();
         int index = random.nextInt(numero_cifre);
         String hint = (""+guess).substring(index,index+1);
+        Toast toast=Toast.makeText(this,"Una cifra della parola è "+hint,Toast.LENGTH_LONG);
+        toast.show();
         Log.d("Pergamena: ",hint);
 
 
@@ -411,7 +415,9 @@ public class LevelGame extends ActionBarActivity {
     private void ManiDiDio(){
         mani=true;
     }
-
+    private void Guardone(){
+        guardone=true;
+    }
 
     public void PowerUp(View v) {
         if (!finito&&powerup) {
@@ -451,10 +457,10 @@ public class LevelGame extends ActionBarActivity {
     public int gain(boolean win){
         int gain;
         if(win){
-            gain = (int) (10*(Math.log10(range)*10))*(i+1);
+            gain = ((i+1)*range)/2;
             return  gain;
         }else{
-            gain = (int) ((Math.log10(range))*(range - (max - min))/2);
+            gain = (range - (max-min))/2 ;
             return  gain;
 
         }
