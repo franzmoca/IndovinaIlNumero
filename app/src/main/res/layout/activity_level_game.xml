@@ -66,8 +66,8 @@
         <Button
             android:layout_width="71dp"
             android:layout_height="63dp"
-            android:text="Statua del buddha"
-            android:id="@+id/statuadelbuddha"
+            android:text="Guardone"
+            android:id="@+id/guardone"
             android:onClick="PowerUp" />
     </GridLayout>
 
@@ -112,7 +112,7 @@
             android:id="@+id/estremi"
             android:layout_below="@+id/textView"
             android:gravity="center"
-            android:textColor="#ff02ff00"
+            android:textColor="#6f625637"
             android:textSize="20dp"
             android:layout_marginTop="-10dp" />
 

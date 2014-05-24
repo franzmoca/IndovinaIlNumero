@@ -58,7 +58,17 @@ public class LevelGame extends ActionBarActivity {
     TextView points;
     int punteggio;
     //Powerup usato?
+    boolean aiuto_guardone=false;
     boolean powerup = true;
+    int r;
+
+    //boolean monouso
+    boolean monousoLanterna=true;
+    boolean monousoGuardone=true;
+    boolean monousoPergamena=true;
+    boolean monousoYinYang=true;
+    boolean monousoManiDiDIo=true;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -204,6 +214,10 @@ public class LevelGame extends ActionBarActivity {
             tentativi.setText(i + " tentativi");
             if (guess < this.guess) {
                 alto_basso.setText("Troppo basso!");
+                if(aiuto_guardone==true){
+                    Guardone();
+                }
+
                 if (guess < min) {
                     estremi.setText(min + "-" + max);
                     if (guess <= fine)
@@ -216,6 +230,10 @@ public class LevelGame extends ActionBarActivity {
                 }
             } else {
                 alto_basso.setText("Troppo alto!");
+                if(aiuto_guardone==true){
+                    Guardone();
+                }
+
                 if (guess > max) {
                     estremi.setText(min + "-" + max);
                     if (guess >= inizio)
@@ -250,7 +268,7 @@ public class LevelGame extends ActionBarActivity {
 
         if(mani==false) {
             try {
-                int r = parseInt(guess1);
+                r = parseInt(guess1);
                 checkWin(r);
 
             }//fine try
@@ -278,7 +296,7 @@ public class LevelGame extends ActionBarActivity {
             }//Fine Catch
         }else if(mani==true){
             try {
-                int r = parseInt(guess1);
+                r = parseInt(guess1);
                 i+=2;
                 checkWin(r);
                 checkWin((r-1)%range);
@@ -392,20 +410,32 @@ public class LevelGame extends ActionBarActivity {
     }
 
     private void Lanterna(){
-        TextView tentativi = (TextView) findViewById(R.id.textView2);
-        i++;
-        tentativi.setText(i + " tentativi");
+        if(monousoLanterna==true) {
+            TextView tentativi = (TextView) findViewById(R.id.textView2);
+            i++;
+            tentativi.setText(i + " tentativi");
+            monousoLanterna=false;
 
+        }else{
+            Toast toast = Toast.makeText(this, "'Lanterna' è già stata usata", Toast.LENGTH_LONG);
+            toast.show();
+        }
     }
 
     private void Pergamena(){
-        int numero_cifre= (int) (Math.floor(Math.log10(guess)) + 1);
-        Random random = new Random();
-        int index = random.nextInt(numero_cifre);
-        String hint = (""+guess).substring(index,index+1);
-        Toast toast=Toast.makeText(this,"Una cifra della parola è "+hint,Toast.LENGTH_LONG);
-        toast.show();
-        Log.d("Pergamena: ",hint);
+        if(monousoPergamena==true) {
+            int numero_cifre = (int) (Math.floor(Math.log10(guess)) + 1);
+            Random random = new Random();
+            int index = random.nextInt(numero_cifre);
+            String hint = ("" + guess).substring(index, index + 1);
+            Toast toast = Toast.makeText(this, "Una cifra della parola è " + hint, Toast.LENGTH_LONG);
+            toast.show();
+            Log.d("Pergamena: ", hint);
+            monousoPergamena=false;
+        }else{
+            Toast toast = Toast.makeText(this, "'Pergamena' è già stata usata", Toast.LENGTH_LONG);
+            toast.show();
+        }
 
 
     }
@@ -413,10 +443,52 @@ public class LevelGame extends ActionBarActivity {
 
 
     private void ManiDiDio(){
-        mani=true;
+        if(monousoManiDiDIo==true) {
+            mani = true;
+            monousoManiDiDIo=false;
+        }else {
+            Toast toast = Toast.makeText(this, "'Mani di Dio' è già stata usato", Toast.LENGTH_LONG);
+            toast.show();
+        }
     }
-    private void Guardone(){
-        guardone=true;
+
+    private void AiutoGuardone(){
+        if(monousoGuardone==true) {
+            aiuto_guardone = true;
+            guardone = true;
+            Toast toast = Toast.makeText(this, "Inserisci un numero per il Guardone", Toast.LENGTH_LONG);
+            toast.show();
+            i++;
+            monousoGuardone=false;
+        }else {
+            Toast toast = Toast.makeText(this, "'Guardone' è già stata usato", Toast.LENGTH_LONG);
+            toast.show();
+        }
+    }
+    private void Guardone() {
+    float distguess=0;
+    float dist=0;
+    if (r > this.guess) {
+        dist = (r - min) / 2;
+        distguess = r - this.guess;
+    } else if (this.guess > r) {
+        dist = (max - r) / 2;
+        distguess = (this.guess - r);
+    }
+
+    if (dist <= distguess){
+        Toast toast = Toast.makeText(this, "Il numero inserito è LONTANO", Toast.LENGTH_LONG);
+        toast.show();
+    } else if(dist>distguess){
+            Toast toast = Toast.makeText(this, "Il numero inserito è VICINO", Toast.LENGTH_LONG);
+            toast.show();
+
+    }
+    aiuto_guardone=false;
+
+
+
+
     }
 
     public void PowerUp(View v) {
@@ -424,20 +496,31 @@ public class LevelGame extends ActionBarActivity {
             powerup=false;
             switch (v.getId()) {
                 case R.id.lanterna:
-                    if(punteggio>=400) {
+
+                    if (punteggio >= 400) {
                         setPoint((int) (punteggio - 400));
                         Lanterna();
-                }
+                    }
                     break;
                 case R.id.pergamena:
                     Pergamena();
+
+
                     break;
                 case R.id.manididio:
+
                     ManiDiDio();
                     break;
                 case R.id.yinyang:
                     break;
-                case R.id.statuadelbuddha:
+                case R.id.guardone:
+
+                    if (punteggio >= 800) {
+                        setPoint((int) (punteggio - 800));
+                        AiutoGuardone();
+
+                    }
+
                     break;
             }
         }
