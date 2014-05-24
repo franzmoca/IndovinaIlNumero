@@ -32,6 +32,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.os.Bundle;
 import com.franz.indovinailnumero.app.util.SoundPoolHelper;
+import android.os.Vibrator;
 
 import java.util.Random;
 
@@ -68,6 +69,8 @@ public class LevelGame extends ActionBarActivity {
     boolean monousoPergamena=true;
     boolean monousoYinYang=true;
     boolean monousoManiDiDIo=true;
+
+   // MediaPlayer mpAudio;
 
 
     @Override
@@ -114,6 +117,9 @@ public class LevelGame extends ActionBarActivity {
         //blocco la tastiera
         edit = (EditText) findViewById(R.id.editText3);
         edit.setKeyListener(null);
+
+        //mpAudio = MediaPlayer.create(this,R.raw.healing);
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -201,6 +207,7 @@ public class LevelGame extends ActionBarActivity {
         TextView tentativi = (TextView) findViewById(R.id.textView2);
         TextView alto_basso = (TextView) findViewById(R.id.textView);
         TextView estremi = (TextView) findViewById(R.id.estremi);
+        Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
         attempts++;
         if (guess == this.guess) {
@@ -213,6 +220,8 @@ public class LevelGame extends ActionBarActivity {
             tentativi.setText(i + " tentativi");
             if (guess < this.guess) {
                 alto_basso.setText("Troppo basso!");
+                //Vibrate for 500 milliseconds
+                v.vibrate(500);
                 if(aiuto_guardone==true){
                     Guardone();
                 }
@@ -229,6 +238,8 @@ public class LevelGame extends ActionBarActivity {
                 }
             } else {
                 alto_basso.setText("Troppo alto!");
+                // Vibrate for 500 milliseconds
+                v.vibrate(500);
                 if(aiuto_guardone==true){
                     Guardone();
                 }

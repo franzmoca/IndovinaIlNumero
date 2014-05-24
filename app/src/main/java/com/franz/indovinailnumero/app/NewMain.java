@@ -60,6 +60,7 @@ public class NewMain extends ActionBarActivity {
 
     public void Esci(View view){
         setResult(0);
+        mpAudio.stop();
         finish();
     }
     @Override
