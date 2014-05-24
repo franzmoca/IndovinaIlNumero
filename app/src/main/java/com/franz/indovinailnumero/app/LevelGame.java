@@ -472,12 +472,10 @@ public class LevelGame extends ActionBarActivity {
     }
     private void Guardone() {
     float distguess=0;
-    float dist=0;
+    float dist= (max-min)/2;
     if (r > this.guess) {
-        dist = (r - min) / 2;
         distguess = r - this.guess;
     } else if (this.guess > r) {
-        dist = (max - r) / 2;
         distguess = (this.guess - r);
     }
 
@@ -490,11 +488,7 @@ public class LevelGame extends ActionBarActivity {
 
     }
     aiuto_guardone=false;
-
-
-
-
-    }
+   }
 
     public void PowerUp(View v) {
         if (!finito&&powerup) {
