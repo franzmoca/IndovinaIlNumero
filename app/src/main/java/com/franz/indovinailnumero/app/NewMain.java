@@ -11,11 +11,12 @@ import android.view.View;
 
 
 public class NewMain extends ActionBarActivity {
+    MediaPlayer mpAudio;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_main);
-        MediaPlayer mpAudio = MediaPlayer.create(this,R.raw.healing);
+        mpAudio = MediaPlayer.create(this,R.raw.healing);
         mpAudio.setLooping(true);
         mpAudio.start();
     }
@@ -61,4 +62,15 @@ public class NewMain extends ActionBarActivity {
         setResult(0);
         finish();
     }
+    @Override
+    protected void onResume(){
+        super.onResume();
+        mpAudio.start();
+    }
+    @Override
+    protected void onPause(){
+        super.onPause();
+        mpAudio.pause();
+    }
+
 }
