@@ -507,12 +507,26 @@ public class LevelGame extends ActionBarActivity {
                         toast.show();
 
                     }
-                case R.id.pergamena:
-
-                    Pergamena();
-
-
                     break;
+
+                case R.id.pergamena:
+                    if(monousoPergamena==true) {
+                        if (punteggio >= 400) {
+                            setPoint((punteggio - 400));
+                            Pergamena();
+                        } else {
+                            Toast toast = Toast.makeText(this, "Non hai abbastanza soldi", Toast.LENGTH_SHORT);
+                            powerup=true;
+                            toast.show();
+                        }
+                    }else{
+                        powerup=true;
+                        Toast toast = Toast.makeText(this, "'Pergamena' è già stata usata", Toast.LENGTH_LONG);
+                        toast.show();
+
+                    }
+                    break;
+
                 case R.id.manididio:
                     if(monousoManiDiDIo==true) {
                         if (punteggio >= 300) {
