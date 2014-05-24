@@ -9,6 +9,7 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
+import android.widget.GridLayout;
 
 /**
  * Created by franz on 19/05/14.
@@ -123,6 +124,7 @@ public class CustomView extends View {
         h = MeasureSpec.getSize(heightMeasureSpec);
         setMeasuredDimension(w, h);
     }
+
 
 
 }

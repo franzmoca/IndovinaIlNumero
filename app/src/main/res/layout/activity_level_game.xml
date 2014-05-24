@@ -29,48 +29,56 @@
 
     <GridLayout
         android:layout_width="match_parent"
-        android:layout_height="42dp"
+        android:layout_height="91dp"
         android:columnCount="5"
         android:rowCount="1"
         android:orientation="horizontal"
         android:layout_alignWithParentIfMissing="false"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true">
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="bottom"
+        android:id="@+id/powers"
+        android:visibility="invisible">
 
         <Button
-            android:layout_width="71dp"
-            android:layout_height="63dp"
-            android:text="Lanterna"
+            android:layout_width="wrap_content"
+            android:layout_height="71dp"
             android:id="@+id/lanterna"
-            android:onClick="PowerUp" />
+            android:onClick="PowerUp"
+            android:background="@drawable/lant"
+            android:text="Lant400" />
 
         <Button
             android:layout_width="71dp"
             android:layout_height="63dp"
-            android:text="Pergamena"
             android:id="@+id/pergamena"
-            android:onClick="PowerUp" />
+            android:onClick="PowerUp"
+            android:background="@drawable/pergamena"
+            android:text="Perg500" />
 
         <Button
             android:layout_width="71dp"
             android:layout_height="63dp"
-            android:text="ManodiDio"
             android:id="@+id/manididio"
-            android:onClick="PowerUp" />
+            android:onClick="PowerUp"
+            android:background="@drawable/manodid"
+            android:text="Mani300" />
 
         <Button
             android:layout_width="71dp"
             android:layout_height="63dp"
-            android:text="YinYang"
             android:id="@+id/yinyang"
-            android:onClick="PowerUp" />
+            android:onClick="PowerUp"
+            android:background="@drawable/ying"
+            android:text="YING" />
 
         <Button
             android:layout_width="71dp"
             android:layout_height="63dp"
-            android:text="Guardone"
             android:id="@+id/guardone"
-            android:onClick="PowerUp" />
+            android:onClick="PowerUp"
+            android:background="@drawable/guardone"
+            android:text="Guar800" />
     </GridLayout>
 
     <RelativeLayout
@@ -212,7 +220,8 @@
             android:orientation="horizontal"
             android:layout_alignWithParentIfMissing="false"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true">
+            android:layout_centerHorizontal="true"
+            android:visibility="visible">
 
             <Button android:text="@string/tasto1"
                 android:layout_width="81dp"
@@ -327,4 +336,12 @@
         </GridLayout>
 
     </RelativeLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Power Up"
+        android:id="@+id/tastpowerbutton"
+        android:layout_gravity="center_horizontal"
+        android:onClick="tastiera_powerup" />
 </FrameLayout>

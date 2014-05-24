@@ -26,6 +26,7 @@ import android.view.*;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -72,6 +73,7 @@ public class LevelGame extends ActionBarActivity {
 
    // MediaPlayer mpAudio;
 
+    boolean tastoswitch=true;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -605,6 +607,28 @@ public class LevelGame extends ActionBarActivity {
         }
 
     }
+
+    public void tastiera_powerup(View view){
+        Button tastpower=(Button)findViewById(R.id.tastpowerbutton);
+        GridLayout tastiera=(GridLayout)findViewById(R.id.layoutTastiera);
+        GridLayout power=(GridLayout)findViewById(R.id.powers);
+        if(tastoswitch==true){
+            tastiera.setVisibility(View.INVISIBLE);
+            power.setVisibility(View.VISIBLE);
+            tastpower.setText("Tastiera");
+            tastoswitch=false;
+        }else{
+            tastiera.setVisibility(View.VISIBLE);
+            power.setVisibility(View.INVISIBLE);
+            tastpower.setText("PowerUp");
+            tastoswitch=true;
+        }
+
+
+    }
+
+
+
 }
 
 
