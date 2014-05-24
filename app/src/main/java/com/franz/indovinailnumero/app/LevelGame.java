@@ -84,10 +84,7 @@ public class LevelGame extends ActionBarActivity {
         getPoint();
         //setPoint(100);
         Intent intent = getIntent();
-        /*
-        String i = intent.getStringExtra(MainActivity.INIZIO);
-        inizio = Integer.parseInt(i);
-        */
+
         String d =intent.getStringExtra(SceltaLivelli.FINE);
         if(d!=null) {
             fine = parseInt(d);
@@ -432,7 +429,7 @@ public class LevelGame extends ActionBarActivity {
             Random random = new Random();
             int index = random.nextInt(numero_cifre);
             String hint = ("" + guess).substring(index, index + 1);
-            Toast toast = Toast.makeText(this, "Una cifra della parola è " + hint, Toast.LENGTH_LONG);
+            Toast toast = Toast.makeText(this, "Una cifra del numero è " + hint, Toast.LENGTH_LONG);
             toast.show();
             Log.d("Pergamena: ", hint);
             monousoPergamena=false;
@@ -495,31 +492,63 @@ public class LevelGame extends ActionBarActivity {
             powerup=false;
             switch (v.getId()) {
                 case R.id.lanterna:
+                    if(monousoLanterna==true) {
+                        if (punteggio >= 400) {
+                            setPoint((punteggio - 400));
+                            Lanterna();
+                        } else {
+                            Toast toast = Toast.makeText(this, "Non hai abbastanza soldi", Toast.LENGTH_SHORT);
+                            powerup=true;
+                            toast.show();
+                        }
+                    }else{
+                        powerup=true;
+                        Toast toast = Toast.makeText(this, "'Lanterna' è già stata usata", Toast.LENGTH_LONG);
+                        toast.show();
 
-                    if (punteggio >= 400) {
-                        setPoint((int) (punteggio - 400));
-                        Lanterna();
                     }
-                    break;
                 case R.id.pergamena:
+
                     Pergamena();
 
 
                     break;
                 case R.id.manididio:
-
-                    ManiDiDio();
-                    break;
-                case R.id.yinyang:
-                    break;
-                case R.id.guardone:
-
-                    if (punteggio >= 800) {
-                        setPoint((int) (punteggio - 800));
-                        AiutoGuardone();
+                    if(monousoManiDiDIo==true) {
+                        if (punteggio >= 300) {
+                            setPoint((punteggio - 300));
+                            ManiDiDio();
+                        } else {
+                            Toast toast = Toast.makeText(this, "Non hai abbastanza soldi", Toast.LENGTH_SHORT);
+                            powerup=true;
+                            toast.show();
+                        }
+                    }else{
+                        powerup=true;
+                        Toast toast = Toast.makeText(this, "'Mani di Dio' è già stato usato", Toast.LENGTH_LONG);
+                        toast.show();
 
                     }
+                    break;
+                case R.id.yinyang:
+                    powerup=true;
+                    break;
+                case R.id.guardone:
+                    if(monousoGuardone==true) {
+                        if (punteggio >= 800) {
+                            setPoint((punteggio - 800));
+                            AiutoGuardone();
+                        } else {
+                            Toast toast = Toast.makeText(this, "Non hai abbastanza soldi", Toast.LENGTH_SHORT);
+                            powerup=true;
+                            toast.show();
+                        }
+                    }else{
+                        powerup=true;
+                        Toast toast = Toast.makeText(this, "'Guardone' è già stata usato", Toast.LENGTH_LONG);
+                        toast.show();
 
+                    }
                     break;
             }
         }else{

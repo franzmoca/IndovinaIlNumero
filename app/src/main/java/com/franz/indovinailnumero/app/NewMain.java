@@ -69,7 +69,7 @@ public class NewMain extends ActionBarActivity {
     }
     @Override
     protected void onPause(){
-        super.onPause();
+        //super.onPause();
         mpAudio.pause();
     }
 
