@@ -1,19 +1,23 @@
 package com.franz.indovinailnumero.app;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+//import android.os.Bundle;
 
 
 public class NewMain extends ActionBarActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_main);
+        MediaPlayer mpAudio = MediaPlayer.create(this,R.raw.healing);
+        mpAudio.setLooping(true);
+        mpAudio.start();
     }
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(resultCode == 0) {
@@ -26,6 +30,8 @@ public class NewMain extends ActionBarActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.new_main, menu);
         return true;
+
+
     }
 
     @Override

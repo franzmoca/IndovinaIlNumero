@@ -13,6 +13,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.graphics.drawable.BitmapDrawable;
+import android.media.MediaPlayer;
 import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -29,7 +30,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import android.os.Bundle;
 import com.franz.indovinailnumero.app.util.SoundPoolHelper;
 
 import java.util.Random;
@@ -53,7 +54,6 @@ public class LevelGame extends ActionBarActivity {
     int max;
     //boolean per manididio (mi setta mani a true), su checkwin se mani==true allora fa check dei 3 numeri altrimenti normale
     boolean mani=false;
-    boolean guardone=false;
     //Variabile locale in cui è salvato il punteggio
     TextView points;
     int punteggio;
@@ -105,13 +105,15 @@ public class LevelGame extends ActionBarActivity {
         Random random = new Random();
         guess = random.nextInt(fine - inizio + 1) + inizio;
 
+
+
         Log.d("guess", "Numero generato: " + guess);
         //Inizializzo i suoni
-        mp = new SoundPoolHelper(1, this);
+       /* mp = new SoundPoolHelper(1, this);
         fail = mp.load(this, R.raw.fail, 1);
         error = mp.load(this, R.raw.error, 1);
         applausi = mp.load(this, R.raw.applausi, 1);
-        tock = mp.load(this,R.raw.tock, 1);
+        tock = mp.load(this,R.raw.tock, 1);*/
         //blocco la tastiera
         edit = (EditText) findViewById(R.id.editText3);
         edit.setKeyListener(null);
@@ -152,14 +154,14 @@ public class LevelGame extends ActionBarActivity {
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        mp.stop(applausi);
+                       /* mp.stop(applausi);
                         mp.stop(fail);
 
                         mp.unload(error);
                         mp.unload(fail);
                         mp.unload(applausi);
 
-                        mp.release();
+                        mp.release();*/
                         setResult(1);
                         finish();
                     }
@@ -171,14 +173,14 @@ public class LevelGame extends ActionBarActivity {
                     public void onClick(DialogInterface dialogInterface, int i) {
 
                         if(finito) {
-                            mp.stop(applausi);
+                           /* mp.stop(applausi);
                             mp.stop(fail);
 
                             mp.unload(error);
                             mp.unload(fail);
                             mp.unload(applausi);
 
-                            mp.release();
+                            mp.release();*/
                             setResult(0);
                             finish();
                         }
@@ -209,7 +211,7 @@ public class LevelGame extends ActionBarActivity {
         } else {
             i--;
             if (i > 0)
-                mp.play(error);
+                //mp.play(error);
             edit.setText("");
             tentativi.setText(i + " tentativi");
             if (guess < this.guess) {
@@ -353,7 +355,7 @@ public class LevelGame extends ActionBarActivity {
         vinto.setVisibility(View.VISIBLE);
         vinto.setText("Hai\n" + (win ? "vinto" : "perso"));
 
-        mp.play(win ? applausi : fail);
+        //mp.play(win ? applausi : fail);
         if (win) {
             estremi.setVisibility(View.INVISIBLE);
             numero.setText("Il tuo punteggio è: " + gain(true));
@@ -367,7 +369,7 @@ public class LevelGame extends ActionBarActivity {
     }
     // Will be called for every Button that is clicked
     public void input(View v){
-        mp.play(tock);
+        //mp.play(tock);
         switch ( v.getId()) {
             case R.id.tasto1: edit.append("1");
                 break;
@@ -414,6 +416,8 @@ public class LevelGame extends ActionBarActivity {
             TextView tentativi = (TextView) findViewById(R.id.textView2);
             i++;
             tentativi.setText(i + " tentativi");
+            Toast toast = Toast.makeText(this, "Hai usato 'Lanterna'", Toast.LENGTH_LONG);
+            toast.show();
             monousoLanterna=false;
 
         }else{
@@ -445,6 +449,8 @@ public class LevelGame extends ActionBarActivity {
     private void ManiDiDio(){
         if(monousoManiDiDIo==true) {
             mani = true;
+            Toast toast = Toast.makeText(this, "Stai usando 'Mani Di Dio'", Toast.LENGTH_LONG);
+            toast.show();
             monousoManiDiDIo=false;
         }else {
             Toast toast = Toast.makeText(this, "'Mani di Dio' è già stata usato", Toast.LENGTH_LONG);
@@ -455,7 +461,6 @@ public class LevelGame extends ActionBarActivity {
     private void AiutoGuardone(){
         if(monousoGuardone==true) {
             aiuto_guardone = true;
-            guardone = true;
             Toast toast = Toast.makeText(this, "Inserisci un numero per il Guardone", Toast.LENGTH_LONG);
             toast.show();
             i++;
@@ -523,6 +528,9 @@ public class LevelGame extends ActionBarActivity {
 
                     break;
             }
+        }else{
+            Toast toast = Toast.makeText(this, "Non puoi usare i poteri per questo turno", Toast.LENGTH_LONG);
+            toast.show();
         }
     }
     public void getPoint(){
