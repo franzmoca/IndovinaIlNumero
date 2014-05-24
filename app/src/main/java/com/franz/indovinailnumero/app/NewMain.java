@@ -65,12 +65,12 @@ public class NewMain extends ActionBarActivity {
     @Override
     protected void onResume(){
         super.onResume();
-        mpAudio.start();
+       // mpAudio.start();
     }
     @Override
     protected void onPause(){
-        //super.onPause();
-        mpAudio.pause();
+        super.onPause();
+        //mpAudio.pause();
     }
 
 }
