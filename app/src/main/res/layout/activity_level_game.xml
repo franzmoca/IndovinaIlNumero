@@ -95,7 +95,7 @@
         android:id="@+id/editText3"
         android:gravity="center"
         android:text="@string/ins"
-        android:textColor="#ffffff"
+        android:textColor="#483c32"
         android:textSize="30dp"
         android:layout_above="@+id/button"
         android:layout_centerHorizontal="true"
@@ -123,7 +123,7 @@
             android:id="@+id/estremi"
             android:layout_below="@+id/textView"
             android:gravity="center"
-            android:textColor="#6f625637"
+            android:textColor="#483c32"
             android:textSize="20dp"
             android:layout_marginTop="-10dp" />
 
@@ -147,7 +147,7 @@
         android:text="@string/tentativi"
         android:id="@+id/textView2"
         android:gravity="center"
-        android:textColor="#ffffff"
+        android:textColor="#483c32"
         android:textStyle="bold|italic"
         android:textSize="20dp"
         android:layout_marginTop="59dp"
@@ -345,4 +345,5 @@
         android:id="@+id/tastpowerbutton"
         android:layout_gravity="center_horizontal"
         android:onClick="tastiera_powerup" />
+
 </FrameLayout>
