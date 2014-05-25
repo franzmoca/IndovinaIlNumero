@@ -10,7 +10,7 @@
      tools:context="com.franz.indovinailnumero.app.SceltaLivelli"
      android:clickable="false"
      android:useDefaultMargins="true"
-     android:background="#3baaff"
+     android:background="@drawable/prova2"
      android:onClick="Livello">
 
 

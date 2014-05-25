@@ -1,6 +1,8 @@
 package com.franz.indovinailnumero.app;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -12,6 +14,21 @@ import android.view.View;
 public class SceltaLivelli extends ActionBarActivity {
     public final static String FINE = "com.franz.guessthenumber.app.inizio.livello";
     public String fine;
+
+    public boolean livello2 =false;
+    public boolean livello3 =false;
+    public boolean livello4 =false;
+    public boolean livello5 =false;
+    public boolean livello6 =false;
+    public boolean livello7 =false;
+    public boolean livello8 =false;
+    public boolean livello9 =false;
+    public boolean livello10 =false;
+
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
