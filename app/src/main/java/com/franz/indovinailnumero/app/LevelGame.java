@@ -679,7 +679,7 @@ public class LevelGame extends ActionBarActivity {
 
 
     public void Indietro(View view){
-        mpAudio.stop();
+        mpAudio.pause();
         setResult(10);
         finish();
     }
