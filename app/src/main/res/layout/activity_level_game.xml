@@ -46,8 +46,11 @@
             android:layout_height="71dp"
             android:id="@+id/lanterna"
             android:onClick="PowerUp"
-            android:background="@drawable/lant"
-            android:text="Lant400" />
+            android:background="@drawable/lant3"
+            android:text="400"
+            android:textAlignment="gravity"
+            android:singleLine="false"
+            android:gravity="center|bottom" />
 
         <Button
             android:layout_width="71dp"
