@@ -62,6 +62,7 @@ public class LevelGame extends ActionBarActivity {
     //Powerup usato?
     boolean aiuto_guardone=false;
     boolean powerup = true;
+    boolean won = true;
     int r;
     int livello=0;
 
@@ -176,7 +177,11 @@ public class LevelGame extends ActionBarActivity {
                         mp.unload(applausi);
 
                         mp.release();*/
-                        setResult(1);
+                        if(won){
+                            setResult(livello);
+                        }else {
+                            setResult(1);
+                        }
                         finish();
                     }
                 }
@@ -195,7 +200,11 @@ public class LevelGame extends ActionBarActivity {
                             mp.unload(applausi);
 
                             mp.release();*/
-                            setResult(0);
+                            if(won) {
+                                setResult(livello);
+                            }else{
+                                setResult(0);
+                            }
                             finish();
                         }
                         dialogInterface.cancel();
@@ -375,8 +384,8 @@ public class LevelGame extends ActionBarActivity {
         if (win) {
             estremi.setVisibility(View.INVISIBLE);
             numero.setText("Il tuo punteggio è: " + gain(true));
-            setPoint(punteggio+gain(true));
-            setResult(livello);
+            setPoint(punteggio + gain(true));
+            won=true;
         } else {
             estremi.setVisibility(View.INVISIBLE);
             numero.setText("Il numero da indovinare era\n" + this.guess + " Punteggio è "+gain(false));

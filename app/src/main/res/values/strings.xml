@@ -39,13 +39,13 @@
     <string name="trattino">-</string>
     <string name="punteggio" />
     <string name="bottonepower">New Button</string>
-    <string name="livello2"/>
-    <string name="livello3"/>
-    <string name="livello4"/>
-    <string name="livello5"/>
-    <string name="livello6"/>
-    <string name="livello7"/>
-    <string name="livello8"/>
+    <string name="livello2">liv2</string>
+    <string name="livello3">liv3</string>
+    <string name="livello4">liv4</string>
+    <string name="livello5">liv5</string>
+    <string name="livello6">liv6</string>
+    <string name="livello7">liv7</string>
+    <string name="livello8">liv8</string>
 
 
 </resources>
