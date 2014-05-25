@@ -64,11 +64,7 @@ public class SceltaLivelli extends ActionBarActivity {
         Intent intent = new Intent(SceltaLivelli.this, LevelGame.class);
 
         switch ( v.getId()) {
-            case R.id.tutorial:
-                fine = "10";
-                intent.putExtra(FINE, fine);
-                SceltaLivelli.this.startActivityForResult(intent, 0);
-                break;
+
             case R.id.livello1:
                 fine = "50";
                 intent.putExtra(FINE, fine);
@@ -104,26 +100,7 @@ public class SceltaLivelli extends ActionBarActivity {
                 intent.putExtra(FINE, fine);
                 SceltaLivelli.this.startActivityForResult(intent, 0);
                 break;
-            case R.id.livello8:
-                fine = "4000";
-                intent.putExtra(FINE, fine);
-                SceltaLivelli.this.startActivityForResult(intent, 0);
-                break;
-            case R.id.livello9:
-                fine = "5000";
-                intent.putExtra(FINE, fine);
-                SceltaLivelli.this.startActivityForResult(intent, 0);
-                break;
-            case R.id.livello10:
-                fine = "6000";
-                intent.putExtra(FINE, fine);
-                SceltaLivelli.this.startActivityForResult(intent, 0);
-                break;
-            case R.id.livello11:
-                fine = "10000";
-                intent.putExtra(FINE, fine);
-                SceltaLivelli.this.startActivityForResult(intent, 0);
-                break;
+
         }
     }
 }
