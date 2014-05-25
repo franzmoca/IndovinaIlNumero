@@ -72,7 +72,7 @@ public class LevelGame extends ActionBarActivity {
     boolean monousoManiDiDIo=true;
 
    // MediaPlayer mpAudio;
-
+    MediaPlayer mpAudio;
     boolean tastoswitch=true;
 
     @Override
@@ -110,6 +110,9 @@ public class LevelGame extends ActionBarActivity {
 
 
         Log.d("guess", "Numero generato: " + guess);
+        mpAudio = MediaPlayer.create(this,R.raw.healing);
+        mpAudio.setLooping(true);
+        mpAudio.start();
         //Inizializzo i suoni
        /* mp = new SoundPoolHelper(1, this);
         fail = mp.load(this, R.raw.fail, 1);
@@ -209,7 +212,7 @@ public class LevelGame extends ActionBarActivity {
         TextView tentativi = (TextView) findViewById(R.id.textView2);
         TextView alto_basso = (TextView) findViewById(R.id.textView);
         TextView estremi = (TextView) findViewById(R.id.estremi);
-        Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+      //  Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
         attempts++;
         if (guess == this.guess) {
@@ -223,7 +226,7 @@ public class LevelGame extends ActionBarActivity {
             if (guess < this.guess) {
                 alto_basso.setText("Troppo basso!");
                 //Vibrate for 500 milliseconds
-                v.vibrate(500);
+                //v.vibrate(500);
                 if(aiuto_guardone==true){
                     Guardone();
                 }
@@ -241,7 +244,7 @@ public class LevelGame extends ActionBarActivity {
             } else {
                 alto_basso.setText("Troppo alto!");
                 // Vibrate for 500 milliseconds
-                v.vibrate(500);
+               // v.vibrate(500);
                 if(aiuto_guardone==true){
                     Guardone();
                 }
@@ -273,15 +276,43 @@ public class LevelGame extends ActionBarActivity {
         Button inserisci = (Button) findViewById(R.id.button);
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(inserisci.getWindowToken(), 0);
-
         TextView edit = (TextView) findViewById(R.id.editText3);
         String guess1 = edit.getText() + "";
-        powerup=true;
 
-        if(mani==false) {
             try {
                 r = parseInt(guess1);
-                checkWin(r);
+                if(r>max||r<min){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(LevelGame.this);
+
+                    // 2. Chain together various setter methods to set the dialog characteristics
+                    builder.setMessage("Devi inserire un numero compreso tra "+min+" e "+max)
+                            .setTitle("Errore!");
+
+                    builder.setPositiveButton("Ok",
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    dialogInterface.cancel();
+                                }
+                            }
+                    );
+
+                    // 3. Get the AlertDialog from create()
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+                    edit.setText("");
+                }else {
+                    powerup=true;
+                    if (mani == false) {
+                        checkWin(r);
+                    } else {
+                        i += 2;
+                        checkWin(r);
+                        checkWin((r - 1) % range);
+                        checkWin((r + 1) % range);
+                        mani = false;
+                    }
+                }
 
             }//fine try
             catch (Exception e) {
@@ -306,39 +337,8 @@ public class LevelGame extends ActionBarActivity {
                 AlertDialog dialog = builder.create();
                 dialog.show();
             }//Fine Catch
-        }else if(mani==true){
-            try {
-                r = parseInt(guess1);
-                i+=2;
-                checkWin(r);
-                checkWin((r-1)%range);
-                checkWin((r+1)%range);
-                mani=false;
 
-            }//fine try
-            catch (Exception e) {
-                e.printStackTrace();
-                // 1. Instantiate an AlertDialog.Builder with its constructor
-                AlertDialog.Builder builder = new AlertDialog.Builder(LevelGame.this);
 
-                // 2. Chain together various setter methods to set the dialog characteristics
-                builder.setMessage("Devi inserire un numero!")
-                        .setTitle("Errore!");
-
-                builder.setPositiveButton("Ok",
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                dialogInterface.cancel();
-                            }
-                        }
-                );
-
-                // 3. Get the AlertDialog from create()
-                AlertDialog dialog = builder.create();
-                dialog.show();
-            }//Fine Catch
-        }
 
     } //fine funzione
 
@@ -582,6 +582,18 @@ public class LevelGame extends ActionBarActivity {
             Toast toast = Toast.makeText(this, "Non puoi usare i poteri per questo turno", Toast.LENGTH_LONG);
             toast.show();
         }
+        if(!powerup){ //Riprendo la tastiera se ho usaot / non posso usare un powerup in questo turno
+
+            Button tastpower=(Button)findViewById(R.id.tastpowerbutton);
+            GridLayout tastiera=(GridLayout)findViewById(R.id.layoutTastiera);
+            GridLayout power=(GridLayout)findViewById(R.id.powers);
+            if(!tastoswitch){
+                tastiera.setVisibility(View.VISIBLE);
+                power.setVisibility(View.INVISIBLE);
+                tastpower.setText("PowerUp");
+                tastoswitch=true;
+            }
+        }
     }
     public void getPoint(){
         SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
@@ -623,10 +635,30 @@ public class LevelGame extends ActionBarActivity {
             tastpower.setText("PowerUp");
             tastoswitch=true;
         }
-
-
     }
-
+    @Override
+    protected void onResume(){
+        super.onResume();
+        mpAudio.start();
+    }
+    @Override
+    protected void onPause(){
+        super.onPause();
+        mpAudio.reset();
+    }
+    @Override
+    public void onBackPressed()
+    {
+        Button tastpower=(Button)findViewById(R.id.tastpowerbutton);
+        GridLayout tastiera=(GridLayout)findViewById(R.id.layoutTastiera);
+        GridLayout power=(GridLayout)findViewById(R.id.powers);
+        if(!tastoswitch){
+            tastiera.setVisibility(View.VISIBLE);
+            power.setVisibility(View.INVISIBLE);
+            tastpower.setText("PowerUp");
+            tastoswitch=true;
+        }
+    }
 
 
 }

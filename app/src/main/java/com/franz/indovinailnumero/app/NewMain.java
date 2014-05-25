@@ -11,14 +11,11 @@ import android.view.View;
 
 
 public class NewMain extends ActionBarActivity {
-    MediaPlayer mpAudio;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_main);
-        mpAudio = MediaPlayer.create(this,R.raw.healing);
-        mpAudio.setLooping(true);
-        mpAudio.start();
+
     }
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(resultCode == 0) {
@@ -60,7 +57,6 @@ public class NewMain extends ActionBarActivity {
 
     public void Esci(View view){
         setResult(0);
-        mpAudio.stop();
         finish();
     }
     @Override
