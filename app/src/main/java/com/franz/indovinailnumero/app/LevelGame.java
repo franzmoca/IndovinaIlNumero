@@ -62,7 +62,7 @@ public class LevelGame extends ActionBarActivity {
     //Powerup usato?
     boolean aiuto_guardone=false;
     boolean powerup = true;
-    boolean won = true;
+    boolean won = false;
     int r;
     int livello=0;
 
@@ -180,7 +180,7 @@ public class LevelGame extends ActionBarActivity {
                         if(won){
                             setResult(livello);
                         }else {
-                            setResult(1);
+                            setResult(10);
                         }
                         finish();
                     }
@@ -660,7 +660,8 @@ public class LevelGame extends ActionBarActivity {
     @Override
     protected void onPause(){
         super.onPause();
-        mpAudio.reset();
+        mpAudio.pause();
+        mpAudio.seekTo(0);
     }
     @Override
     public void onBackPressed()
@@ -679,7 +680,7 @@ public class LevelGame extends ActionBarActivity {
 
     public void Indietro(View view){
         mpAudio.stop();
-        setResult(1);
+        setResult(10);
         finish();
     }
 
