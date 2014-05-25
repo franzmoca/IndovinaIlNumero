@@ -1,6 +1,8 @@
 package com.franz.indovinailnumero.app;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
@@ -9,7 +11,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-
+import android.widget.Button;
+import android.widget.GridLayout;
+import android.widget.Toast;
 
 
 public class SceltaLivelli extends ActionBarActivity {
@@ -95,6 +99,13 @@ public class SceltaLivelli extends ActionBarActivity {
                     intent.putExtra(FINE, fine);
                     intent.putExtra(LIVELLO,liv);
                     SceltaLivelli.this.startActivityForResult(intent, 0);
+                }else{
+                    AlertDialog.Builder builder = new AlertDialog.Builder(SceltaLivelli.this);
+                    builder.setMessage("Devi prima superare il livello 1!")
+                            .setTitle("");
+
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
                 }
                 break;
             case R.id.livello3:
@@ -104,6 +115,13 @@ public class SceltaLivelli extends ActionBarActivity {
                     intent.putExtra(FINE, fine);
                     intent.putExtra(LIVELLO, liv);
                     SceltaLivelli.this.startActivityForResult(intent, 0);
+                }else{
+                    AlertDialog.Builder builder = new AlertDialog.Builder(SceltaLivelli.this);
+                    builder.setMessage("Devi prima superare il livello 2!")
+                            .setTitle("");
+
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
                 }
                 break;
             case R.id.livello4:
@@ -113,6 +131,13 @@ public class SceltaLivelli extends ActionBarActivity {
                     intent.putExtra(FINE, fine);
                     intent.putExtra(LIVELLO,liv);
                     SceltaLivelli.this.startActivityForResult(intent, 0);
+                }else{
+                    AlertDialog.Builder builder = new AlertDialog.Builder(SceltaLivelli.this);
+                    builder.setMessage("Devi prima superare il livello 3!")
+                            .setTitle("");
+
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
                 }
                 break;
             case R.id.livello5:
@@ -122,6 +147,13 @@ public class SceltaLivelli extends ActionBarActivity {
                     intent.putExtra(FINE, fine);
                     intent.putExtra(LIVELLO, liv);
                     SceltaLivelli.this.startActivityForResult(intent, 0);
+                }else{
+                    AlertDialog.Builder builder = new AlertDialog.Builder(SceltaLivelli.this);
+                    builder.setMessage("Devi prima superare il livello 5!")
+                            .setTitle("");
+
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
                 }
                 break;
             case R.id.livello6:
@@ -131,6 +163,13 @@ public class SceltaLivelli extends ActionBarActivity {
                     intent.putExtra(FINE, fine);
                     intent.putExtra(LIVELLO,liv);
                     SceltaLivelli.this.startActivityForResult(intent, 0);
+                }else{
+                    AlertDialog.Builder builder = new AlertDialog.Builder(SceltaLivelli.this);
+                    builder.setMessage("Devi prima superare il livello 6!")
+                            .setTitle("");
+
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
                 }
                 break;
             case R.id.livello7:
@@ -140,6 +179,13 @@ public class SceltaLivelli extends ActionBarActivity {
                     intent.putExtra(FINE, fine);
                     intent.putExtra(LIVELLO,liv);
                     SceltaLivelli.this.startActivityForResult(intent, 0);
+                }else{
+                    AlertDialog.Builder builder = new AlertDialog.Builder(SceltaLivelli.this);
+                    builder.setMessage("Devi prima superare il livello 7!")
+                            .setTitle("");
+
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
                 }
                 break;
 
@@ -214,5 +260,11 @@ public class SceltaLivelli extends ActionBarActivity {
         editor.putBoolean(getString(R.string.livello7), false);
         editor.commit();
         getLevel();
+    }
+
+    public void onBackPressed()
+    {
+       setResult(1);
+       finish();
     }
 }
