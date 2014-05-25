@@ -50,39 +50,39 @@
             android:text="400"
             android:textAlignment="gravity"
             android:singleLine="false"
-            android:gravity="center|bottom" />
+            android:gravity="center|bottom"
+            android:textColor="#ffff451a" />
 
         <Button
-            android:layout_width="71dp"
-            android:layout_height="63dp"
+            android:layout_width="wrap_content"
+            android:layout_height="71dp"
             android:id="@+id/pergamena"
             android:onClick="PowerUp"
-            android:background="@drawable/pergamena"
-            android:text="Perg500" />
+            android:background="@drawable/perg"
+            android:text="500"
+            android:gravity="center|bottom"
+            android:textAlignment="gravity"
+            android:textColor="#ffff451a" />
 
         <Button
-            android:layout_width="71dp"
-            android:layout_height="63dp"
+            android:layout_width="wrap_content"
+            android:layout_height="71dp"
             android:id="@+id/manididio"
             android:onClick="PowerUp"
-            android:background="@drawable/manodid"
-            android:text="Mani300" />
+            android:background="@drawable/pray"
+            android:text="300"
+            android:gravity="center|bottom"
+            android:textColor="#ffff451a" />
 
         <Button
-            android:layout_width="71dp"
-            android:layout_height="63dp"
-            android:id="@+id/yinyang"
-            android:onClick="PowerUp"
-            android:background="@drawable/ying"
-            android:text="YING" />
-
-        <Button
-            android:layout_width="71dp"
-            android:layout_height="63dp"
+            android:layout_width="87dp"
+            android:layout_height="71dp"
             android:id="@+id/guardone"
             android:onClick="PowerUp"
-            android:background="@drawable/guardone"
-            android:text="Guar800" />
+            android:background="@drawable/eye"
+            android:text="800"
+            android:gravity="center|bottom"
+            android:textColor="#ffff451a" />
     </GridLayout>
 
     <RelativeLayout

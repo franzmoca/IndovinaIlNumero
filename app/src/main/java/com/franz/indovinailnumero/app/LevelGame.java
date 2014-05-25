@@ -557,9 +557,9 @@ public class LevelGame extends ActionBarActivity {
 
                     }
                     break;
-                case R.id.yinyang:
+                /*case R.id.yinyang:
                     powerup=true;
-                    break;
+                    break;*/
                 case R.id.guardone:
                     if(monousoGuardone==true) {
                         if (punteggio >= 800) {
