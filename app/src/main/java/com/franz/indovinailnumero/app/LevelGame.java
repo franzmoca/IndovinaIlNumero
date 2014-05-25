@@ -63,6 +63,7 @@ public class LevelGame extends ActionBarActivity {
     boolean aiuto_guardone=false;
     boolean powerup = true;
     int r;
+    int livello=0;
 
     //boolean monouso
     boolean monousoLanterna=true;
@@ -94,6 +95,11 @@ public class LevelGame extends ActionBarActivity {
         if(d!=null) {
             fine = parseInt(d);
         }
+        String level =intent.getStringExtra(SceltaLivelli.LIVELLO);
+        if(level!=null) {
+            livello = parseInt(level);
+        }
+        Log.d("Livello:" , ""+livello);
 
         String f = intent.getStringExtra(MainActivity.FINE);
         if(f!=null) {
@@ -370,10 +376,11 @@ public class LevelGame extends ActionBarActivity {
             estremi.setVisibility(View.INVISIBLE);
             numero.setText("Il tuo punteggio è: " + gain(true));
             setPoint(punteggio+gain(true));
+            setResult(livello);
         } else {
             estremi.setVisibility(View.INVISIBLE);
             numero.setText("Il numero da indovinare era\n" + this.guess + " Punteggio è "+gain(false));
-            setPoint(punteggio+gain(true));
+            setPoint(punteggio+gain(false));
 
         }
     }

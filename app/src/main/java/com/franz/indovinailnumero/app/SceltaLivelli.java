@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,17 +14,20 @@ import android.view.View;
 
 public class SceltaLivelli extends ActionBarActivity {
     public final static String FINE = "com.franz.guessthenumber.app.inizio.livello";
-    public String fine;
+    public final static String LIVELLO = "com.franz.guessthenumber.app.inizio.livello.numero";
 
-    public boolean livello2 =false;
-    public boolean livello3 =false;
-    public boolean livello4 =false;
-    public boolean livello5 =false;
-    public boolean livello6 =false;
-    public boolean livello7 =false;
-    public boolean livello8 =false;
-    public boolean livello9 =false;
-    public boolean livello10 =false;
+    public String fine;
+    public String liv;
+
+
+    public boolean livello1=true;
+    public boolean livello2;
+    public boolean livello3;
+    public boolean livello4;
+    public boolean livello5;
+    public boolean livello6;
+    public boolean livello7;
+
 
 
 
@@ -33,8 +37,20 @@ public class SceltaLivelli extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scelta_livelli);
+        getLevel();
+        setLevelFALSE();
+        setLevel();
     }
 
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.d("RESULT CODE",""+resultCode);
+        if(resultCode==0){
+           finish();
+       }else{
+           setLevel(resultCode);
+       }
+
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -67,40 +83,136 @@ public class SceltaLivelli extends ActionBarActivity {
 
             case R.id.livello1:
                 fine = "50";
+                liv="1";
                 intent.putExtra(FINE, fine);
+                intent.putExtra(LIVELLO, liv);
                 SceltaLivelli.this.startActivityForResult(intent, 0);
                 break;
             case R.id.livello2:
-                fine = "100";
-                intent.putExtra(FINE, fine);
-                SceltaLivelli.this.startActivityForResult(intent, 0);
+                if(livello2) {
+                    fine = "100";
+                    liv="2";
+                    intent.putExtra(FINE, fine);
+                    intent.putExtra(LIVELLO,liv);
+                    SceltaLivelli.this.startActivityForResult(intent, 0);
+                }
                 break;
             case R.id.livello3:
-                fine = "200";
-                intent.putExtra(FINE, fine);
-                SceltaLivelli.this.startActivityForResult(intent, 0);
+                if(livello3) {
+                    fine = "200";
+                    liv="3";
+                    intent.putExtra(FINE, fine);
+                    intent.putExtra(LIVELLO, liv);
+                    SceltaLivelli.this.startActivityForResult(intent, 0);
+                }
                 break;
             case R.id.livello4:
-                fine = "500";
-                intent.putExtra(FINE, fine);
-                SceltaLivelli.this.startActivityForResult(intent, 0);
+                if(livello4) {
+                    fine = "500";
+                    liv="4";
+                    intent.putExtra(FINE, fine);
+                    intent.putExtra(LIVELLO,liv);
+                    SceltaLivelli.this.startActivityForResult(intent, 0);
+                }
                 break;
             case R.id.livello5:
-                fine = "1000";
-                intent.putExtra(FINE, fine);
-                SceltaLivelli.this.startActivityForResult(intent, 0);
+                if(livello5) {
+                    fine = "1000";
+                    liv="5";
+                    intent.putExtra(FINE, fine);
+                    intent.putExtra(LIVELLO, liv);
+                    SceltaLivelli.this.startActivityForResult(intent, 0);
+                }
                 break;
             case R.id.livello6:
-                fine = "2000";
-                intent.putExtra(FINE, fine);
-                SceltaLivelli.this.startActivityForResult(intent, 0);
+                if(livello6) {
+                    fine = "2000";
+                    liv="6";
+                    intent.putExtra(FINE, fine);
+                    intent.putExtra(LIVELLO,liv);
+                    SceltaLivelli.this.startActivityForResult(intent, 0);
+                }
                 break;
             case R.id.livello7:
-                fine = "3000";
-                intent.putExtra(FINE, fine);
-                SceltaLivelli.this.startActivityForResult(intent, 0);
+                if(livello7) {
+                    fine = "3000";
+                    liv="7";
+                    intent.putExtra(FINE, fine);
+                    intent.putExtra(LIVELLO,liv);
+                    SceltaLivelli.this.startActivityForResult(intent, 0);
+                }
                 break;
 
         }
+    }
+    public void getLevel(){
+        SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+        livello2 = sharedPref.getBoolean(getString(R.string.livello2), false);
+        livello3 = sharedPref.getBoolean(getString(R.string.livello3), false);
+        livello4 = sharedPref.getBoolean(getString(R.string.livello4), false);
+        livello5 = sharedPref.getBoolean(getString(R.string.livello5), false);
+        livello6 = sharedPref.getBoolean(getString(R.string.livello6), false);
+        livello7 = sharedPref.getBoolean(getString(R.string.livello7), false);
+    }
+    public void setLevel(int level){
+        SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        switch (level) {
+            case 1:
+                editor.putBoolean(getString(R.string.livello2), true);
+/*                editor.putBoolean(getString(R.string.livello3), false);
+                editor.putBoolean(getString(R.string.livello4), false);
+                editor.putBoolean(getString(R.string.livello5), false);
+                editor.putBoolean(getString(R.string.livello6), false);
+                editor.putBoolean(getString(R.string.livello7), false);*/
+                editor.commit();
+                break;
+            case 2:
+                editor.putBoolean(getString(R.string.livello3), true);
+                editor.commit();
+                break;
+            case 3:
+                editor.putBoolean(getString(R.string.livello4), true);
+                editor.commit();
+                break;
+            case 4:
+                editor.putBoolean(getString(R.string.livello5), true);
+                editor.commit();
+                break;
+            case 5:
+                editor.putBoolean(getString(R.string.livello6), true);
+                editor.commit();
+                break;
+            case 6:
+                editor.putBoolean(getString(R.string.livello7), true);
+                editor.commit();
+                break;
+            case 7:
+                editor.putBoolean(getString(R.string.livello8), true);
+                editor.commit();
+                break;
+
+        }
+        getLevel();
+    }
+    public void setLevel(){
+        SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putBoolean(getString(R.string.livello2), true);
+        editor.commit();
+        getLevel();
+    }
+
+        private void setLevelFALSE()    {
+        SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putBoolean(getString(R.string.livello2), false);
+        editor.putBoolean(getString(R.string.livello3), false);
+        editor.putBoolean(getString(R.string.livello4), false);
+        editor.putBoolean(getString(R.string.livello5), false);
+        editor.putBoolean(getString(R.string.livello6), false);
+        editor.putBoolean(getString(R.string.livello7), false);
+        editor.commit();
+        getLevel();
     }
 }
