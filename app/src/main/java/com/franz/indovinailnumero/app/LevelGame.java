@@ -242,9 +242,7 @@ public class LevelGame extends ActionBarActivity {
                 alto_basso.setText("Troppo basso!");
                 //Vibrate for 500 milliseconds
                 //v.vibrate(500);
-                if(aiuto_guardone==true){
-                    Guardone();
-                }
+
 
                 if (guess < min) {
                     estremi.setText(min + "-" + max);
@@ -256,13 +254,13 @@ public class LevelGame extends ActionBarActivity {
                     if (guess <= fine)
                         cv.updatePosition(false, guess);
                 }
+                if(aiuto_guardone==true){
+                    Guardone();
+                }
             } else {
                 alto_basso.setText("Troppo alto!");
                 // Vibrate for 500 milliseconds
                // v.vibrate(500);
-                if(aiuto_guardone==true){
-                    Guardone();
-                }
 
                 if (guess > max) {
                     estremi.setText(min + "-" + max);
@@ -275,6 +273,10 @@ public class LevelGame extends ActionBarActivity {
                     if (guess >= inizio)
                         cv.updatePosition(true, guess);
                 }
+                if(aiuto_guardone==true){
+                    Guardone();
+                }
+
             }
 
         if (i == 0) {
@@ -442,7 +444,7 @@ public class LevelGame extends ActionBarActivity {
             TextView tentativi = (TextView) findViewById(R.id.textView2);
             i++;
             tentativi.setText(i + " tentativi");
-            Toast toast = Toast.makeText(this, "Hai usato 'Lanterna'", Toast.LENGTH_LONG);
+            Toast toast = Toast.makeText(this, "Hai ricevuto un tentativo extra", Toast.LENGTH_LONG);
             toast.show();
             monousoLanterna=false;
 
@@ -454,10 +456,16 @@ public class LevelGame extends ActionBarActivity {
 
     private void Pergamena(){
         if(monousoPergamena==true) {
-            int numero_cifre = (int) (Math.floor(Math.log10(guess)) + 1);
+            int newguess;
+            if(guess>99) {
+                newguess = Integer.parseInt(("" + guess).substring(1));
+            }else{
+                newguess=guess;
+            }
+            int numero_cifre = (int) (Math.floor(Math.log10(newguess)) + 1);
             Random random = new Random();
             int index = random.nextInt(numero_cifre);
-            String hint = ("" + guess).substring(index, index + 1);
+            String hint = ("" + newguess).substring(index, index + 1);
             Toast toast = Toast.makeText(this, "Una cifra del numero è " + hint, Toast.LENGTH_LONG);
             toast.show();
             Log.d("Pergamena: ", hint);
@@ -475,7 +483,7 @@ public class LevelGame extends ActionBarActivity {
     private void ManiDiDio(){
         if(monousoManiDiDIo==true) {
             mani = true;
-            Toast toast = Toast.makeText(this, "Stai usando 'Mani Di Dio'", Toast.LENGTH_LONG);
+            Toast toast = Toast.makeText(this, "Inserisci il numero da 'triplicare'", Toast.LENGTH_LONG);
             toast.show();
             monousoManiDiDIo=false;
         }else {
@@ -487,12 +495,12 @@ public class LevelGame extends ActionBarActivity {
     private void AiutoGuardone(){
         if(monousoGuardone==true) {
             aiuto_guardone = true;
-            Toast toast = Toast.makeText(this, "Inserisci un numero per il Guardone", Toast.LENGTH_LONG);
+            Toast toast = Toast.makeText(this, "Inserisci un numero per usare il Terzo Occhio", Toast.LENGTH_LONG);
             toast.show();
             i++;
             monousoGuardone=false;
         }else {
-            Toast toast = Toast.makeText(this, "'Guardone' è già stata usato", Toast.LENGTH_LONG);
+            Toast toast = Toast.makeText(this, "'Terzo Occhio' è già stata usato", Toast.LENGTH_LONG);
             toast.show();
         }
     }
@@ -522,8 +530,8 @@ public class LevelGame extends ActionBarActivity {
             switch (v.getId()) {
                 case R.id.lanterna:
                     if(monousoLanterna==true) {
-                        if (punteggio >= 400) {
-                            setPoint((punteggio - 400));
+                        if (punteggio >= 300) {
+                            setPoint((punteggio - 300));
                             Lanterna();
                         } else {
                             Toast toast = Toast.makeText(this, "Non hai abbastanza soldi", Toast.LENGTH_SHORT);
@@ -540,8 +548,8 @@ public class LevelGame extends ActionBarActivity {
 
                 case R.id.pergamena:
                     if(monousoPergamena==true) {
-                        if (punteggio >= 400) {
-                            setPoint((punteggio - 400));
+                        if (punteggio >= 300) {
+                            setPoint((punteggio - 300));
                             Pergamena();
                         } else {
                             Toast toast = Toast.makeText(this, "Non hai abbastanza soldi", Toast.LENGTH_SHORT);
@@ -558,8 +566,8 @@ public class LevelGame extends ActionBarActivity {
 
                 case R.id.manididio:
                     if(monousoManiDiDIo==true) {
-                        if (punteggio >= 300) {
-                            setPoint((punteggio - 300));
+                        if (punteggio >= 200) {
+                            setPoint((punteggio - 200));
                             ManiDiDio();
                         } else {
                             Toast toast = Toast.makeText(this, "Non hai abbastanza soldi", Toast.LENGTH_SHORT);
@@ -576,10 +584,10 @@ public class LevelGame extends ActionBarActivity {
                 /*case R.id.yinyang:
                     powerup=true;
                     break;*/
-                case R.id.guardone:
+                case R.id.terzoocchio:
                     if(monousoGuardone==true) {
-                        if (punteggio >= 800) {
-                            setPoint((punteggio - 800));
+                        if (punteggio >= 700) {
+                            setPoint((punteggio - 700));
                             AiutoGuardone();
                         } else {
                             Toast toast = Toast.makeText(this, "Non hai abbastanza soldi", Toast.LENGTH_SHORT);
@@ -602,11 +610,19 @@ public class LevelGame extends ActionBarActivity {
 
             Button tastpower=(Button)findViewById(R.id.tastpowerbutton);
             GridLayout tastiera=(GridLayout)findViewById(R.id.layoutTastiera);
-            GridLayout power=(GridLayout)findViewById(R.id.powers);
+            ImageView pergamena=(ImageView)findViewById(R.id.pergamena);
+            ImageView lanterna=(ImageView)findViewById(R.id.lanterna);
+            ImageView terzoocchio=(ImageView)findViewById(R.id.terzoocchio);
+            ImageView manididio=(ImageView)findViewById(R.id.manididio);
+
+
             if(!tastoswitch){
                 tastiera.setVisibility(View.VISIBLE);
-                power.setVisibility(View.INVISIBLE);
-                tastpower.setText("PowerUp");
+                pergamena.setVisibility(View.INVISIBLE);
+                lanterna.setVisibility(View.INVISIBLE);
+                terzoocchio.setVisibility(View.INVISIBLE);
+                manididio.setVisibility(View.INVISIBLE);
+                tastpower.setBackgroundResource(R.drawable.power2);
                 tastoswitch=true;
             }
         }
@@ -639,16 +655,25 @@ public class LevelGame extends ActionBarActivity {
     public void tastiera_powerup(View view){
         Button tastpower=(Button)findViewById(R.id.tastpowerbutton);
         GridLayout tastiera=(GridLayout)findViewById(R.id.layoutTastiera);
-        GridLayout power=(GridLayout)findViewById(R.id.powers);
+        ImageView pergamena=(ImageView)findViewById(R.id.pergamena);
+        ImageView lanterna=(ImageView)findViewById(R.id.lanterna);
+        ImageView terzoocchio=(ImageView)findViewById(R.id.terzoocchio);
+        ImageView manididio=(ImageView)findViewById(R.id.manididio);
         if(tastoswitch==true){
             tastiera.setVisibility(View.INVISIBLE);
-            power.setVisibility(View.VISIBLE);
-            tastpower.setText("Tastiera");
+            pergamena.setVisibility(View.VISIBLE);
+            lanterna.setVisibility(View.VISIBLE);
+            terzoocchio.setVisibility(View.VISIBLE);
+            manididio.setVisibility(View.VISIBLE);
+            tastpower.setBackgroundResource(R.drawable.power1);
             tastoswitch=false;
         }else{
             tastiera.setVisibility(View.VISIBLE);
-            power.setVisibility(View.INVISIBLE);
-            tastpower.setText("PowerUp");
+            pergamena.setVisibility(View.INVISIBLE);
+            lanterna.setVisibility(View.INVISIBLE);
+            terzoocchio.setVisibility(View.INVISIBLE);
+            manididio.setVisibility(View.INVISIBLE);
+            tastpower.setBackgroundResource(R.drawable.power2);
             tastoswitch=true;
         }
     }
@@ -668,11 +693,17 @@ public class LevelGame extends ActionBarActivity {
     {
         Button tastpower=(Button)findViewById(R.id.tastpowerbutton);
         GridLayout tastiera=(GridLayout)findViewById(R.id.layoutTastiera);
-        GridLayout power=(GridLayout)findViewById(R.id.powers);
+        ImageView pergamena=(ImageView)findViewById(R.id.pergamena);
+        ImageView lanterna=(ImageView)findViewById(R.id.lanterna);
+        ImageView terzoocchio=(ImageView)findViewById(R.id.terzoocchio);
+        ImageView manididio=(ImageView)findViewById(R.id.manididio);
         if(!tastoswitch){
             tastiera.setVisibility(View.VISIBLE);
-            power.setVisibility(View.INVISIBLE);
-            tastpower.setText("PowerUp");
+            pergamena.setVisibility(View.INVISIBLE);
+            lanterna.setVisibility(View.INVISIBLE);
+            terzoocchio.setVisibility(View.INVISIBLE);
+            manididio.setVisibility(View.INVISIBLE);
+            tastpower.setBackgroundResource(R.drawable.power2);
             tastoswitch=true;
         }
     }
