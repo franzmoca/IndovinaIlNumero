@@ -606,7 +606,7 @@ public class LevelGame extends ActionBarActivity {
             if(!tastoswitch){
                 tastiera.setVisibility(View.VISIBLE);
                 power.setVisibility(View.INVISIBLE);
-                tastpower.setText("PowerUp");
+                tastpower.setBackgroundResource(R.drawable.power2);
                 tastoswitch=true;
             }
         }
@@ -643,12 +643,12 @@ public class LevelGame extends ActionBarActivity {
         if(tastoswitch==true){
             tastiera.setVisibility(View.INVISIBLE);
             power.setVisibility(View.VISIBLE);
-            tastpower.setText("Tastiera");
+            tastpower.setBackgroundResource(R.drawable.power1);
             tastoswitch=false;
         }else{
             tastiera.setVisibility(View.VISIBLE);
             power.setVisibility(View.INVISIBLE);
-            tastpower.setText("PowerUp");
+            tastpower.setBackgroundResource(R.drawable.power2);
             tastoswitch=true;
         }
     }
@@ -672,7 +672,7 @@ public class LevelGame extends ActionBarActivity {
         if(!tastoswitch){
             tastiera.setVisibility(View.VISIBLE);
             power.setVisibility(View.INVISIBLE);
-            tastpower.setText("PowerUp");
+            tastpower.setBackgroundResource(R.drawable.power2);
             tastoswitch=true;
         }
     }

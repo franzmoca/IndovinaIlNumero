@@ -39,10 +39,10 @@
         android:layout_centerHorizontal="true"
         android:layout_gravity="bottom"
         android:id="@+id/powers"
-        android:visibility="invisible">
+        android:visibility="visible">
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="92dp"
             android:layout_height="71dp"
             android:id="@+id/lanterna"
             android:onClick="PowerUp"
@@ -51,10 +51,11 @@
             android:textAlignment="gravity"
             android:singleLine="false"
             android:gravity="center|bottom"
-            android:textColor="#ffff451a" />
+            android:textColor="#ffff451a"
+            android:layout_gravity="bottom|center_horizontal" />
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="90dp"
             android:layout_height="71dp"
             android:id="@+id/pergamena"
             android:onClick="PowerUp"
@@ -62,27 +63,30 @@
             android:text="500"
             android:gravity="center|bottom"
             android:textAlignment="gravity"
-            android:textColor="#ffff451a" />
+            android:textColor="#ffff451a"
+            android:layout_gravity="bottom|center_horizontal" />
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="95dp"
             android:layout_height="71dp"
             android:id="@+id/manididio"
             android:onClick="PowerUp"
             android:background="@drawable/pray"
             android:text="300"
             android:gravity="center|bottom"
-            android:textColor="#ffff451a" />
+            android:textColor="#ffff451a"
+            android:layout_gravity="bottom|center_horizontal" />
 
         <Button
-            android:layout_width="87dp"
+            android:layout_width="97dp"
             android:layout_height="71dp"
             android:id="@+id/guardone"
             android:onClick="PowerUp"
             android:background="@drawable/eye"
             android:text="800"
             android:gravity="center|bottom"
-            android:textColor="#ffff451a" />
+            android:textColor="#ffff451a"
+            android:layout_gravity="bottom|center_horizontal" />
     </GridLayout>
 
     <RelativeLayout
@@ -225,7 +229,7 @@
             android:layout_alignWithParentIfMissing="false"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:visibility="visible">
+            android:visibility="invisible">
 
             <Button android:text="@string/tasto1"
                 android:layout_width="81dp"
@@ -342,12 +346,12 @@
     </RelativeLayout>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="62dp"
         android:layout_height="wrap_content"
-        android:text="Power Up"
         android:id="@+id/tastpowerbutton"
         android:layout_gravity="center_horizontal"
-        android:onClick="tastiera_powerup" />
+        android:onClick="tastiera_powerup"
+        android:background="@drawable/power2" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
