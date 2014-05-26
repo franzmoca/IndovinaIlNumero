@@ -42,7 +42,7 @@ public class SceltaLivelli extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scelta_livelli);
         getLevel();
-        //setLevelFALSE();
+        setLevelFALSE();
         //setLevel();
     }
 
