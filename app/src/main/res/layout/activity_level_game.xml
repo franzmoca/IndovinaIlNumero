@@ -28,67 +28,6 @@
 
 </RelativeLayout>
 
-    <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="91dp"
-        android:columnCount="5"
-        android:rowCount="1"
-        android:orientation="horizontal"
-        android:layout_alignWithParentIfMissing="false"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="bottom"
-        android:id="@+id/powers"
-        android:visibility="invisible">
-
-        <Button
-            android:layout_width="92dp"
-            android:layout_height="71dp"
-            android:id="@+id/lanterna"
-            android:onClick="PowerUp"
-            android:background="@drawable/lant3"
-            android:text="400"
-            android:textAlignment="gravity"
-            android:singleLine="false"
-            android:gravity="bottom|center"
-            android:textColor="#ffff451a"
-            android:layout_gravity="bottom|center_horizontal" />
-
-        <Button
-            android:layout_width="90dp"
-            android:layout_height="71dp"
-            android:id="@+id/pergamena"
-            android:onClick="PowerUp"
-            android:background="@drawable/perg"
-            android:text="500"
-            android:gravity="center|bottom"
-            android:textAlignment="gravity"
-            android:textColor="#ffff451a"
-            android:layout_gravity="bottom|center_horizontal" />
-
-        <Button
-            android:layout_width="95dp"
-            android:layout_height="71dp"
-            android:id="@+id/manididio"
-            android:onClick="PowerUp"
-            android:background="@drawable/pray"
-            android:text="300"
-            android:gravity="center|bottom"
-            android:textColor="#ffff451a"
-            android:layout_gravity="bottom|center_horizontal" />
-
-        <Button
-            android:layout_width="97dp"
-            android:layout_height="71dp"
-            android:id="@+id/guardone"
-            android:onClick="PowerUp"
-            android:background="@drawable/eye"
-            android:text="800"
-            android:gravity="center|bottom"
-            android:textColor="#ffff451a"
-            android:layout_gravity="bottom|center_horizontal" />
-    </GridLayout>
-
     <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -217,14 +156,15 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:gravity="bottom"
-        android:layout_marginBottom="5dp">
+        android:layout_marginBottom="5dp"
+        android:visibility="visible">
 
         <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:id="@+id/layoutTastiera"
-            android:columnCount="4"
+            android:columnCount="5"
             android:orientation="horizontal"
             android:layout_alignWithParentIfMissing="false"
             android:layout_alignParentTop="true"
@@ -240,7 +180,8 @@
                 android:clickable="true"
                 android:onClick="input"
                 android:tag="1"
-                />
+                android:layout_row="0"
+                android:layout_column="0" />
             <Button android:text="@string/tasto2"
                 android:layout_width="81dp"
                 android:layout_height="36dp"
@@ -249,7 +190,9 @@
                 android:id="@+id/tasto2"
                 android:clickable="true"
                 android:onClick="input"
-                android:tag="2"/>
+                android:tag="2"
+                android:layout_row="0"
+                android:layout_column="2" />
             <Button android:text="@string/tasto3"
                 android:layout_width="81dp"
                 android:layout_height="36dp"
@@ -258,7 +201,9 @@
                 android:id="@+id/tasto3"
                 android:clickable="true"
                 android:onClick="input"
-                android:tag="3"/>
+                android:tag="3"
+                android:layout_row="0"
+                android:layout_column="3" />
             <Button android:text="@string/tasto0"
                 android:layout_width="81dp"
                 android:layout_height="36dp"
@@ -267,7 +212,9 @@
                 android:id="@+id/tasto0"
                 android:clickable="true"
                 android:onClick="input"
-                android:tag="0"/>
+                android:tag="0"
+                android:layout_row="0"
+                android:layout_column="4" />
             <Button android:text="@string/tasto4"
                 android:layout_width="81dp"
                 android:layout_height="36dp"
@@ -277,7 +224,9 @@
                 android:clickable="true"
                 android:onClick="input"
                 android:tag="5"
-                />
+                android:layout_row="1"
+                android:layout_column="0" />
+
             <Button android:text="@string/tasto5"
                 android:layout_width="81dp"
                 android:layout_height="36dp"
@@ -286,7 +235,9 @@
                 android:id="@+id/tasto5"
                 android:clickable="true"
                 android:onClick="input"
-                android:tag="5"/>
+                android:tag="5"
+                android:layout_row="1"
+                android:layout_column="2" />
             <Button android:text="@string/tasto6"
                 android:layout_width="81dp"
                 android:layout_height="36dp"
@@ -295,7 +246,9 @@
                 android:id="@+id/tasto6"
                 android:clickable="true"
                 android:onClick="input"
-                android:tag="6"/>
+                android:tag="6"
+                android:layout_row="1"
+                android:layout_column="3" />
             <Button android:text="@string/tasto00"
                 android:layout_width="81dp"
                 android:layout_height="36dp"
@@ -304,7 +257,9 @@
                 android:id="@+id/tasto00"
                 android:clickable="true"
                 android:onClick="input"
-                android:tag="00"/>
+                android:tag="00"
+                android:layout_row="1"
+                android:layout_column="4" />
             <Button android:text="@string/tasto7"
                 android:layout_width="81dp"
                 android:layout_height="36dp"
@@ -313,7 +268,9 @@
                 android:id="@+id/tasto7"
                 android:clickable="true"
                 android:onClick="input"
-                android:tag="7"/>
+                android:tag="7"
+                android:layout_row="3"
+                android:layout_column="0" />
             <Button android:text="@string/tasto8"
                 android:layout_width="81dp"
                 android:layout_height="36dp"
@@ -322,7 +279,9 @@
                 android:id="@+id/tasto8"
                 android:clickable="true"
                 android:onClick="input"
-                android:tag="8"/>
+                android:tag="8"
+                android:layout_row="3"
+                android:layout_column="2" />
             <Button android:text="@string/tasto9"
                 android:layout_width="81dp"
                 android:layout_height="36dp"
@@ -331,7 +290,9 @@
                 android:id="@+id/tasto9"
                 android:clickable="true"
                 android:onClick="input"
-                android:tag="9"/>
+                android:tag="9"
+                android:layout_row="3"
+                android:layout_column="3" />
             <Button android:text="@string/tastoC"
                 android:layout_width="81dp"
                 android:layout_height="36dp"
@@ -340,7 +301,9 @@
                 android:textColor="#ffffffff"
                 android:id="@+id/tastoC"
                 android:clickable="true"
-                android:onClick="input" />
+                android:onClick="input"
+                android:layout_row="3"
+                android:layout_column="4" />
         </GridLayout>
 
     </RelativeLayout>
@@ -360,5 +323,49 @@
         android:text="Indietro"
         android:id="@+id/indietro"
         android:onClick="Indietro" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pergamena"
+        android:background="@drawable/perg"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginLeft="-50dp"
+        android:onClick="PowerUp"
+        android:focusableInTouchMode="true"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:id="@+id/manididio"
+        android:background="@drawable/pray"
+        android:layout_gravity="bottom|right"
+        android:onClick="PowerUp"
+        android:focusableInTouchMode="true"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/terzoocchio"
+        android:background="@drawable/eye2"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginLeft="55dp"
+        android:onClick="PowerUp"
+        android:focusableInTouchMode="true"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lanterna"
+        android:layout_row="2"
+        android:layout_column="1"
+        android:background="@drawable/lant3"
+        android:layout_gravity="bottom"
+        android:onClick="PowerUp"
+        android:focusableInTouchMode="true"
+        android:visibility="invisible" />
 
 </FrameLayout>
