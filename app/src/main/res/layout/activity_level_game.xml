@@ -39,7 +39,7 @@
         android:layout_centerHorizontal="true"
         android:layout_gravity="bottom"
         android:id="@+id/powers"
-        android:visibility="visible">
+        android:visibility="invisible">
 
         <Button
             android:layout_width="92dp"
@@ -229,7 +229,7 @@
             android:layout_alignWithParentIfMissing="false"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:visibility="invisible">
+            android:visibility="visible">
 
             <Button android:text="@string/tasto1"
                 android:layout_width="81dp"

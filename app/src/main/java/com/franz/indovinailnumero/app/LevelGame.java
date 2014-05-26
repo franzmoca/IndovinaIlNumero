@@ -442,7 +442,7 @@ public class LevelGame extends ActionBarActivity {
             TextView tentativi = (TextView) findViewById(R.id.textView2);
             i++;
             tentativi.setText(i + " tentativi");
-            Toast toast = Toast.makeText(this, "Hai usato 'Lanterna'", Toast.LENGTH_LONG);
+            Toast toast = Toast.makeText(this, "Hai ricevuto un tentativo extra", Toast.LENGTH_LONG);
             toast.show();
             monousoLanterna=false;
 
@@ -481,7 +481,7 @@ public class LevelGame extends ActionBarActivity {
     private void ManiDiDio(){
         if(monousoManiDiDIo==true) {
             mani = true;
-            Toast toast = Toast.makeText(this, "Stai usando 'Mani Di Dio'", Toast.LENGTH_LONG);
+            Toast toast = Toast.makeText(this, "Inserisci il numero da 'triplicare'", Toast.LENGTH_LONG);
             toast.show();
             monousoManiDiDIo=false;
         }else {
