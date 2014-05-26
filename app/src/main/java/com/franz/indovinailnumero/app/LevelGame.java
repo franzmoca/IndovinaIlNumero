@@ -454,10 +454,16 @@ public class LevelGame extends ActionBarActivity {
 
     private void Pergamena(){
         if(monousoPergamena==true) {
-            int numero_cifre = (int) (Math.floor(Math.log10(guess)) + 1);
+            int newguess;
+            if(guess>99) {
+                newguess = Integer.parseInt(("" + guess).substring(1));
+            }else{
+                newguess=guess;
+            }
+            int numero_cifre = (int) (Math.floor(Math.log10(newguess)) + 1);
             Random random = new Random();
             int index = random.nextInt(numero_cifre);
-            String hint = ("" + guess).substring(index, index + 1);
+            String hint = ("" + newguess).substring(index, index + 1);
             Toast toast = Toast.makeText(this, "Una cifra del numero è " + hint, Toast.LENGTH_LONG);
             toast.show();
             Log.d("Pergamena: ", hint);

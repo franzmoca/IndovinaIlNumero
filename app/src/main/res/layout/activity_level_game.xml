@@ -50,7 +50,7 @@
             android:text="400"
             android:textAlignment="gravity"
             android:singleLine="false"
-            android:gravity="center|bottom"
+            android:gravity="bottom|center"
             android:textColor="#ffff451a"
             android:layout_gravity="bottom|center_horizontal" />
 
@@ -357,7 +357,7 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Indetro"
+        android:text="Indietro"
         android:id="@+id/indietro"
         android:onClick="Indietro" />
 
