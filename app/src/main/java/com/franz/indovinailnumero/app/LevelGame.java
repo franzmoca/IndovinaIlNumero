@@ -89,7 +89,7 @@ public class LevelGame extends ActionBarActivity {
 
         //Prendo il punteggio salvato
         getPoint();
-        //setPoint(100);
+        //setPoint(200);
         Intent intent = getIntent();
 
         String d =intent.getStringExtra(SceltaLivelli.FINE);
@@ -524,7 +524,24 @@ public class LevelGame extends ActionBarActivity {
     aiuto_guardone=false;
    }
 
+   //cambio immagini rispettando il padding precedente
+    public static void setViewBackgroundWithoutResettingPadding(final View v, final int backgroundResId) {
+        final int paddingBottom = v.getPaddingBottom(), paddingLeft = v.getPaddingLeft();
+        final int paddingRight = v.getPaddingRight(), paddingTop = v.getPaddingTop();
+        v.setBackgroundResource(backgroundResId);
+        v.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
+    }
+
+
+
     public void PowerUp(View v) {
+        Button tastpower=(Button)findViewById(R.id.tastpowerbutton);
+        GridLayout tastiera=(GridLayout)findViewById(R.id.layoutTastiera);
+        ImageView pergamena=(ImageView)findViewById(R.id.pergamena);
+        ImageView lanterna=(ImageView)findViewById(R.id.lanterna);
+        ImageView terzoocchio=(ImageView)findViewById(R.id.terzoocchio);
+        ImageView manididio=(ImageView)findViewById(R.id.manididio);
+
         if (!finito&&powerup) {
             powerup=false;
             switch (v.getId()) {
@@ -533,6 +550,10 @@ public class LevelGame extends ActionBarActivity {
                         if (punteggio >= 300) {
                             setPoint((punteggio - 300));
                             Lanterna();
+
+
+                            setViewBackgroundWithoutResettingPadding(v,R.drawable.lanternano);
+
                         } else {
                             Toast toast = Toast.makeText(this, "Non hai abbastanza soldi", Toast.LENGTH_SHORT);
                             powerup=true;
@@ -551,6 +572,7 @@ public class LevelGame extends ActionBarActivity {
                         if (punteggio >= 300) {
                             setPoint((punteggio - 300));
                             Pergamena();
+                            setViewBackgroundWithoutResettingPadding(v,R.drawable.pergamenano);
                         } else {
                             Toast toast = Toast.makeText(this, "Non hai abbastanza soldi", Toast.LENGTH_SHORT);
                             powerup=true;
@@ -569,6 +591,7 @@ public class LevelGame extends ActionBarActivity {
                         if (punteggio >= 200) {
                             setPoint((punteggio - 200));
                             ManiDiDio();
+                            setViewBackgroundWithoutResettingPadding(v,R.drawable.manino);
                         } else {
                             Toast toast = Toast.makeText(this, "Non hai abbastanza soldi", Toast.LENGTH_SHORT);
                             powerup=true;
@@ -589,6 +612,7 @@ public class LevelGame extends ActionBarActivity {
                         if (punteggio >= 700) {
                             setPoint((punteggio - 700));
                             AiutoGuardone();
+                            setViewBackgroundWithoutResettingPadding(v,R.drawable.occhiono);
                         } else {
                             Toast toast = Toast.makeText(this, "Non hai abbastanza soldi", Toast.LENGTH_SHORT);
                             powerup=true;
@@ -607,15 +631,6 @@ public class LevelGame extends ActionBarActivity {
             toast.show();
         }
         if(!powerup){ //Riprendo la tastiera se ho usaot / non posso usare un powerup in questo turno
-
-            Button tastpower=(Button)findViewById(R.id.tastpowerbutton);
-            GridLayout tastiera=(GridLayout)findViewById(R.id.layoutTastiera);
-            ImageView pergamena=(ImageView)findViewById(R.id.pergamena);
-            ImageView lanterna=(ImageView)findViewById(R.id.lanterna);
-            ImageView terzoocchio=(ImageView)findViewById(R.id.terzoocchio);
-            ImageView manididio=(ImageView)findViewById(R.id.manididio);
-
-
             if(!tastoswitch){
                 tastiera.setVisibility(View.VISIBLE);
                 pergamena.setVisibility(View.INVISIBLE);
