@@ -72,4 +72,9 @@ public class NewMain extends ActionBarActivity {
         //mpAudio.pause();
     }
 
+    public void Impostazioni(View view){
+        Intent intent=new Intent(NewMain.this, Impostazioni.class);
+        NewMain.this.startActivity(intent);
+    }
+
 }

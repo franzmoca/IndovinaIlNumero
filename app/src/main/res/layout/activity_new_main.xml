@@ -62,7 +62,8 @@
             android:layout_marginLeft="10dp"
             android:clickable="true"
             android:focusable="true"
-            android:layout_gravity="center_vertical" />
+            android:layout_gravity="center_vertical"
+            android:onClick="Impostazioni" />
 
         <ImageView
             android:layout_width="wrap_content"
