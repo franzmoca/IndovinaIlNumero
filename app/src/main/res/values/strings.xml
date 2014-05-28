@@ -37,7 +37,7 @@
     <string name="EstremoSuperiore">Medium Text</string>
     <string name="trattin0">Small Text</string>
     <string name="trattino">-</string>
-    <string name="punteggio" />
+    <string name="punteggio"></string>
     <string name="bottonepower">New Button</string>
     <string name="livello2">liv2</string>
     <string name="livello3">liv3</string>
@@ -46,6 +46,6 @@
     <string name="livello6">liv6</string>
     <string name="livello7">liv7</string>
     <string name="livello8">liv8</string>
-
+    <string name="title_activity_impostazioni">Impostazioni</string>
 
 </resources>

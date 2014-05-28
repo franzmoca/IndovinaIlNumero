@@ -5,85 +5,88 @@
     android:layout_alignParentLeft="true"
     android:layout_alignParentStart="true"
     android:background="@drawable/prova2">
-<RelativeLayout
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.franz.indovinailnumero.app.NewMain">
+        <ImageView
+         android:layout_width="match_parent"
+         android:layout_height="263dp"
+         android:id="@+id/imageView"
+         android:src="@drawable/ohm"
+         android:layout_centerHorizontal="true"
+         android:layout_marginBottom="234dp"
+         android:layout_alignParentBottom="false"
+         android:layout_alignParentTop="true"
+         />
 
-
-    <RelativeLayout
-        android:layout_width="300dp"
-        android:layout_height="fill_parent"
-        android:layout_gravity="center"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true">
-
-        <Button
-            android:layout_width="fill_parent"
+        <ImageView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/button"
-            android:onClick="startFreeGame"
-            android:background="@drawable/ff"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginRight="112dp"
+            android:id="@+id/imageView2"
+            android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginLeft="118dp"
-            android:layout_above="@+id/BottoneLivelli" />
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/BottoneLivelli"
+            android:src="@drawable/tutorialx"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginTop="100dp" />
+
+        <ImageView
+            android:layout_width="77dp"
+            android:layout_height="90dp"
+            android:id="@+id/imageView3"
+            android:src="@drawable/giocolivellix"
+            android:layout_gravity="center"
             android:onClick="GoToLivelli"
-            android:background="@drawable/livelli"
-            android:layout_alignRight="@+id/button"
-            android:layout_alignEnd="@+id/button"
-            android:layout_alignLeft="@+id/button"
-            android:layout_alignStart="@+id/button"
-            android:layout_above="@+id/button4" />
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginTop="100dp" />
 
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/button4"
-            android:background="@drawable/credits"
-            android:layout_alignRight="@+id/BottoneLivelli"
-            android:layout_alignEnd="@+id/BottoneLivelli"
-            android:layout_alignLeft="@+id/BottoneLivelli"
-            android:layout_alignStart="@+id/BottoneLivelli"
-            android:layout_above="@+id/button5" />
+        <ImageView
+            android:layout_width="81dp"
+            android:layout_height="84dp"
+            android:id="@+id/imageView4"
+            android:background="@drawable/giocoliberox"
+            android:layout_gravity="center_vertical|right"
+            android:layout_marginRight="10dp"
+            android:onClick="startFreeGame"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginTop="100dp" />
 
-        <Button
-            android:layout_width="fill_parent"
+        <ImageView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/button5"
+            android:id="@+id/imageView5"
+            android:background="@drawable/impostazionix"
+            android:layout_marginTop="200dp"
+            android:layout_marginLeft="10dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_gravity="center_vertical"
+            android:onClick="Impostazioni" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="85dp"
+            android:id="@+id/imageView6"
+            android:background="@drawable/creditsx"
+            android:layout_marginTop="200dp"
+            android:layout_gravity="center_vertical|right"
+            android:layout_marginRight="10dp"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView7"
+            android:background="@drawable/exitx"
+            android:layout_gravity="center"
             android:onClick="Esci"
-            android:background="@drawable/esci"
-            android:layout_alignRight="@+id/BottoneLivelli"
-            android:layout_alignEnd="@+id/BottoneLivelli"
-            android:layout_alignLeft="@+id/BottoneLivelli"
-            android:layout_alignStart="@+id/BottoneLivelli"
-            android:layout_alignParentBottom="true" />
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginTop="200dp" />
 
-
-    </RelativeLayout>
-
-</RelativeLayout>
-
-    <ImageView
-     android:layout_width="match_parent"
-     android:layout_height="313dp"
-     android:id="@+id/imageView"
-     android:src="@drawable/tizio3"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="234dp"
-        android:layout_alignParentBottom="false"
-        android:layout_alignParentTop="true" />
 
 </FrameLayout>
+

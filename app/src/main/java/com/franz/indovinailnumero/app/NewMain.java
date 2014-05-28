@@ -1,6 +1,7 @@
 package com.franz.indovinailnumero.app;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.media.MediaPlayer;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ public class NewMain extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_main);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT); //Forza la portrait mode
 
     }
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -68,6 +70,11 @@ public class NewMain extends ActionBarActivity {
     protected void onPause(){
         super.onPause();
         //mpAudio.pause();
+    }
+
+    public void Impostazioni(View view){
+        Intent intent=new Intent(NewMain.this, Impostazioni.class);
+        NewMain.this.startActivity(intent);
     }
 
 }
