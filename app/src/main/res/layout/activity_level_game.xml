@@ -51,7 +51,7 @@
         android:layout_height="wrap_content"
         android:text="@string/inserisci"
         android:gravity="center"
-        android:textColor="#ffffff"
+        android:textColor="#483c32"
         android:textSize="25dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
@@ -128,7 +128,6 @@
         android:text="@string/numero"
         android:id="@+id/textView5"
         android:gravity="center"
-        android:textColor="#ffffff"
         android:layout_alignTop="@+id/textView2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -307,6 +306,7 @@
                 grid:layout_row="3"
                 grid:layout_column="4" />
         </android.support.v7.widget.GridLayout>
+
 
     </RelativeLayout>
 
