@@ -1,5 +1,8 @@
 package com.franz.indovinailnumero.app;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -9,10 +12,13 @@ import android.view.View;
 
 public class Impostazioni extends ActionBarActivity {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_impostazioni);
+
     }
 
 
@@ -37,6 +43,14 @@ public class Impostazioni extends ActionBarActivity {
 
 
     public void Reset(View view){
+       // setPoint(200);
+       // setLevelFALSE();
 
     }
+
+
+
+
+
+
 }
