@@ -1,23 +1,20 @@
 package com.franz.indovinailnumero.app;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.GridLayout;
-import android.widget.Toast;
 
 
-public class SceltaLivelli extends ActionBarActivity {
+
+public class SceltaLivelli extends Activity {
     public final static String FINE = "com.franz.guessthenumber.app.inizio.livello";
     public final static String LIVELLO = "com.franz.guessthenumber.app.inizio.livello.numero";
 
@@ -194,7 +191,7 @@ public class SceltaLivelli extends ActionBarActivity {
         }
     }
     public void getLevel(){
-        SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences sharedPref = getSharedPreferences("livelli",MODE_PRIVATE);
         livello2 = sharedPref.getBoolean(getString(R.string.livello2), false);
         livello3 = sharedPref.getBoolean(getString(R.string.livello3), false);
         livello4 = sharedPref.getBoolean(getString(R.string.livello4), false);
@@ -203,16 +200,11 @@ public class SceltaLivelli extends ActionBarActivity {
         livello7 = sharedPref.getBoolean(getString(R.string.livello7), false);
     }
     public void setLevel(int level){
-        SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences sharedPref = getSharedPreferences("livelli",MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
         switch (level) {
             case 1:
                 editor.putBoolean(getString(R.string.livello2), true);
-/*                editor.putBoolean(getString(R.string.livello3), false);
-                editor.putBoolean(getString(R.string.livello4), false);
-                editor.putBoolean(getString(R.string.livello5), false);
-                editor.putBoolean(getString(R.string.livello6), false);
-                editor.putBoolean(getString(R.string.livello7), false);*/
                 editor.commit();
                 break;
             case 2:
@@ -243,16 +235,9 @@ public class SceltaLivelli extends ActionBarActivity {
         }
         getLevel();
     }
-    public void setLevel(){
-        SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putBoolean(getString(R.string.livello2), true);
-        editor.commit();
-        getLevel();
-    }
 
-        private void setLevelFALSE()    {
-        SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+        public void setLevelFALSE()    {
+        SharedPreferences sharedPref = getSharedPreferences("livelli",MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putBoolean(getString(R.string.livello2), false);
         editor.putBoolean(getString(R.string.livello3), false);

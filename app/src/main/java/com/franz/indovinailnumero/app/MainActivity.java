@@ -1,5 +1,6 @@
 package com.franz.indovinailnumero.app;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -17,7 +18,7 @@ import android.widget.TextView;
 
 import static java.lang.Integer.parseInt;
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends Activity {
 
     public final static String FINE = "com.franz.guessthenumber.app.inizio";
    // public final static String INIZIO = "com.franz.guessthenumber.app.fine";
