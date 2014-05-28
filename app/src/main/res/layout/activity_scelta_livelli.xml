@@ -5,9 +5,15 @@
     android:layout_height="fill_parent"
     android:layout_alignParentTop="true"
     android:layout_alignParentLeft="true"
-    android:layout_alignParentStart="true"
-    android:background="@drawable/tizio">
+    android:layout_alignParentStart="true">
 
+
+    <ImageView
+        android:layout_width="415dp"
+        android:layout_height="match_parent"
+        android:id="@+id/imageView"
+        android:background="@drawable/tizio"
+        android:layout_gravity="center" />
 
     <LinearLayout
         android:orientation="vertical"
@@ -17,53 +23,79 @@
         android:weightSum="10">
 
         <ImageButton
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:id="@+id/livello7"
-            android:layout_weight="3.45"
-            android:onClick="Livello" />
+            android:onClick="Livello"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="8dp"
+            android:background="@android:color/transparent" />
 
         <ImageButton
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:id="@+id/livello6"
-            android:layout_weight="3.45"
-            android:onClick="Livello" />
+            android:onClick="Livello"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="14dp"
+            android:background="@android:color/transparent" />
 
         <ImageButton
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="60dp"
             android:id="@+id/livello5"
-            android:layout_weight="3.45"
-            android:onClick="Livello" />
+            android:layout_weight="0.29"
+            android:onClick="Livello"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="30dp"
+            android:background="@android:color/transparent" />
 
         <ImageButton
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="60dp"
             android:id="@+id/livello4"
-            android:layout_weight="3.45"
-            android:onClick="Livello" />
+            android:layout_weight="1.18"
+            android:onClick="Livello"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/transparent" />
 
         <ImageButton
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="60dp"
             android:id="@+id/livello3"
-            android:layout_weight="3.45"
-            android:onClick="Livello" />
+            android:layout_weight="0.84"
+            android:onClick="Livello"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="12dp"
+            android:background="@android:color/transparent" />
 
         <ImageButton
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="58dp"
             android:id="@+id/livello2"
-            android:layout_weight="3.45"
-            android:onClick="Livello" />
+            android:onClick="Livello"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="35dp"
+            android:layout_weight="0.36"
+            android:background="@android:color/transparent" />
 
         <ImageButton
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="60dp"
             android:id="@+id/livello1"
-            android:layout_weight="3.45"
-            android:onClick="Livello" />
+            android:layout_weight="0.07"
+            android:onClick="Livello"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="20dp"
+            android:background="@android:color/transparent" />
 
     </LinearLayout>
+
 </FrameLayout>
