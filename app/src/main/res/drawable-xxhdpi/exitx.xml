@@ -2,7 +2,7 @@
 
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:drawable="@drawable/esci"
+    <item android:drawable="@drawable/escipressed"
         android:state_pressed="true" />
     <item android:drawable="@drawable/escipressed"
         android:state_focused="true" />
