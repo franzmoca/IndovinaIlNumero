@@ -1,5 +1,6 @@
 package com.franz.indovinailnumero.app;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -26,7 +27,7 @@ import android.view.*;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.GridLayout;
+import android.support.v7.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -40,7 +41,7 @@ import java.util.Random;
 import static java.lang.Integer.parseInt;
 
 
-public class LevelGame extends ActionBarActivity {
+public class LevelGame extends Activity {
     CustomView cv;
     public int fine,guess;
     public final  int inizio=1;
@@ -131,6 +132,9 @@ public class LevelGame extends ActionBarActivity {
         edit.setKeyListener(null);
 
         //mpAudio = MediaPlayer.create(this,R.raw.healing);
+
+
+
 
     }
     @Override
@@ -536,7 +540,7 @@ public class LevelGame extends ActionBarActivity {
 
     public void PowerUp(View v) {
         Button tastpower=(Button)findViewById(R.id.tastpowerbutton);
-        GridLayout tastiera=(GridLayout)findViewById(R.id.layoutTastiera);
+        android.support.v7.widget.GridLayout tastiera=(android.support.v7.widget.GridLayout)findViewById(R.id.layoutTastiera);
         ImageView pergamena=(ImageView)findViewById(R.id.pergamena);
         ImageView lanterna=(ImageView)findViewById(R.id.lanterna);
         ImageView terzoocchio=(ImageView)findViewById(R.id.terzoocchio);
@@ -643,12 +647,12 @@ public class LevelGame extends ActionBarActivity {
         }
     }
     public void getPoint(){
-        SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences sharedPref = getSharedPreferences("punteggio",MODE_PRIVATE);
         punteggio = sharedPref.getInt(getString(R.string.punteggio), 1000);
         points.setText(""+punteggio);
     }
     public void setPoint(int newpoint){
-        SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences sharedPref = getSharedPreferences("punteggio",MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putInt(getString(R.string.punteggio), newpoint);
         editor.commit();
@@ -669,7 +673,7 @@ public class LevelGame extends ActionBarActivity {
 
     public void tastiera_powerup(View view){
         Button tastpower=(Button)findViewById(R.id.tastpowerbutton);
-        GridLayout tastiera=(GridLayout)findViewById(R.id.layoutTastiera);
+        GridLayout tastiera= (GridLayout)findViewById(R.id.layoutTastiera);
         ImageView pergamena=(ImageView)findViewById(R.id.pergamena);
         ImageView lanterna=(ImageView)findViewById(R.id.lanterna);
         ImageView terzoocchio=(ImageView)findViewById(R.id.terzoocchio);
@@ -726,6 +730,7 @@ public class LevelGame extends ActionBarActivity {
 
     public void Indietro(View view){
         mpAudio.pause();
+        mpAudio.seekTo(0);
         setResult(10);
         finish();
     }

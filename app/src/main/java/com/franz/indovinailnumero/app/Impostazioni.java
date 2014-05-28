@@ -1,5 +1,7 @@
 package com.franz.indovinailnumero.app;
 
+import android.app.Activity;
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -7,7 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 
-public class Impostazioni extends ActionBarActivity {
+public class Impostazioni extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +36,27 @@ public class Impostazioni extends ActionBarActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
+    public void setLevelFALSE()    {
+        SharedPreferences sharedPref = getSharedPreferences("livelli",MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putBoolean(getString(R.string.livello2), false);
+        editor.putBoolean(getString(R.string.livello3), false);
+        editor.putBoolean(getString(R.string.livello4), false);
+        editor.putBoolean(getString(R.string.livello5), false);
+        editor.putBoolean(getString(R.string.livello6), false);
+        editor.putBoolean(getString(R.string.livello7), false);
+        editor.commit();
+    }
+    public void setPointFALSE(){
+        SharedPreferences sharedPref = getSharedPreferences("punteggio",MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putInt(getString(R.string.punteggio), 100);
+        editor.commit();
+    }
 
     public void Reset(View view){
+        setLevelFALSE();
+        setPointFALSE();
 
     }
 }

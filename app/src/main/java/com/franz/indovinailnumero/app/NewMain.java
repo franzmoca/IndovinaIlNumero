@@ -1,5 +1,6 @@
 package com.franz.indovinailnumero.app;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.media.MediaPlayer;
@@ -11,7 +12,7 @@ import android.view.View;
 //import android.os.Bundle;
 
 
-public class NewMain extends ActionBarActivity {
+public class NewMain extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

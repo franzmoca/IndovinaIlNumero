@@ -7,7 +7,7 @@
     android:background="@drawable/prova2">
         <ImageView
          android:layout_width="match_parent"
-         android:layout_height="263dp"
+         android:layout_height="219dp"
          android:id="@+id/imageView"
          android:src="@drawable/ohm"
          android:layout_centerHorizontal="true"
@@ -16,9 +16,20 @@
          android:layout_alignParentTop="true"
          />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Guess The Number"
+        android:id="@+id/textView"
+        android:layout_gravity="center"
+        android:layout_marginTop="-20dp"
+        android:gravity="center"
+        android:textSize="38dp"
+        />
+
+    <ImageView
+            android:layout_width="79dp"
+            android:layout_height="78dp"
             android:id="@+id/imageView2"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
@@ -28,22 +39,22 @@
             android:layout_marginLeft="10dp"
             android:clickable="true"
             android:focusable="true"
-            android:layout_marginTop="100dp" />
+            android:layout_marginTop="70dp" />
 
-        <ImageView
-            android:layout_width="77dp"
-            android:layout_height="90dp"
+    <ImageView
+            android:layout_width="85dp"
+            android:layout_height="88dp"
             android:id="@+id/imageView3"
             android:src="@drawable/giocolivellix"
             android:layout_gravity="center"
             android:onClick="GoToLivelli"
             android:clickable="true"
             android:focusable="true"
-            android:layout_marginTop="100dp" />
+            android:layout_marginTop="70dp" />
 
         <ImageView
-            android:layout_width="81dp"
-            android:layout_height="84dp"
+            android:layout_width="79dp"
+            android:layout_height="78dp"
             android:id="@+id/imageView4"
             android:background="@drawable/giocoliberox"
             android:layout_gravity="center_vertical|right"
@@ -51,14 +62,14 @@
             android:onClick="startFreeGame"
             android:clickable="true"
             android:focusable="true"
-            android:layout_marginTop="100dp" />
+            android:layout_marginTop="70dp" />
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="79dp"
+            android:layout_height="78dp"
             android:id="@+id/imageView5"
             android:background="@drawable/impostazionix"
-            android:layout_marginTop="200dp"
+            android:layout_marginTop="190dp"
             android:layout_marginLeft="10dp"
             android:clickable="true"
             android:focusable="true"
@@ -66,26 +77,26 @@
             android:onClick="Impostazioni" />
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="85dp"
+            android:layout_width="79dp"
+            android:layout_height="78dp"
             android:id="@+id/imageView6"
             android:background="@drawable/creditsx"
-            android:layout_marginTop="200dp"
+            android:layout_marginTop="190dp"
             android:layout_gravity="center_vertical|right"
             android:layout_marginRight="10dp"
             android:clickable="true"
             android:focusable="true" />
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="79dp"
+            android:layout_height="78dp"
             android:id="@+id/imageView7"
             android:background="@drawable/exitx"
             android:layout_gravity="center"
             android:onClick="Esci"
             android:clickable="true"
             android:focusable="true"
-            android:layout_marginTop="200dp" />
+            android:layout_marginTop="190dp" />
 
 
 </FrameLayout>

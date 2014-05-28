@@ -76,7 +76,7 @@ public class CustomView extends View {
         //Roba magica, non toccare! //Modificare c per ogni evenienza
         mRadius = (float) (c * (w / 2.7));
         anello = (float) (c * (mRadius / 2 - w / 10.8));
-        //Log.d("On Draw","mRadius: "+mRadius+" anello: "+anello);
+        Log.d("On Draw","mRadius: "+mRadius+" anello: "+anello);
         // Log.d("On Draw","iGreen: "+iGreen+" eGreen: "+eGreen+ " iRedLow: "+iRedLow+" eRedLow: "+eRedLow);
         paint1.setStrokeWidth(anello); //Larghezza tratto
         paint2.setStrokeWidth(anello+15);
