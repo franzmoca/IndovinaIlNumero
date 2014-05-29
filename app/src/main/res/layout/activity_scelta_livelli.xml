@@ -82,7 +82,7 @@
             android:onClick="Livello"
             android:layout_gravity="center_horizontal"
             android:layout_marginLeft="5dp"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="20dp"
             android:layout_weight="0.36"
             android:background="@android:color/transparent" />
 

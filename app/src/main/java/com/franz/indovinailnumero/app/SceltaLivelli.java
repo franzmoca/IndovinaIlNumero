@@ -192,6 +192,7 @@ public class SceltaLivelli extends Activity {
         }
     }
     public void getLevel(){
+        ImageView livellibackground= (ImageView) findViewById(R.id.backgroundlivelli);
         SharedPreferences sharedPref = getSharedPreferences("livelli",MODE_PRIVATE);
         livello2 = sharedPref.getBoolean(getString(R.string.livello2), false);
         livello3 = sharedPref.getBoolean(getString(R.string.livello3), false);
@@ -199,46 +200,51 @@ public class SceltaLivelli extends Activity {
         livello5 = sharedPref.getBoolean(getString(R.string.livello5), false);
         livello6 = sharedPref.getBoolean(getString(R.string.livello6), false);
         livello7 = sharedPref.getBoolean(getString(R.string.livello7), false);
+
+        if(livello2)
+            setViewBackgroundWithoutResettingPadding(livellibackground,R.drawable.livello2);
+        if(livello3)
+            setViewBackgroundWithoutResettingPadding(livellibackground,R.drawable.livello3);
+        if(livello4)
+            setViewBackgroundWithoutResettingPadding(livellibackground,R.drawable.livello4);
+        if(livello5)
+            setViewBackgroundWithoutResettingPadding(livellibackground,R.drawable.livello5);
+        if(livello6)
+            setViewBackgroundWithoutResettingPadding(livellibackground,R.drawable.livello6);
+        if(livello7)
+            setViewBackgroundWithoutResettingPadding(livellibackground,R.drawable.livello7);
+
     }
     public void setLevel(int level){
         SharedPreferences sharedPref = getSharedPreferences("livelli",MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
-        ImageView livellibackground= (ImageView) findViewById(R.id.backgroundlivelli);
         switch (level) {
             case 1:
                 editor.putBoolean(getString(R.string.livello2), true);
-                setViewBackgroundWithoutResettingPadding(livellibackground,R.drawable.livello2);
                 editor.commit();
                 break;
             case 2:
                 editor.putBoolean(getString(R.string.livello3), true);
-                setViewBackgroundWithoutResettingPadding(livellibackground,R.drawable.livello3);
                 editor.commit();
                 break;
             case 3:
                 editor.putBoolean(getString(R.string.livello4), true);
-                setViewBackgroundWithoutResettingPadding(livellibackground,R.drawable.livello4);
                 editor.commit();
                 break;
             case 4:
                 editor.putBoolean(getString(R.string.livello5), true);
-                setViewBackgroundWithoutResettingPadding(livellibackground,R.drawable.livello5);
                 editor.commit();
                 break;
             case 5:
                 editor.putBoolean(getString(R.string.livello6), true);
-                setViewBackgroundWithoutResettingPadding(livellibackground,R.drawable.livello6);
                 editor.commit();
                 break;
             case 6:
                 editor.putBoolean(getString(R.string.livello7), true);
-                setViewBackgroundWithoutResettingPadding(livellibackground,R.drawable.livello7);
-
                 editor.commit();
                 break;
             case 7:
                 editor.putBoolean(getString(R.string.livello8), true);
-               // setViewBackgroundWithoutResettingPadding(livellibackground,R.drawable.livello7);
 
                 editor.commit();
                 break;
