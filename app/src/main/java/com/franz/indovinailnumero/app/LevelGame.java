@@ -391,9 +391,9 @@ public class LevelGame extends Activity {
             numerodaind.setVisibility(View.VISIBLE);
             numerodaind.setText("Il numero da indovinare era\n" + this.guess );
             punteggiotesto.setVisibility(View.VISIBLE);
-            punteggiotesto.setText("Hai ottenuto "+gain(true)+" $");
+            punteggiotesto.setText("Hai ottenuto "+gain(false)+" $");
             estremi.setVisibility(View.INVISIBLE);
-            setPoint(punteggio + gain(true));
+            setPoint(punteggio + gain(false));
 
         }
     }
@@ -499,7 +499,7 @@ public class LevelGame extends Activity {
             aiuto_guardone = true;
             Toast toast = Toast.makeText(this, "Inserisci un numero per usare il Terzo Occhio", Toast.LENGTH_LONG);
             toast.show();
-            i++;
+         //   i++;
             monousoGuardone=false;
         }else {
             Toast toast = Toast.makeText(this, "'Terzo Occhio' è già stata usato", Toast.LENGTH_LONG);
@@ -514,12 +514,12 @@ public class LevelGame extends Activity {
     } else if (this.guess > r) {
         distguess = (this.guess - r);
     }
-
+//Da fare: Spostare il toast
     if (dist <= distguess){
-        Toast toast = Toast.makeText(this, "Il numero inserito è LONTANO", Toast.LENGTH_LONG);
+        Toast toast = Toast.makeText(this, r+" è LONTANO", Toast.LENGTH_LONG);
         toast.show();
     } else if(dist>distguess){
-            Toast toast = Toast.makeText(this, "Il numero inserito è VICINO", Toast.LENGTH_LONG);
+            Toast toast = Toast.makeText(this, r+" è VICINO", Toast.LENGTH_LONG);
             toast.show();
 
     }
