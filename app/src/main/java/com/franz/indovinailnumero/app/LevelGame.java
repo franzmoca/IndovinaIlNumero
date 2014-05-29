@@ -164,36 +164,13 @@ public class LevelGame extends Activity {
     }
 
     private void ricomincia(){
-        // 1. Instantiate an AlertDialog.Builder with its constructor
-        AlertDialog.Builder builder = new AlertDialog.Builder(LevelGame.this);
-        // 2. Chain together various setter methods to set the dialog characteristics
-        builder.setMessage("Vuoi rigiocare?")
-                .setTitle("Partita Conclusa");
-        builder.setPositiveButton("Si",
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                       /* mp.stop(applausi);
-                        mp.stop(fail);
 
-                        mp.unload(error);
-                        mp.unload(fail);
-                        mp.unload(applausi);
-
-                        mp.release();*/
                         if(won){
                             setResult(livello);
                         }else {
                             setResult(10);
                         }
                         finish();
-                    }
-                }
-        );
-        builder.setNegativeButton("No",
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
 
                         if(finito) {
                            /* mp.stop(applausi);
@@ -211,13 +188,9 @@ public class LevelGame extends Activity {
                             }
                             finish();
                         }
-                        dialogInterface.cancel();
-                    }
-                }
-        );
-        // 3. Get the AlertDialog from create()
-        AlertDialog dialog = builder.create();
-        dialog.show();
+
+
+
     }
 
     public void ricomincia(View view) {
@@ -366,14 +339,23 @@ public class LevelGame extends Activity {
     public void endGame(boolean win) { //True = vittoria,False = sconfitta
         finito = true;
         TextView tentativi = (TextView) findViewById(R.id.textView2);
-        TextView vinto = (TextView) findViewById(R.id.textView4);
-        TextView numero = (TextView) findViewById(R.id.textView5);
         EditText edit = (EditText) findViewById(R.id.editText3);
         TextView indovina = (TextView) findViewById(R.id.textView);
         Button hai_vinto = (Button) findViewById(R.id.button);
         ViewGroup layout_edit = (ViewGroup) edit.getParent();
         ViewGroup layout_bottone = (ViewGroup) hai_vinto.getParent();
         TextView estremi=(TextView)findViewById(R.id.estremi);
+
+
+
+        ImageView sfondofine=(ImageView)findViewById(R.id.sfondofine);
+        TextView numerodaind=(TextView)findViewById(R.id.textView4);
+        TextView punteggiotesto=(TextView)findViewById(R.id.punteggio);
+        TextView testovintoperso=(TextView)findViewById(R.id.textView3);
+        Button vaiindietro=(Button)findViewById(R.id.vaiindietro);
+        Button riprova=(Button)findViewById(R.id.riprova);
+        Button continua=(Button)findViewById(R.id.continua);
+
 
         tentativi.setText("");
         indovina.setText("");
@@ -383,19 +365,35 @@ public class LevelGame extends Activity {
         if (layout_bottone != null) {
             layout_bottone.removeView(hai_vinto);
         }
-        vinto.setVisibility(View.VISIBLE);
-        vinto.setText("Hai\n" + (win ? "vinto" : "perso"));
+        //vinto.setVisibility(View.VISIBLE);
+        testovintoperso.setText("Hai\n" + (win ? "Vinto!!!" : "Perso!!!"));
 
         //mp.play(win ? applausi : fail);
         if (win) {
+            vaiindietro.setVisibility(View.VISIBLE);
+            riprova.setVisibility(View.VISIBLE);
+            continua.setVisibility(View.VISIBLE);
+            testovintoperso.setVisibility(View.VISIBLE);
+            sfondofine.setVisibility(View.VISIBLE);
+            numerodaind.setVisibility(View.VISIBLE);
+            numerodaind.setText("Il numero da indovinare era" + this.guess);
+            punteggiotesto.setVisibility(View.VISIBLE);
+            punteggiotesto.setText("Hai ottenuto "+gain(true)+" $");
             estremi.setVisibility(View.INVISIBLE);
-            numero.setText("Il tuo punteggio è: " + gain(true));
             setPoint(punteggio + gain(true));
             won=true;
         } else {
+            vaiindietro.setVisibility(View.VISIBLE);
+            riprova.setVisibility(View.VISIBLE);
+            continua.setVisibility(View.VISIBLE);
+            testovintoperso.setVisibility(View.VISIBLE);
+            sfondofine.setVisibility(View.VISIBLE);
+            numerodaind.setVisibility(View.VISIBLE);
+            numerodaind.setText("Il numero da indovinare era\n" + this.guess );
+            punteggiotesto.setVisibility(View.VISIBLE);
+            punteggiotesto.setText("Hai ottenuto "+gain(true)+" $");
             estremi.setVisibility(View.INVISIBLE);
-            numero.setText("Il numero da indovinare era\n" + this.guess + " Punteggio è "+gain(false));
-            setPoint(punteggio+gain(false));
+            setPoint(punteggio + gain(true));
 
         }
     }
