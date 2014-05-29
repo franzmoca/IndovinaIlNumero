@@ -9,7 +9,7 @@
          android:layout_width="match_parent"
          android:layout_height="219dp"
          android:id="@+id/imageView"
-         android:src="@drawable/ohm"
+         android:src="@drawable/icona"
          android:layout_centerHorizontal="true"
          android:layout_marginBottom="234dp"
          android:layout_alignParentBottom="false"
@@ -22,10 +22,10 @@
         android:text="Guess The Number"
         android:id="@+id/textView"
         android:layout_gravity="center"
-        android:layout_marginTop="-20dp"
+        android:layout_marginTop="-40dp"
         android:gravity="center"
         android:textSize="38dp"
-        />
+        android:textColor="#2b2b2a" />
 
     <ImageView
             android:layout_width="79dp"

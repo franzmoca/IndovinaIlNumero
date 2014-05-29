@@ -172,7 +172,7 @@
             android:layout_centerHorizontal="true"
             android:visibility="visible">
 
-            <Button android:text="@string/tasto1"
+            <Button android:background="@drawable/tasto1"
                 android:layout_width="81dp"
                 android:layout_height="36dp"
                 grid:layout_gravity="fill_horizontal|bottom|left"
@@ -183,7 +183,7 @@
                 android:tag="1"
                 grid:layout_row="0"
                 grid:layout_column="0" />
-            <Button android:text="@string/tasto2"
+            <Button android:background="@drawable/tasto2"
                 android:layout_width="81dp"
                 android:layout_height="36dp"
                 grid:layout_gravity="fill_horizontal|bottom|left"
@@ -207,7 +207,7 @@
                 grid:layout_column="3"
                 android:background="@drawable/tasto3"
                 android:longClickable="false" />
-            <Button android:text="@string/tasto0"
+            <Button android:background="@drawable/tasto0"
                 android:layout_width="81dp"
                 android:layout_height="36dp"
                 grid:layout_gravity="fill_horizontal|bottom|left"
@@ -218,7 +218,7 @@
                 android:tag="0"
                 grid:layout_row="0"
                 grid:layout_column="4" />
-            <Button android:text="@string/tasto4"
+            <Button android:background="@drawable/tasto4"
                 android:layout_width="81dp"
                 android:layout_height="36dp"
                 grid:layout_gravity="fill_horizontal|bottom|left"
@@ -230,7 +230,7 @@
                 grid:layout_row="1"
                 grid:layout_column="0" />
 
-            <Button android:text="@string/tasto5"
+            <Button android:background="@drawable/tasto5"
                 android:layout_width="81dp"
                 android:layout_height="36dp"
                 grid:layout_gravity="fill_horizontal|bottom|left"
@@ -241,7 +241,7 @@
                 android:tag="5"
                 grid:layout_row="1"
                 grid:layout_column="2" />
-            <Button android:text="@string/tasto6"
+            <Button android:background="@drawable/tasto6"
                 android:layout_width="81dp"
                 android:layout_height="36dp"
                 grid:layout_gravity="fill_horizontal|bottom|left"
@@ -252,7 +252,7 @@
                 android:tag="6"
                 grid:layout_row="1"
                 grid:layout_column="3" />
-            <Button android:text="@string/tasto00"
+            <Button android:background="@drawable/tasto00"
                 android:layout_width="81dp"
                 android:layout_height="36dp"
                 grid:layout_gravity="fill_horizontal|bottom|left"
@@ -263,7 +263,7 @@
                 android:tag="00"
                 grid:layout_row="1"
                 grid:layout_column="4" />
-            <Button android:text="@string/tasto7"
+            <Button android:background="@drawable/tasto7"
                 android:layout_width="81dp"
                 android:layout_height="36dp"
                 grid:layout_gravity="fill_horizontal|bottom|left"
@@ -274,7 +274,7 @@
                 android:tag="7"
                 grid:layout_row="3"
                 grid:layout_column="0" />
-            <Button android:text="@string/tasto8"
+            <Button android:background="@drawable/tasto8"
                 android:layout_width="81dp"
                 android:layout_height="36dp"
                 grid:layout_gravity="fill_horizontal|bottom|left"
@@ -285,7 +285,7 @@
                 android:tag="8"
                 grid:layout_row="3"
                 grid:layout_column="2" />
-            <Button android:text="@string/tasto9"
+            <Button android:background="@drawable/tasto9"
                 android:layout_width="81dp"
                 android:layout_height="36dp"
                 grid:layout_gravity="fill_horizontal|bottom|left"
@@ -296,7 +296,7 @@
                 android:tag="9"
                 grid:layout_row="3"
                 grid:layout_column="3" />
-            <Button android:text="@string/tastoC"
+            <Button android:background="@drawable/tastoc"
                 android:layout_width="81dp"
                 android:layout_height="36dp"
                 grid:layout_gravity="fill_horizontal|bottom|left"
