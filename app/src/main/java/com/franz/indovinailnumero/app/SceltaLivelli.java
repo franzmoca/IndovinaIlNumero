@@ -207,38 +207,38 @@ public class SceltaLivelli extends Activity {
         switch (level) {
             case 1:
                 editor.putBoolean(getString(R.string.livello2), true);
-                setViewBackgroundWithoutResettingPadding(livellibackground,R.drawable.livello1);
+                setViewBackgroundWithoutResettingPadding(livellibackground,R.drawable.livello2);
                 editor.commit();
                 break;
             case 2:
                 editor.putBoolean(getString(R.string.livello3), true);
-                setViewBackgroundWithoutResettingPadding(livellibackground,R.drawable.livello2);
+                setViewBackgroundWithoutResettingPadding(livellibackground,R.drawable.livello3);
                 editor.commit();
                 break;
             case 3:
                 editor.putBoolean(getString(R.string.livello4), true);
-                setViewBackgroundWithoutResettingPadding(livellibackground,R.drawable.livello3);
+                setViewBackgroundWithoutResettingPadding(livellibackground,R.drawable.livello4);
                 editor.commit();
                 break;
             case 4:
                 editor.putBoolean(getString(R.string.livello5), true);
-                setViewBackgroundWithoutResettingPadding(livellibackground,R.drawable.livello4);
+                setViewBackgroundWithoutResettingPadding(livellibackground,R.drawable.livello5);
                 editor.commit();
                 break;
             case 5:
                 editor.putBoolean(getString(R.string.livello6), true);
-                setViewBackgroundWithoutResettingPadding(livellibackground,R.drawable.livello5);
+                setViewBackgroundWithoutResettingPadding(livellibackground,R.drawable.livello6);
                 editor.commit();
                 break;
             case 6:
                 editor.putBoolean(getString(R.string.livello7), true);
-                setViewBackgroundWithoutResettingPadding(livellibackground,R.drawable.livello6);
+                setViewBackgroundWithoutResettingPadding(livellibackground,R.drawable.livello7);
 
                 editor.commit();
                 break;
             case 7:
                 editor.putBoolean(getString(R.string.livello8), true);
-                setViewBackgroundWithoutResettingPadding(livellibackground,R.drawable.livello7);
+               // setViewBackgroundWithoutResettingPadding(livellibackground,R.drawable.livello7);
 
                 editor.commit();
                 break;
