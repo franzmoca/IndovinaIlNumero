@@ -2,10 +2,10 @@
 
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:drawable="@drawable/tastocno"
+    <item android:drawable="@drawable/tastono"
         android:state_pressed="true" />
-    <item android:drawable="@drawable/tastocno"
+    <item android:drawable="@drawable/tastono"
         android:state_focused="true" />
-    <item android:drawable="@drawable/tastocsi" />
+    <item android:drawable="@drawable/tastosi" />
 
 </selector>
