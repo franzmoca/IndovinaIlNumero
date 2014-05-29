@@ -408,6 +408,7 @@ public class LevelGame extends Activity {
             case R.id.tasto2:   edit.append("2");
                 break;
             case R.id.tasto3:  edit.append("3");
+                setViewBackgroundWithoutResettingPadding(v,R.drawable.tasto3si);
                 break;
             case R.id.tasto4:   edit.append("4");
                 break;

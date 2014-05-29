@@ -194,7 +194,7 @@
                 android:tag="2"
                 grid:layout_row="0"
                 grid:layout_column="2" />
-            <Button android:text="@string/tasto3"
+            <Button
                 android:layout_width="81dp"
                 android:layout_height="36dp"
                 grid:layout_gravity="fill_horizontal|bottom|left"
@@ -204,7 +204,9 @@
                 android:onClick="input"
                 android:tag="3"
                 grid:layout_row="0"
-                grid:layout_column="3" />
+                grid:layout_column="3"
+                android:background="@drawable/tasto3"
+                android:longClickable="false" />
             <Button android:text="@string/tasto0"
                 android:layout_width="81dp"
                 android:layout_height="36dp"
