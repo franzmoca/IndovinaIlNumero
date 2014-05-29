@@ -405,7 +405,6 @@
         android:text="Hai Vinto!!!"
         android:textIsSelectable="false"
         android:id="@+id/textView3"
-        android:onClick="ricomincia"
         android:clickable="true"
         android:visibility="invisible"
         android:layout_centerVertical="true"

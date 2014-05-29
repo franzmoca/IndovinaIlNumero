@@ -376,7 +376,7 @@ public class LevelGame extends Activity {
             testovintoperso.setVisibility(View.VISIBLE);
             sfondofine.setVisibility(View.VISIBLE);
             numerodaind.setVisibility(View.VISIBLE);
-            numerodaind.setText("Il numero da indovinare era" + this.guess);
+            numerodaind.setText("Il numero da indovinare era " + this.guess);
             punteggiotesto.setVisibility(View.VISIBLE);
             punteggiotesto.setText("Hai ottenuto "+gain(true)+" $");
             estremi.setVisibility(View.INVISIBLE);
@@ -389,7 +389,7 @@ public class LevelGame extends Activity {
             testovintoperso.setVisibility(View.VISIBLE);
             sfondofine.setVisibility(View.VISIBLE);
             numerodaind.setVisibility(View.VISIBLE);
-            numerodaind.setText("Il numero da indovinare era\n" + this.guess );
+            numerodaind.setText("Il numero da indovinare era " + this.guess );
             punteggiotesto.setVisibility(View.VISIBLE);
             punteggiotesto.setText("Hai ottenuto "+gain(false)+" $");
             estremi.setVisibility(View.INVISIBLE);
