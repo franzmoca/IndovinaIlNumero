@@ -132,7 +132,7 @@ public class    LabeledImageView extends ImageView {
 			break;
 		case 4: // Top Center
 			xPos = (getWidth() / 2) - (mTextPaint.measureText(text) / 2);
-			yPos = yOffset;
+			yPos = yOffset + (mTextPaint.measureText(text)/8);
 			break;
 		case 5: // Bottom Center
 			xPos = (getWidth() / 2) - (mTextPaint.measureText(text) / 2);

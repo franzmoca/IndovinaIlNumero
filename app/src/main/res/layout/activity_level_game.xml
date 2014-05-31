@@ -351,28 +351,28 @@
         android:focusableInTouchMode="false"
         android:visibility="invisible"
         android:clickable="true"
-        custom:labelPosition="bottomCenter"
+        custom:labelPosition="topCenter"
         custom:text="400"
-        custom:textColor="#FF0100"
+        custom:textColor="#8B0000"
         custom:textStyle="bold"
-        custom:textSizePx="80"/>
+        custom:textSizePx="65"/>
 
     <com.franz.indovinailnumero.app.util.LabeledImageView
         android:layout_width="wrap_content"
         android:layout_height="103dp"
         android:id="@+id/manididio"
-        android:src="@drawable/manisi"
+        android:background="@drawable/manisi"
         android:layout_gravity="bottom"
         android:onClick="PowerUp"
         android:focusableInTouchMode="false"
         android:visibility="invisible"
         android:clickable="true"
         android:adjustViewBounds="false"
-        custom:labelPosition="bottomCenter"
+        custom:labelPosition="topCenter"
         custom:text="400"
-        custom:textColor="#FF0100"
+        custom:textColor="#8B0000"
         custom:textStyle="bold"
-        custom:textSizePx="80"/>
+        custom:textSizePx="65"/>
 
     <com.franz.indovinailnumero.app.util.LabeledImageView
         android:layout_width="63dp"
@@ -384,15 +384,15 @@
         android:focusableInTouchMode="false"
         android:visibility="invisible"
         android:clickable="true"
-        custom:labelPosition="bottomCenter"
+        custom:labelPosition="topCenter"
         custom:text="400"
-        custom:textColor="#FF0100"
+        custom:textColor="#8B0000"
         custom:textStyle="bold"
-        custom:textSizePx="80"/>
+        custom:textSizePx="65"/>
 
     <com.franz.indovinailnumero.app.util.LabeledImageView
         android:layout_width="wrap_content"
-        android:layout_height="102dp"
+        android:layout_height="105dp"
         android:id="@+id/pergamena"
         android:background="@drawable/pergamenasi"
         android:layout_gravity="center_horizontal|bottom"
@@ -402,11 +402,11 @@
         android:clickable="true"
         android:layout_marginLeft="-50dp"
         android:contentDescription=""
-        custom:labelPosition="bottomCenter"
+        custom:labelPosition="topCenter"
         custom:text="400"
-        custom:textColor="#FF0100"
+        custom:textColor="#8B0000"
         custom:textStyle="bold"
-        custom:textSizePx="80"/>
+        custom:textSizePx="65"/>
 
     <ImageView
         android:layout_width="fill_parent"
