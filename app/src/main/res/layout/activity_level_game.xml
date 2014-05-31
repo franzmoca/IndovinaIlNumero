@@ -81,12 +81,13 @@
         android:text="@string/bottoneInserisci"
         android:id="@+id/button"
         android:textColor="#000000"
-        android:background="#99ffb5"
+        android:background="#C4FF7F"
         android:clickable="true"
         android:onClick="checkWin"
         android:layout_below="@+id/finenumero"
         android:layout_alignLeft="@+id/editText3"
-        android:layout_alignStart="@+id/editText3" />
+        android:layout_alignStart="@+id/editText3"
+            android:gravity="center_vertical|center_horizontal" />
 
     <TextView
         android:layout_width="200dp"
@@ -353,7 +354,7 @@
         android:clickable="true"
         custom:labelPosition="topCenter"
         custom:text="400"
-        custom:textColor="#8B0000"
+        custom:textColor="#EE4747"
         custom:textStyle="bold"
         custom:textSizePx="65"/>
 
@@ -370,7 +371,7 @@
         android:adjustViewBounds="false"
         custom:labelPosition="topCenter"
         custom:text="400"
-        custom:textColor="#8B0000"
+        custom:textColor="#EE4747"
         custom:textStyle="bold"
         custom:textSizePx="65"/>
 
@@ -386,7 +387,7 @@
         android:clickable="true"
         custom:labelPosition="topCenter"
         custom:text="400"
-        custom:textColor="#8B0000"
+        custom:textColor="#EE4747"
         custom:textStyle="bold"
         custom:textSizePx="65"/>
 
@@ -404,7 +405,7 @@
         android:contentDescription=""
         custom:labelPosition="topCenter"
         custom:text="400"
-        custom:textColor="#8B0000"
+        custom:textColor="#EE4747"
         custom:textStyle="bold"
         custom:textSizePx="65"/>
 

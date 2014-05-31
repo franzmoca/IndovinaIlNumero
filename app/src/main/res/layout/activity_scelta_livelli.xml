@@ -30,7 +30,8 @@
             android:onClick="Livello"
             android:layout_gravity="center_horizontal"
             android:layout_marginLeft="8dp"
-            android:background="@android:color/transparent" />
+            android:background="@android:color/transparent"
+            android:visibility="visible" />
 
         <ImageButton
             android:layout_width="60dp"
@@ -40,7 +41,8 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="14dp"
-            android:background="@android:color/transparent" />
+            android:background="@android:color/transparent"
+            android:visibility="visible" />
 
         <ImageButton
             android:layout_width="match_parent"
@@ -51,7 +53,8 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="30dp"
-            android:background="@android:color/transparent" />
+            android:background="@android:color/transparent"
+            android:visibility="visible" />
 
         <ImageButton
             android:layout_width="match_parent"
@@ -62,7 +65,8 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="10dp"
-            android:background="@android:color/transparent" />
+            android:background="@android:color/transparent"
+            android:visibility="visible" />
 
         <ImageButton
             android:layout_width="match_parent"
@@ -73,7 +77,8 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginLeft="3dp"
             android:layout_marginTop="12dp"
-            android:background="@android:color/transparent" />
+            android:background="@android:color/transparent"
+            android:visibility="visible" />
 
         <ImageButton
             android:layout_width="match_parent"
@@ -84,7 +89,8 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="20dp"
             android:layout_weight="0.36"
-            android:background="@android:color/transparent" />
+            android:background="@android:color/transparent"
+            android:visibility="visible" />
 
         <ImageButton
             android:layout_width="match_parent"
@@ -95,7 +101,8 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="20dp"
-            android:background="@android:color/transparent" />
+            android:background="@android:color/transparent"
+            android:visibility="visible" />
 
     </LinearLayout>
 
