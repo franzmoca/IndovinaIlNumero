@@ -60,7 +60,7 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"
-            android:layout_height="45dp"
+            android:layout_height="50dp"
             android:weightSum="1">
 
             <TextView
@@ -69,7 +69,7 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Tutorial"
                 android:id="@+id/textView2"
-                android:layout_weight="0.31"
+                android:layout_weight="0.27"
                 android:textSize="20dp"
                 android:gravity="center"
                 android:layout_marginLeft="15dp" />
@@ -80,7 +80,7 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Modalita' Livelli"
                 android:id="@+id/textView3"
-                android:layout_weight="0.31"
+                android:layout_weight="0.36"
                 android:gravity="center"
                 android:textSize="20dp" />
 
