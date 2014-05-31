@@ -2,6 +2,7 @@
 
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -339,31 +340,41 @@
         android:id="@+id/indietro"
         android:onClick="Indietro" />
 
-    <ImageView
+    <com.franz.indovinailnumero.app.util.LabeledImageView
         android:layout_width="wrap_content"
         android:layout_height="104dp"
-        android:id="@+id/pergamena"
-        android:background="@drawable/pergamenasi"
+        android:id="@+id/lanterna"
+        android:background="@drawable/lanternasi"
         android:layout_gravity="center_horizontal|bottom"
         android:layout_marginLeft="55dp"
         android:onClick="PowerUp"
         android:focusableInTouchMode="false"
         android:visibility="invisible"
-        android:clickable="true" />
+        android:clickable="true"
+        custom:labelPosition="bottomCenter"
+        custom:text="400"
+        custom:textColor="#FF0100"
+        custom:textStyle="bold"
+        custom:textSizePx="80"/>
 
-    <ImageView
+    <com.franz.indovinailnumero.app.util.LabeledImageView
         android:layout_width="wrap_content"
         android:layout_height="103dp"
         android:id="@+id/manididio"
-        android:background="@drawable/manisi"
+        android:src="@drawable/manisi"
         android:layout_gravity="bottom"
         android:onClick="PowerUp"
         android:focusableInTouchMode="false"
         android:visibility="invisible"
         android:clickable="true"
-        android:adjustViewBounds="false" />
+        android:adjustViewBounds="false"
+        custom:labelPosition="bottomCenter"
+        custom:text="400"
+        custom:textColor="#FF0100"
+        custom:textStyle="bold"
+        custom:textSizePx="80"/>
 
-    <ImageView
+    <com.franz.indovinailnumero.app.util.LabeledImageView
         android:layout_width="63dp"
         android:layout_height="105dp"
         android:id="@+id/terzoocchio"
@@ -372,20 +383,30 @@
         android:onClick="PowerUp"
         android:focusableInTouchMode="false"
         android:visibility="invisible"
-        android:clickable="true" />
+        android:clickable="true"
+        custom:labelPosition="bottomCenter"
+        custom:text="400"
+        custom:textColor="#FF0100"
+        custom:textStyle="bold"
+        custom:textSizePx="80"/>
 
-    <ImageView
+    <com.franz.indovinailnumero.app.util.LabeledImageView
         android:layout_width="wrap_content"
         android:layout_height="102dp"
-        android:id="@+id/lanterna"
-        android:background="@drawable/lanternasi"
+        android:id="@+id/pergamena"
+        android:background="@drawable/pergamenasi"
         android:layout_gravity="center_horizontal|bottom"
         android:onClick="PowerUp"
         android:focusableInTouchMode="false"
         android:visibility="invisible"
         android:clickable="true"
         android:layout_marginLeft="-50dp"
-        android:contentDescription="" />
+        android:contentDescription=""
+        custom:labelPosition="bottomCenter"
+        custom:text="400"
+        custom:textColor="#FF0100"
+        custom:textStyle="bold"
+        custom:textSizePx="80"/>
 
     <ImageView
         android:layout_width="fill_parent"

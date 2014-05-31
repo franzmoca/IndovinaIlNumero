@@ -33,6 +33,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.os.Bundle;
+
+import com.franz.indovinailnumero.app.util.LabeledImageView;
 import com.franz.indovinailnumero.app.util.SoundPoolHelper;
 import android.os.Vibrator;
 
@@ -63,6 +65,7 @@ public class LevelGame extends Activity {
     //Powerup usato?
     boolean aiuto_guardone=false;
     boolean powerup = true;
+    int powerup_usati=0;
     boolean won = false;
     int r;
     int livello=0;
@@ -131,6 +134,7 @@ public class LevelGame extends Activity {
         edit = (EditText) findViewById(R.id.editText3);
         edit.setKeyListener(null);
 
+        setCost();
         //mpAudio = MediaPlayer.create(this,R.raw.healing);
 
 
@@ -549,11 +553,11 @@ public class LevelGame extends Activity {
             switch (v.getId()) {
                 case R.id.lanterna:
                     if(monousoLanterna==true) {
-                        if (punteggio >= 300) {
-                            setPoint((punteggio - 300));
+                        if (punteggio >= costoLanterna()) {
+                            setPoint((punteggio - costoLanterna()));
                             Lanterna();
-
-
+                            powerup_usati++;
+                            setCost();
                             setViewBackgroundWithoutResettingPadding(v,R.drawable.lanternano);
 
                         } else {
@@ -571,9 +575,11 @@ public class LevelGame extends Activity {
 
                 case R.id.pergamena:
                     if(monousoPergamena==true) {
-                        if (punteggio >= 300) {
-                            setPoint((punteggio - 300));
+                        if (punteggio >= costoPergamena()) {
+                            setPoint((punteggio - costoPergamena()));
                             Pergamena();
+                            powerup_usati++;
+                            setCost();
                             setViewBackgroundWithoutResettingPadding(v,R.drawable.pergamenano);
                         } else {
                             Toast toast = Toast.makeText(this, "Non hai abbastanza soldi", Toast.LENGTH_SHORT);
@@ -590,9 +596,11 @@ public class LevelGame extends Activity {
 
                 case R.id.manididio:
                     if(monousoManiDiDIo==true) {
-                        if (punteggio >= 200) {
-                            setPoint((punteggio - 200));
+                        if (punteggio >= costoManiDiDio()) {
+                            setPoint((punteggio - costoManiDiDio()));
                             ManiDiDio();
+                            powerup_usati++;
+                            setCost();
                             setViewBackgroundWithoutResettingPadding(v,R.drawable.manino);
                         } else {
                             Toast toast = Toast.makeText(this, "Non hai abbastanza soldi", Toast.LENGTH_SHORT);
@@ -611,9 +619,11 @@ public class LevelGame extends Activity {
                     break;*/
                 case R.id.terzoocchio:
                     if(monousoGuardone==true) {
-                        if (punteggio >= 700) {
-                            setPoint((punteggio - 700));
+                        if (punteggio >= costoGuardone()) {
+                            setPoint((punteggio - costoGuardone()));
                             AiutoGuardone();
+                            powerup_usati++;
+                            setCost();
                             setViewBackgroundWithoutResettingPadding(v,R.drawable.occhiono);
                         } else {
                             Toast toast = Toast.makeText(this, "Non hai abbastanza soldi", Toast.LENGTH_SHORT);
@@ -659,10 +669,10 @@ public class LevelGame extends Activity {
     public int gain(boolean win){
         int gain;
         if(win){
-            gain = ((i+1)*range)/2;
+            gain = (livello*100)+(100*(i+1));
             return  gain;
         }else{
-            gain = (range - (max-min))/2 ;
+            gain =  (livello*100);
             return  gain;
 
         }
@@ -732,6 +742,47 @@ public class LevelGame extends Activity {
         setResult(10);
         finish();
     }
+
+    public int costoPergamena() {
+        int costo=200;
+        if(powerup_usati>0) {
+            costo += (powerup_usati * 100);
+        }
+        return costo;
+    }
+    public int costoGuardone() {
+        int costo=400;
+        if(powerup_usati>0) {
+            costo += (powerup_usati * 100);
+        }
+        return costo;
+    }
+    public int costoManiDiDio() {
+        int costo=100;
+        if(powerup_usati>0) {
+            costo += (powerup_usati * 100);
+        }
+
+        return costo;
+    }
+    public int costoLanterna() {
+        int costo=300;
+        if(powerup_usati>0) {
+            costo += (powerup_usati * 100);
+        }
+        return costo;
+    }
+    public void setCost(){
+        LabeledImageView pergamena=(LabeledImageView)findViewById(R.id.pergamena);
+        LabeledImageView lanterna=(LabeledImageView)findViewById(R.id.lanterna);
+        LabeledImageView terzoocchio=(LabeledImageView)findViewById(R.id.terzoocchio);
+        LabeledImageView manididio=(LabeledImageView)findViewById(R.id.manididio);
+        manididio.setText(""+costoManiDiDio());
+        lanterna.setText(""+costoLanterna());
+        terzoocchio.setText(""+costoGuardone());
+        pergamena.setText(""+costoPergamena());
+    }
+
 
 }
 
