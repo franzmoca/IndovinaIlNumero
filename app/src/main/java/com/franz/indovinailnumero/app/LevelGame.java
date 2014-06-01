@@ -126,7 +126,8 @@ public class LevelGame extends Activity {
 
 
         Log.d("guess", "Numero generato: " + guess);
-        mpAudio = MediaPlayer.create(this,R.raw.healing);
+        //mpAudio = MediaPlayer.create(this,R.raw.healing);
+        mpAudio = MediaPlayer.create(this,R.raw.findingmovement);
         mpAudio.setLooping(true);
         mpAudio.start();
         //Inizializzo i suoni
@@ -258,7 +259,7 @@ public class LevelGame extends Activity {
                     goloso.setText("Troppo Basso!");
                     goloso.clearAnimation();
                     TranslateAnimation translation;
-                    translation = new TranslateAnimation(0f, 0F, 0f, (getDisplayHeight()-150));
+                    translation = new TranslateAnimation(0f, 0F, 0f, getDisplayHeight());
                     translation.setStartOffset(500);
                     translation.setDuration(2000);
                     translation.setFillAfter(true);
@@ -294,7 +295,7 @@ public class LevelGame extends Activity {
                     goloso.setText("Troppo Alto!");
                     goloso.clearAnimation();
                     TranslateAnimation translation;
-                    translation = new TranslateAnimation(0f, 0f, 0f, (-getDisplayHeight()+150));
+                    translation = new TranslateAnimation(0f, 0f, 0f, -getDisplayHeight());
                     translation.setStartOffset(500);
                     translation.setDuration(2000);
                     translation.setFillAfter(true);

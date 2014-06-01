@@ -19,9 +19,9 @@ public class NewMain extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_main);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT); //Forza la portrait mode
-        mpAudio = MediaPlayer.create(this,R.raw.findingmovement);
+       /* mpAudio = MediaPlayer.create(this,R.raw.findingmovement);
         mpAudio.setLooping(true);
-        mpAudio.start();
+        mpAudio.start();*/
 
     }
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -64,7 +64,7 @@ public class NewMain extends Activity {
 
     public void Esci(View view){
         setResult(0);
-        mpAudio.stop();
+       // mpAudio.stop();
         finish();
     }
     @Override
