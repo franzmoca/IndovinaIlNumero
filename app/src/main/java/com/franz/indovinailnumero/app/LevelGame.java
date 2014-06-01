@@ -257,6 +257,7 @@ public class LevelGame extends Activity {
 
                     goloso.setVisibility(View.VISIBLE);
                     goloso.setText("Troppo Basso!");
+                    goloso.setTextColor(Color.parseColor("#465945"));
                     goloso.clearAnimation();
                     TranslateAnimation translation;
                     translation = new TranslateAnimation(0f, 0F, 0f, getDisplayHeight());
@@ -293,6 +294,7 @@ public class LevelGame extends Activity {
                     //goloso
                     goloso.setVisibility(View.VISIBLE);
                     goloso.setText("Troppo Alto!");
+                    goloso.setTextColor(Color.parseColor("#7BA05B"));
                     goloso.clearAnimation();
                     TranslateAnimation translation;
                     translation = new TranslateAnimation(0f, 0f, 0f, -getDisplayHeight());
