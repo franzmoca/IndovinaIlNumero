@@ -219,7 +219,7 @@ public class LevelGame extends Activity {
         }
 
     }
-    private void checkWin(int guess) {
+    private void checkWin(int guess) throws InterruptedException {
 
         TextView tentativi = (TextView) findViewById(R.id.textView2);
         TextView alto_basso = (TextView) findViewById(R.id.textView);
@@ -232,85 +232,85 @@ public class LevelGame extends Activity {
             endGame(true);
         } else {
             i--;
-            if (i > 0)
+            if (i > 0) {
                 //mp.play(error);
-            edit.setText("");
-            tentativi.setText(i + " tentativi");
-            if (guess < this.guess) {
-                alto_basso.setText("Troppo basso!");
+                edit.setText("");
+                tentativi.setText(i + " tentativi");
+                if (guess < this.guess) {
+                    alto_basso.setText("Troppo basso!");
 
-                //goloso
+                    //goloso
 
-                goloso.setVisibility(View.VISIBLE);
-                goloso.setText("Troppo Basso!");
-                goloso.clearAnimation();
-                TranslateAnimation translation;
-                translation = new TranslateAnimation(0f, 0F, 0f, getDisplayHeight());
-                translation.setStartOffset(500);
-                translation.setDuration(2000);
-                translation.setFillAfter(true);
-                translation.setInterpolator(new BounceInterpolator());
-                findViewById(R.id.altobassogoloso).startAnimation(translation);
-                goloso.setVisibility(View.INVISIBLE);
-
-
-
-                //Vibrate for 500 milliseconds
-                //v.vibrate(500);
+                    goloso.setVisibility(View.VISIBLE);
+                    goloso.setText("Troppo Basso!");
+                    goloso.clearAnimation();
+                    TranslateAnimation translation;
+                    translation = new TranslateAnimation(0f, 0F, 0f, (getDisplayHeight()-150));
+                    translation.setStartOffset(500);
+                    translation.setDuration(2000);
+                    translation.setFillAfter(true);
+                    translation.setInterpolator(new BounceInterpolator());
+                    findViewById(R.id.altobassogoloso).startAnimation(translation);
+                    goloso.setVisibility(View.INVISIBLE);
 
 
-                if (guess < min) {
-                    estremi.setText(min + "-" + max);
-                    if (guess <= fine)
-                        cv.updatePosition(false, guess);
-                } else {
-                    min = guess + 1;
-                    estremi.setText(min + "-" + max);
-                    if (guess <= fine)
-                        cv.updatePosition(false, guess);
+                    //Vibrate for 500 milliseconds
+                    //v.vibrate(500);
+
+
+                    if (guess < min) {
+                        estremi.setText(min + "-" + max);
+                        if (guess <= fine)
+                            cv.updatePosition(false, guess);
+                    } else {
+                        min = guess + 1;
+                        estremi.setText(min + "-" + max);
+                        if (guess <= fine)
+                            cv.updatePosition(false, guess);
+                    }
+                    if (aiuto_guardone == true) {
+                        Guardone();
+                    }
+                } else if (guess > this.guess) {
+                    alto_basso.setText("Troppo alto!");
+
+
+                    //goloso
+                    goloso.setVisibility(View.VISIBLE);
+                    goloso.setText("Troppo Alto!");
+                    goloso.clearAnimation();
+                    TranslateAnimation translation;
+                    translation = new TranslateAnimation(0f, 0f, 0f, (-getDisplayHeight()+150));
+                    translation.setStartOffset(500);
+                    translation.setDuration(2000);
+                    translation.setFillAfter(true);
+                    translation.setInterpolator(new BounceInterpolator());
+                    findViewById(R.id.altobassogoloso).startAnimation(translation);
+                    goloso.setVisibility(View.INVISIBLE);
+
+
+                    // Vibrate for 500 milliseconds
+                    // v.vibrate(500);
+
+                    if (guess > max) {
+                        estremi.setText(min + "-" + max);
+                        if (guess >= inizio)
+                            cv.updatePosition(true, guess);
+
+                    } else {
+                        max = guess - 1;
+                        estremi.setText(min + "-" + max);
+                        if (guess >= inizio)
+                            cv.updatePosition(true, guess);
+                    }
+                    if (aiuto_guardone == true) {
+                        Guardone();
+                    }
+
                 }
-                if(aiuto_guardone==true){
-                    Guardone();
-                }
-            } else {
-                alto_basso.setText("Troppo alto!");
-
-
-                //goloso
-                goloso.setVisibility(View.VISIBLE);
-                goloso.setText("Troppo Alto!");
-                goloso.clearAnimation();
-                TranslateAnimation translation;
-                translation = new TranslateAnimation(0f, 0F, 0f, getDisplayHeight());
-                translation.setStartOffset(500);
-                translation.setDuration(2000);
-                translation.setFillAfter(true);
-                translation.setInterpolator(new BounceInterpolator());
-                findViewById(R.id.altobassogoloso).startAnimation(translation);
-                goloso.setVisibility(View.INVISIBLE);
-
-
-                // Vibrate for 500 milliseconds
-               // v.vibrate(500);
-
-                if (guess > max) {
-                    estremi.setText(min + "-" + max);
-                    if (guess >= inizio)
-                        cv.updatePosition(true, guess);
-
-                } else {
-                    max = guess - 1;
-                    estremi.setText(min + "-" + max);
-                    if (guess >= inizio)
-                        cv.updatePosition(true, guess);
-                }
-                if(aiuto_guardone==true){
-                    Guardone();
-                }
-
             }
-
         if (i == 0) {
+
             endGame(false);
         }
     }
