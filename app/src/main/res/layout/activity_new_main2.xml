@@ -171,7 +171,7 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Esci"
                 android:id="@+id/textesci"
-                android:layout_weight="0.34"
+                android:layout_weight="0.40"
                 android:gravity="center"
                 android:textSize="20dp" />
 

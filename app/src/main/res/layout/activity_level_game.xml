@@ -457,6 +457,18 @@
         android:onClick="Indietro"
         android:visibility="invisible" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Troppo Alto"
+        android:id="@+id/altobassogoloso"
+        android:layout_gravity="center"
+        android:phoneNumber="false"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:textColor="#ffff0001"
+        android:visibility="invisible" />
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

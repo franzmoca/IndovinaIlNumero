@@ -20,10 +20,13 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.*;
+import android.view.animation.BounceInterpolator;
+import android.view.animation.TranslateAnimation;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -140,6 +143,13 @@ public class LevelGame extends Activity {
 
 
 
+
+
+
+
+
+
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -147,6 +157,12 @@ public class LevelGame extends Activity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.game, menu);
         return true;
+    }
+
+    private int getDisplayHeight() {
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        return metrics.widthPixels;
     }
 
     @Override
@@ -208,6 +224,7 @@ public class LevelGame extends Activity {
         TextView tentativi = (TextView) findViewById(R.id.textView2);
         TextView alto_basso = (TextView) findViewById(R.id.textView);
         TextView estremi = (TextView) findViewById(R.id.estremi);
+        TextView goloso=(TextView)findViewById(R.id.altobassogoloso);
       //  Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
         attempts++;
@@ -221,6 +238,23 @@ public class LevelGame extends Activity {
             tentativi.setText(i + " tentativi");
             if (guess < this.guess) {
                 alto_basso.setText("Troppo basso!");
+
+                //goloso
+
+                goloso.setVisibility(View.VISIBLE);
+                goloso.setText("Troppo Basso!");
+                goloso.clearAnimation();
+                TranslateAnimation translation;
+                translation = new TranslateAnimation(0f, 0F, 0f, getDisplayHeight());
+                translation.setStartOffset(500);
+                translation.setDuration(2000);
+                translation.setFillAfter(true);
+                translation.setInterpolator(new BounceInterpolator());
+                findViewById(R.id.altobassogoloso).startAnimation(translation);
+                goloso.setVisibility(View.INVISIBLE);
+
+
+
                 //Vibrate for 500 milliseconds
                 //v.vibrate(500);
 
@@ -240,6 +274,22 @@ public class LevelGame extends Activity {
                 }
             } else {
                 alto_basso.setText("Troppo alto!");
+
+
+                //goloso
+                goloso.setVisibility(View.VISIBLE);
+                goloso.setText("Troppo Alto!");
+                goloso.clearAnimation();
+                TranslateAnimation translation;
+                translation = new TranslateAnimation(0f, 0F, 0f, getDisplayHeight());
+                translation.setStartOffset(500);
+                translation.setDuration(2000);
+                translation.setFillAfter(true);
+                translation.setInterpolator(new BounceInterpolator());
+                findViewById(R.id.altobassogoloso).startAnimation(translation);
+                goloso.setVisibility(View.INVISIBLE);
+
+
                 // Vibrate for 500 milliseconds
                // v.vibrate(500);
 
