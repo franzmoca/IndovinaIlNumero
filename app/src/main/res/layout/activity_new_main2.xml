@@ -23,36 +23,36 @@
             android:gravity="center">
 
             <ImageView
-                    android:layout_width="96dp"
-                    android:layout_height="96dp"
-                    android:id="@+id/imageView2"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:src="@drawable/tutorialx"
+                android:layout_width="84dp"
+                android:layout_height="84dp"
+                android:id="@+id/imageView2"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:src="@drawable/tutorialx"
                 android:clickable="true"
-                    android:focusable="true"
+                android:focusable="true"
                 android:layout_gravity="top"
                 android:layout_marginRight="10dp" />
 
             <ImageView
-                    android:layout_width="103dp"
-                    android:layout_height="96dp"
-                    android:id="@+id/imageView3"
-                    android:src="@drawable/giocolivellix"
-                    android:layout_gravity="top"
-                    android:onClick="GoToLivelli"
-                    android:clickable="true"
-                    android:focusable="true" />
+                android:layout_width="94dp"
+                android:layout_height="85dp"
+                android:id="@+id/imageView3"
+                android:src="@drawable/giocolivellix"
+                android:layout_gravity="top"
+                android:onClick="GoToLivelli"
+                android:clickable="true"
+                android:focusable="true" />
 
             <ImageView
-                    android:layout_width="96dp"
-                    android:layout_height="96dp"
-                    android:id="@+id/imageView4"
-                    android:background="@drawable/giocoliberox"
+                android:layout_width="84dp"
+                android:layout_height="84dp"
+                android:id="@+id/imageView4"
+                android:background="@drawable/giocoliberox"
                 android:onClick="startFreeGame"
-                    android:clickable="true"
-                    android:focusable="true"
+                android:clickable="true"
+                android:focusable="true"
                 android:layout_marginLeft="10dp" />
 
         </LinearLayout>
@@ -99,7 +99,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:layout_height="140dp"
+        android:layout_height="116dp"
         android:weightSum="3"
         android:layout_gravity="center_vertical|bottom"
         android:layout_marginTop="65dp">
@@ -115,8 +115,8 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_width="96dp"
-                android:layout_height="96dp"
+                android:layout_width="84dp"
+                android:layout_height="84dp"
                 android:id="@+id/imageView5"
                 android:src="@drawable/impostazionix"
                 android:clickable="true"
@@ -126,25 +126,25 @@
                 android:layout_marginRight="10dp" />
 
             <ImageView
-                android:layout_width="96dp"
-                android:layout_height="96dp"
+                android:layout_width="84dp"
+                android:layout_height="84dp"
                 android:id="@+id/imageView7"
                 android:src="@drawable/exitx"
                 android:onClick="Esci"
                 android:clickable="true"
                 android:focusable="true"
                 android:layout_gravity="top"
-                android:layout_marginLeft="5dp" />
+                android:layout_marginLeft="6dp" />
 
             <ImageView
-                android:layout_width="96dp"
-                android:layout_height="96dp"
+                android:layout_width="84dp"
+                android:layout_height="84dp"
                 android:id="@+id/imageView6"
                 android:src="@drawable/creditsx"
                 android:clickable="true"
                 android:focusable="true"
                 android:layout_gravity="top"
-                android:layout_marginLeft="12dp" />
+                android:layout_marginLeft="15dp" />
 
 
         </LinearLayout>
@@ -156,15 +156,14 @@
             android:weightSum="1">
 
             <TextView
-                android:layout_width="51dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Impostazioni"
                 android:id="@+id/textimpostazioni"
-                android:layout_weight="0.31"
                 android:textSize="20dp"
                 android:gravity="center"
-                android:layout_marginLeft="10dp" />
+                android:layout_marginLeft="3dp" />
 
             <TextView
                 android:layout_width="40dp"
@@ -172,7 +171,7 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Esci"
                 android:id="@+id/textesci"
-                android:layout_weight="0.29"
+                android:layout_weight="0.34"
                 android:gravity="center"
                 android:textSize="20dp" />
 
@@ -182,9 +181,10 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Credits"
                 android:id="@+id/textcredits"
-                android:layout_weight="0.34"
+                android:layout_weight="0.50"
                 android:gravity="center"
-                android:textSize="20dp" />
+                android:textSize="20dp"
+                android:layout_marginLeft="10dp" />
 
         </LinearLayout>
 
@@ -192,15 +192,15 @@
 
 
     <ImageView
-         android:layout_width="match_parent"
-         android:layout_height="219dp"
-         android:id="@+id/imageView"
-         android:src="@drawable/icona"
-         android:layout_centerHorizontal="true"
-         android:layout_marginBottom="234dp"
-         android:layout_alignParentBottom="false"
-         android:layout_alignParentTop="true"
-         />
+        android:layout_width="match_parent"
+        android:layout_height="198dp"
+        android:id="@+id/imageView"
+        android:src="@drawable/icona"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="234dp"
+        android:layout_alignParentBottom="false"
+        android:layout_alignParentTop="true"
+        />
 
     <TextView
         android:layout_width="fill_parent"
@@ -210,7 +210,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="-40dp"
         android:gravity="center"
-        android:textSize="38dp"
+        android:textSize="30dp"
         android:textColor="#483c32" />
 
 
