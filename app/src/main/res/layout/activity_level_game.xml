@@ -451,7 +451,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Indietro"
+        android:text="Riprova"
         android:id="@+id/vaiindietro"
         android:layout_gravity="bottom|left"
         android:onClick="Indietro"

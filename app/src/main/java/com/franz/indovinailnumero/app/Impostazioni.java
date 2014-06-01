@@ -50,7 +50,7 @@ public class Impostazioni extends Activity {
     public void setPointFALSE(){
         SharedPreferences sharedPref = getSharedPreferences("punteggio",MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putInt(getString(R.string.punteggio), 200);
+        editor.putInt(getString(R.string.punteggio), 0);
         editor.commit();
     }
 

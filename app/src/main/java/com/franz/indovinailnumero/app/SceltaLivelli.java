@@ -110,7 +110,7 @@ public class SceltaLivelli extends Activity {
                 break;
             case R.id.livello3:
                 if(livello3) {
-                    fine = "200";
+                    fine = "300";
                     liv="3";
                     intent.putExtra(FINE, fine);
                     intent.putExtra(LIVELLO, liv);
@@ -158,7 +158,7 @@ public class SceltaLivelli extends Activity {
                 break;
             case R.id.livello6:
                 if(livello6) {
-                    fine = "2000";
+                    fine = "3000";
                     liv="6";
                     intent.putExtra(FINE, fine);
                     intent.putExtra(LIVELLO,liv);
@@ -174,7 +174,7 @@ public class SceltaLivelli extends Activity {
                 break;
             case R.id.livello7:
                 if(livello7) {
-                    fine = "3000";
+                    fine = "5000";
                     liv="7";
                     intent.putExtra(FINE, fine);
                     intent.putExtra(LIVELLO,liv);

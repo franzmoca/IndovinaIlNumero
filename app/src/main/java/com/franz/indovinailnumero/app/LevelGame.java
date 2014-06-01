@@ -578,6 +578,7 @@ public class LevelGame extends Activity {
     private void Guardone() {
     float distguess=0;
     float dist= (max-min)/2;
+
     if (r > this.guess) {
         distguess = r - this.guess;
     } else if (this.guess > r) {
