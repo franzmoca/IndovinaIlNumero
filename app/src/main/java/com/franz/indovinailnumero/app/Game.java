@@ -32,7 +32,7 @@ public class Game extends ActionBarActivity {
     public int attempts = 0;
     public boolean finito = false;
     public SoundPoolHelper mp;
-    int fail, error, applausi,tock;
+    int alto,basso;
     EditText edit;
 
 
@@ -55,7 +55,7 @@ public class Game extends ActionBarActivity {
             } else {
                 i--;
                 if (i > 0)
-                    mp.play(error);
+                    //mp.play(error);
                 edit.setText("");
                 tentativi.setText("Ti sono rimasti ancora " + i + " tentativi");
                 if (guess < this.guess)
@@ -115,7 +115,7 @@ public class Game extends ActionBarActivity {
         }
         vinto.setVisibility(View.VISIBLE);
         vinto.setText("Hai\n" + (win ? "vinto" : "perso"));
-        mp.play(win ? applausi : fail);
+      //  mp.play(win ? applausi : fail);
         if (win) {
             float punteggio;
             punteggio = (6 - attempts) * (fine - inizio) / 2;
@@ -144,9 +144,9 @@ public class Game extends ActionBarActivity {
         Log.d("guess", "Numero generato: " + guess);
         //Inizializzo i suoni
         mp = new SoundPoolHelper(1, this);
-        fail = mp.load(this, R.raw.fail, 1);
+   /*     fail = mp.load(this, R.raw.fail, 1);
         error = mp.load(this, R.raw.error, 1);
-        applausi = mp.load(this, R.raw.applausi, 1);
+        applausi = mp.load(this, R.raw.applausi, 1);*/
         //tock=mp.load(this, R.raw.tock, 1);
 
         //blocco la tastiera
@@ -192,14 +192,14 @@ public class Game extends ActionBarActivity {
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        mp.stop(applausi);
+                      /*  mp.stop(applausi);
                         mp.stop(fail);
                         mp.stop(tock);
 
                         mp.unload(error);
                         mp.unload(fail);
                         mp.unload(applausi);
-                        mp.unload(tock);
+                        mp.unload(tock);*/
 
                         mp.release();
                         setResult(1);
@@ -213,12 +213,12 @@ public class Game extends ActionBarActivity {
                     public void onClick(DialogInterface dialogInterface, int i) {
 
                         if(finito) {
-                            mp.stop(applausi);
+                           /* mp.stop(applausi);
                             mp.stop(fail);
 
                             mp.unload(error);
                             mp.unload(fail);
-                            mp.unload(applausi);
+                            mp.unload(applausi);*/
 
                             mp.release();
                             setResult(0);

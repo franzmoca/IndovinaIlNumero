@@ -55,7 +55,7 @@ public class LevelGame extends Activity {
     public int attempts = 0;
     public boolean finito = false;
     public SoundPoolHelper mp;
-    int fail, error, applausi,tock;
+    int fail, error, applausi,tock,alto,basso;
     EditText edit;
     //max e min mi servono come estremi e la textview si chiama "estremi"
     int min=1;
@@ -81,6 +81,8 @@ public class LevelGame extends Activity {
     boolean monousoManiDiDIo=true;
 
    // MediaPlayer mpAudio;
+
+
     MediaPlayer mpAudio;
     boolean tastoswitch=true;
 
@@ -128,6 +130,13 @@ public class LevelGame extends Activity {
         mpAudio.setLooping(true);
         mpAudio.start();
         //Inizializzo i suoni
+        mp = new SoundPoolHelper(1, this);
+
+        alto = mp.load(this, R.raw.alto, 1);
+        basso = mp.load(this, R.raw.basso, 1);
+
+
+
        /* mp = new SoundPoolHelper(1, this);
         fail = mp.load(this, R.raw.fail, 1);
         error = mp.load(this, R.raw.error, 1);
@@ -193,6 +202,9 @@ public class LevelGame extends Activity {
                         finish();
 
                         if(finito) {
+
+                            mp.unload(alto);
+                            mp.unload(basso);
                            /* mp.stop(applausi);
                             mp.stop(fail);
 
@@ -238,6 +250,7 @@ public class LevelGame extends Activity {
                 tentativi.setText(i + " tentativi");
                 if (guess < this.guess) {
                     alto_basso.setText("Troppo basso!");
+                    mp.play(basso);
 
                     //goloso
 
@@ -273,6 +286,7 @@ public class LevelGame extends Activity {
                     }
                 } else if (guess > this.guess) {
                     alto_basso.setText("Troppo alto!");
+                    mp.play(alto);
 
 
                     //goloso
