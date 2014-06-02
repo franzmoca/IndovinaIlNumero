@@ -81,7 +81,7 @@
         android:text="@string/bottoneInserisci"
         android:id="@+id/button"
         android:textColor="#000000"
-        android:background="#C4FF7F"
+        android:background="@drawable/inserisci"
         android:clickable="true"
         android:onClick="checkWin"
         android:layout_below="@+id/finenumero"
