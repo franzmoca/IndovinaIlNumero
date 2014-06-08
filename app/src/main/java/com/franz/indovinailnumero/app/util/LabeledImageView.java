@@ -45,7 +45,6 @@ public class    LabeledImageView extends ImageView {
 	private String customFont;
 
 	private Paint mTextPaint;
-    private Paint mAlphaInner;
 
 
     public LabeledImageView(Context context) {
@@ -133,7 +132,7 @@ public class    LabeledImageView extends ImageView {
 			break;
 		case 4: // Top Center
 			xPos = (getWidth() / 2) - (mTextPaint.measureText(text) / 2);
-			yPos = yOffset + (mTextPaint.measureText(text)/8);
+			yPos = yOffset + (mTextPaint.measureText(text)/7);
 			break;
 		case 5: // Bottom Center
 			xPos = (getWidth() / 2) - (mTextPaint.measureText(text) / 2);
@@ -153,31 +152,22 @@ public class    LabeledImageView extends ImageView {
 		setLabelLocation();
 	}
 
-	private void setTextPaint() {
-		mTextPaint = new Paint();
-		mTextPaint.setTypeface(Typeface.defaultFromStyle(textStyle));
-        mTextPaint.setDither(true);
-        mTextPaint.setColor(0xffffffff);
+    private void setTextPaint() {
+        mTextPaint = new Paint();
         mTextPaint.setTextSize(textSize);
-        mTextPaint.setStyle(Paint.Style.STROKE);
-        mTextPaint.setStrokeJoin(Paint.Join.ROUND);
-        mTextPaint.setStrokeCap(Paint.Cap.ROUND);
-        mTextPaint.setStrokeWidth(3);
+        mTextPaint.setColor(textColor);
+        mTextPaint.setTypeface(Typeface.defaultFromStyle(textStyle));
+        mTextPaint.setAntiAlias(true);
+    }
 
-        mAlphaInner=new Paint();
-        mAlphaInner.set(mTextPaint);  //Set the same text size!
-        mAlphaInner.setColor(textColor);
-        mAlphaInner.setStyle(Paint.Style.FILL_AND_STROKE);
-	}
 
-	@Override
-	protected void onDraw(Canvas canvas) {
-		super.onDraw(canvas);
-		if (text != null) {
-            canvas.drawText(text,xPos,yPos,mAlphaInner);
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        if (text != null) {
             canvas.drawText(text, xPos, yPos, mTextPaint);
-		}
-	}
+        }
+    }
 
 	public void setTextSize(float textSize) {
 		this.textSize = pxFromDp(textSize);
