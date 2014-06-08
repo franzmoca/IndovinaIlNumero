@@ -29,6 +29,8 @@ public class SceltaLivelli extends Activity {
     public boolean livello5;
     public boolean livello6;
     public boolean livello7;
+    public boolean livello8;
+
 
 
 
@@ -200,20 +202,31 @@ public class SceltaLivelli extends Activity {
         livello5 = sharedPref.getBoolean(getString(R.string.livello5), false);
         livello6 = sharedPref.getBoolean(getString(R.string.livello6), false);
         livello7 = sharedPref.getBoolean(getString(R.string.livello7), false);
+        livello8 = sharedPref.getBoolean(getString(R.string.livello8), false);
+
 
 
         if(livello2)
             setViewBackgroundWithoutResettingPadding(livellibackground,R.drawable.due);
+
         if(livello3)
             setViewBackgroundWithoutResettingPadding(livellibackground,R.drawable.tre);
+
         if(livello4)
             setViewBackgroundWithoutResettingPadding(livellibackground,R.drawable.quattro);
+
         if(livello5)
             setViewBackgroundWithoutResettingPadding(livellibackground,R.drawable.cinque);
+
         if(livello6)
             setViewBackgroundWithoutResettingPadding(livellibackground,R.drawable.sei);
+
         if(livello7)
             setViewBackgroundWithoutResettingPadding(livellibackground,R.drawable.sette);
+
+        if(livello8)
+            setViewBackgroundWithoutResettingPadding(livellibackground,R.drawable.otto);
+
 
     }
     public void setLevel(int level){
@@ -246,7 +259,6 @@ public class SceltaLivelli extends Activity {
                 break;
             case 7:
                 editor.putBoolean(getString(R.string.livello8), true);
-
                 editor.commit();
                 break;
 
@@ -264,6 +276,7 @@ public class SceltaLivelli extends Activity {
         editor.putBoolean(getString(R.string.livello5), false);
         editor.putBoolean(getString(R.string.livello6), false);
         editor.putBoolean(getString(R.string.livello7), false);
+        editor.putBoolean(getString(R.string.livello8), false);
         editor.commit();
         getLevel();
     }

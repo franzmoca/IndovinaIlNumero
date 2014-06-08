@@ -45,6 +45,7 @@ public class Impostazioni extends Activity {
         editor.putBoolean(getString(R.string.livello5), false);
         editor.putBoolean(getString(R.string.livello6), false);
         editor.putBoolean(getString(R.string.livello7), false);
+        editor.putBoolean(getString(R.string.livello8), false);
         editor.commit();
     }
     public void setPointFALSE(){

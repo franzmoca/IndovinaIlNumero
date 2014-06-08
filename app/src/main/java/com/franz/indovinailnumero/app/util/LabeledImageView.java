@@ -9,6 +9,7 @@ import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.util.TypedValue;
 import android.widget.ImageView;
 
 /*
@@ -179,7 +180,7 @@ public class    LabeledImageView extends ImageView {
 	}
 
 	public void setTextSize(float textSize) {
-		this.textSize = textSize;
+		this.textSize = pxFromDp(textSize);
 	}
 
 	public void setCustomFont(String customFont) {
@@ -213,4 +214,10 @@ public class    LabeledImageView extends ImageView {
 	public void setTextColor(int textColor) {
 		this.textColor = textColor;
 	}
+
+    private float pxFromDp(float dp)
+    {
+        return dp * this.getContext().getResources().getDisplayMetrics().density;
+    }
+
 }

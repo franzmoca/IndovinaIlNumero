@@ -207,6 +207,7 @@ public class LevelGame extends Activity {
                         }else {
                             setResult(10);
                         }
+                        mpAudio.release();
                         finish();
 
                         if(finito) {
@@ -226,6 +227,7 @@ public class LevelGame extends Activity {
                             }else{
                                 setResult(0);
                             }
+                            mpAudio.release();
                             finish();
                         }
 
@@ -790,8 +792,11 @@ public class LevelGame extends Activity {
     @Override
     protected void onPause(){
         super.onPause();
-        mpAudio.pause();
-        mpAudio.seekTo(0);
+        try {
+            mpAudio.reset();
+        }catch (Exception e){
+
+        }
     }
     @Override
     public void onBackPressed()
@@ -815,9 +820,13 @@ public class LevelGame extends Activity {
 
 
     public void Indietro(View view){
-        mpAudio.pause();
-        mpAudio.seekTo(0);
+        try {
+            mpAudio.reset();
+        }catch (Exception e){
+
+        }
         setResult(10);
+        mpAudio.release();
         finish();
     }
 
