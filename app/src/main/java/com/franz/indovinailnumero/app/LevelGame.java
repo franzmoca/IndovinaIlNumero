@@ -16,6 +16,7 @@ import android.graphics.RectF;
 import android.graphics.drawable.BitmapDrawable;
 import android.media.MediaPlayer;
 import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -42,6 +43,8 @@ import com.franz.indovinailnumero.app.util.SoundPoolHelper;
 import android.os.Vibrator;
 
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import static java.lang.Integer.parseInt;
 
@@ -85,6 +88,10 @@ public class LevelGame extends Activity {
 
     MediaPlayer mpAudio;
     boolean tastoswitch=true;
+
+
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -722,10 +729,13 @@ public class LevelGame extends Activity {
             }
         }
     }
+
     public void getPoint(){
         SharedPreferences sharedPref = getSharedPreferences("punteggio",MODE_PRIVATE);
         punteggio = sharedPref.getInt(getString(R.string.punteggio), 1000);
-        points.setText(""+punteggio);
+
+
+
     }
     public void setPoint(int newpoint){
         SharedPreferences sharedPref = getSharedPreferences("punteggio",MODE_PRIVATE);
