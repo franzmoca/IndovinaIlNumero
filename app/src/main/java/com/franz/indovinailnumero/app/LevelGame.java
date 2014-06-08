@@ -733,7 +733,7 @@ public class LevelGame extends Activity {
     public void getPoint(){
         SharedPreferences sharedPref = getSharedPreferences("punteggio",MODE_PRIVATE);
         punteggio = sharedPref.getInt(getString(R.string.punteggio), 1000);
-
+        points.setText(""+punteggio+"$");
 
 
     }

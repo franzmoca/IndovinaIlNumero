@@ -192,7 +192,7 @@ public class SceltaLivelli extends Activity {
         }
     }
     public void getLevel(){
-        ImageView livellibackground= (ImageView) findViewById(R.id.backgroundlivelli);
+        ImageView livellibackground= (ImageView) findViewById(R.id.imagelevelstochange);
         SharedPreferences sharedPref = getSharedPreferences("livelli",MODE_PRIVATE);
         livello2 = sharedPref.getBoolean(getString(R.string.livello2), false);
         livello3 = sharedPref.getBoolean(getString(R.string.livello3), false);
@@ -201,18 +201,19 @@ public class SceltaLivelli extends Activity {
         livello6 = sharedPref.getBoolean(getString(R.string.livello6), false);
         livello7 = sharedPref.getBoolean(getString(R.string.livello7), false);
 
+
         if(livello2)
-            setViewBackgroundWithoutResettingPadding(livellibackground,R.drawable.livello2);
+            setViewBackgroundWithoutResettingPadding(livellibackground,R.drawable.due);
         if(livello3)
-            setViewBackgroundWithoutResettingPadding(livellibackground,R.drawable.livello3);
+            setViewBackgroundWithoutResettingPadding(livellibackground,R.drawable.tre);
         if(livello4)
-            setViewBackgroundWithoutResettingPadding(livellibackground,R.drawable.livello4);
+            setViewBackgroundWithoutResettingPadding(livellibackground,R.drawable.quattro);
         if(livello5)
-            setViewBackgroundWithoutResettingPadding(livellibackground,R.drawable.livello5);
+            setViewBackgroundWithoutResettingPadding(livellibackground,R.drawable.cinque);
         if(livello6)
-            setViewBackgroundWithoutResettingPadding(livellibackground,R.drawable.livello6);
+            setViewBackgroundWithoutResettingPadding(livellibackground,R.drawable.sei);
         if(livello7)
-            setViewBackgroundWithoutResettingPadding(livellibackground,R.drawable.livello7);
+            setViewBackgroundWithoutResettingPadding(livellibackground,R.drawable.sette);
 
     }
     public void setLevel(int level){
@@ -248,6 +249,7 @@ public class SceltaLivelli extends Activity {
 
                 editor.commit();
                 break;
+
 
         }
         getLevel();

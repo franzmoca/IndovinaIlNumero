@@ -12,9 +12,23 @@
         android:layout_width="415dp"
         android:layout_height="match_parent"
         android:id="@+id/backgroundlivelli"
-        android:background="@drawable/livello1"
+        android:background="@drawable/baselivelli"
         android:layout_gravity="center"
         android:focusable="false" />
+
+    <ImageView
+        android:layout_width="415dp"
+        android:layout_height="match_parent"
+        android:id="@+id/imageView"
+        android:background="@drawable/total"
+        android:layout_gravity="center" />
+
+    <ImageView
+        android:layout_width="415dp"
+        android:layout_height="match_parent"
+        android:id="@+id/imagelevelstochange"
+        android:layout_gravity="center"
+        android:background="@drawable/uno" />
 
     <LinearLayout
         android:orientation="vertical"
