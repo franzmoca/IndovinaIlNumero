@@ -10,133 +10,124 @@
 
 
     <RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-        android:layout_marginTop="-40dp"
-    android:layout_gravity="top"
->
-
-    <com.franz.indovinailnumero.app.CustomView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:id="@+id/customView"
+        android:layout_marginTop="-40dp"
         android:layout_gravity="top"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        >
+
+        <com.franz.indovinailnumero.app.CustomView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/customView"
+            android:layout_gravity="top"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
     </RelativeLayout>
 
     <RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="60dp">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp">
 
-    <EditText
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:id="@+id/editText3"
-        android:gravity="center"
-        android:text="@string/ins"
-        android:textColor="#483c32"
-        android:textSize="30dp"
-        android:layout_above="@+id/button"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/inserisci"
-        android:gravity="center"
-        android:textColor="#483c32"
-        android:textSize="25dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/textView"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="-10dp" />
+        <EditText
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/editText3"
+            android:text="@string/ins"
+            android:textColor="#483c32"
+            android:textSize="30dp"
+            android:layout_above="@+id/button"
+            android:gravity="center"
+            android:layout_alignParentTop="false"
+            android:layout_centerInParent="true" />
 
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="70dp"
             android:layout_height="30dp"
-            android:text="prova"
+            android:text="500000-1000000"
             android:id="@+id/estremi"
-            android:layout_below="@+id/textView"
-            android:gravity="center"
-            android:textColor="#483c32"
-            android:textSize="20dp"
-            android:layout_marginTop="-10dp" />
+            android:gravity="center|right"
+            android:textColor="#54497B"
+            android:textSize="18dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="20dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="51dp"
             android:layout_alignLeft="@+id/editText3"
-            android:layout_alignStart="@+id/editText3" />
+            android:layout_alignStart="@+id/editText3"
+            android:layout_marginTop="-5dp" />
 
         <Button
-        style="@android:style/ButtonBar"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:text="@string/bottoneInserisci"
-        android:id="@+id/button"
-        android:textColor="#000000"
-        android:background="#C4FF7F"
-        android:clickable="true"
-        android:onClick="checkWin"
-        android:layout_below="@+id/finenumero"
-        android:layout_alignLeft="@+id/editText3"
-        android:layout_alignStart="@+id/editText3"
-            android:gravity="center_vertical|center_horizontal" />
+            style="@android:style/ButtonBar"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:text="@string/bottoneInserisci"
+            android:id="@+id/button"
+            android:textColor="#000000"
+            android:background="@drawable/inserisci"
+            android:clickable="true"
+            android:onClick="checkWin"
+            android:layout_below="@+id/finenumero"
+            android:layout_alignLeft="@+id/editText3"
+            android:layout_alignStart="@+id/editText3"
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="-30dp" />
 
-    <TextView
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:text="@string/tentativi"
-        android:id="@+id/textView2"
-        android:gravity="center"
-        android:textColor="#483c32"
-        android:textStyle="bold|italic"
-        android:textSize="20dp"
-        android:layout_marginTop="59dp"
-        android:layout_below="@+id/finenumero"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="80dp" />
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Hai 5 tentativi\na disposizione"
+            android:id="@+id/textView2"
+            android:gravity="center"
+            android:textColor="#483c32"
+            android:textStyle="bold|italic"
+            android:textSize="15dp"
+            android:layout_below="@+id/button"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentStart="false"
+            android:layout_marginLeft="60dp" />
 
-    <TextView
-        android:layout_width="100dp"
-        android:layout_height="200dp"
-        android:keepScreenOn="true"
-        android:textColor="#ffffff"
-        android:textStyle="bold"
-        android:textSize="60sp"
-        android:gravity="center"
-        android:text="@string/hai_vinto"
-        android:textIsSelectable="false"
-        android:id="@+id/finenumero"
-        android:onClick="ricomincia"
-        android:clickable="true"
-        android:visibility="invisible"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="200dp"
+            android:keepScreenOn="true"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:textSize="60sp"
+            android:gravity="center"
+            android:text="@string/hai_vinto"
+            android:textIsSelectable="false"
+            android:id="@+id/finenumero"
+            android:onClick="ricomincia"
+            android:clickable="true"
+            android:visibility="invisible"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="100dp"
-        android:text="@string/numero"
-        android:id="@+id/textView5"
-        android:gravity="center"
-        android:layout_alignTop="@+id/textView2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="-20dp"
-        android:textSize="@dimen/activity_vertical_margin" />
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="100dp"
+            android:text="@string/numero"
+            android:id="@+id/textView5"
+            android:gravity="center"
+            android:layout_alignTop="@+id/textView2"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="-20dp"
+            android:textSize="@dimen/activity_vertical_margin" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -147,8 +138,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginTop="40dp"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="20dp"
             android:textSize="20dp"
             android:textColor="#ffff00cd" />
 
@@ -324,12 +314,24 @@
                 android:text="C" />
         </android.support.v7.widget.GridLayout>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:text="@string/inserisci"
+            android:gravity="center"
+            android:textColor="#483c32"
+            android:textSize="20dp"
+            android:id="@+id/textView"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-356dp" />
+
 
     </RelativeLayout>
 
     <Button
-        android:layout_width="62dp"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="44dp"
         android:id="@+id/tastpowerbutton"
         android:layout_gravity="center_horizontal"
         android:onClick="tastiera_powerup"
@@ -456,7 +458,19 @@
         android:text="Indietro"
         android:id="@+id/vaiindietro"
         android:layout_gravity="bottom|left"
-        android:onClick="Indietro"
+        android:onClick="ricomincia"
+        android:visibility="invisible" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Troppo Alto"
+        android:id="@+id/altobassogoloso"
+        android:layout_gravity="center"
+        android:phoneNumber="false"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:textColor="#228b22"
         android:visibility="invisible" />
 
     <Button
