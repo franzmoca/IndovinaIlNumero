@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/prova2">
+
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="-40dp"
+        android:layout_gravity="top"
+        >
+
+        <com.franz.indovinailnumero.app.CustomView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/customView"
+            android:layout_gravity="top"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp">
+
+        <EditText
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/editText3"
+            android:text="@string/ins"
+            android:textColor="#483c32"
+            android:textSize="30dp"
+            android:layout_above="@+id/button"
+            android:gravity="center"
+            android:layout_alignParentTop="false"
+            android:layout_centerInParent="true" />
+
+
+        <TextView
+            android:layout_width="70dp"
+            android:layout_height="30dp"
+            android:text="500000-1000000"
+            android:id="@+id/estremi"
+            android:gravity="center|right"
+            android:textColor="#54497B"
+            android:textSize="18dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="20dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="51dp"
+            android:layout_alignLeft="@+id/editText3"
+            android:layout_alignStart="@+id/editText3"
+            android:layout_marginTop="-5dp" />
+
+        <Button
+            style="@android:style/ButtonBar"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:text="@string/bottoneInserisci"
+            android:id="@+id/button"
+            android:textColor="#000000"
+            android:background="@drawable/inserisci"
+            android:clickable="true"
+            android:onClick="checkWin"
+            android:layout_below="@+id/finenumero"
+            android:layout_alignLeft="@+id/editText3"
+            android:layout_alignStart="@+id/editText3"
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="-30dp" />
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Hai 5 tentativi\na disposizione"
+            android:id="@+id/textView2"
+            android:gravity="center"
+            android:textColor="#483c32"
+            android:textStyle="bold|italic"
+            android:textSize="15dp"
+            android:layout_below="@+id/button"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentStart="false"
+            android:layout_marginLeft="60dp" />
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="200dp"
+            android:keepScreenOn="true"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:textSize="60sp"
+            android:gravity="center"
+            android:text="@string/hai_vinto"
+            android:textIsSelectable="false"
+            android:id="@+id/finenumero"
+            android:onClick="ricomincia"
+            android:clickable="true"
+            android:visibility="invisible"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="100dp"
+            android:text="@string/numero"
+            android:id="@+id/textView5"
+            android:gravity="center"
+            android:layout_alignTop="@+id/textView2"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="-20dp"
+            android:textSize="@dimen/activity_vertical_margin" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="0000"
+            android:id="@+id/soldi"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="20dp"
+            android:textSize="20dp"
+            android:textColor="#ffff00cd" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="bottom"
+        android:layout_marginBottom="5dp"
+        android:visibility="visible">
+
+        <android.support.v7.widget.GridLayout
+            xmlns:grid="http://schemas.android.com/apk/res-auto"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:id="@+id/layoutTastiera"
+            grid:columnCount="5"
+            grid:orientation="horizontal"
+            android:layout_alignWithParentIfMissing="false"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:visibility="visible">
+
+            <Button android:background="@drawable/tasto1"
+                android:layout_width="81dp"
+                android:layout_height="36dp"
+                grid:layout_gravity="fill_horizontal|bottom|left"
+                style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
+                android:id="@+id/tasto1"
+                android:clickable="true"
+                android:onClick="input"
+                android:tag="1"
+                grid:layout_row="0"
+                grid:layout_column="0"
+                android:text="1" />
+            <Button android:background="@drawable/tasto2"
+                android:layout_width="81dp"
+                android:layout_height="36dp"
+                grid:layout_gravity="fill_horizontal|bottom|left"
+                style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
+                android:id="@+id/tasto2"
+                android:clickable="true"
+                android:onClick="input"
+                android:tag="2"
+                grid:layout_row="0"
+                grid:layout_column="2"
+                android:text="2" />
+            <Button
+                android:layout_width="81dp"
+                android:layout_height="36dp"
+                grid:layout_gravity="fill_horizontal|bottom|left"
+                style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
+                android:id="@+id/tasto3"
+                android:clickable="true"
+                android:onClick="input"
+                android:tag="3"
+                grid:layout_row="0"
+                grid:layout_column="3"
+                android:background="@drawable/tasto3"
+                android:longClickable="false"
+                android:text="3" />
+            <Button android:background="@drawable/tasto0"
+                android:layout_width="81dp"
+                android:layout_height="36dp"
+                grid:layout_gravity="fill_horizontal|bottom|left"
+                style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
+                android:id="@+id/tasto0"
+                android:clickable="true"
+                android:onClick="input"
+                android:tag="0"
+                grid:layout_row="0"
+                grid:layout_column="4"
+                android:text="0" />
+            <Button android:background="@drawable/tasto4"
+                android:layout_width="81dp"
+                android:layout_height="36dp"
+                grid:layout_gravity="fill_horizontal|bottom|left"
+                style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
+                android:id="@+id/tasto4"
+                android:clickable="true"
+                android:onClick="input"
+                android:tag="5"
+                grid:layout_row="1"
+                grid:layout_column="0"
+                android:text="4" />
+
+            <Button android:background="@drawable/tasto5"
+                android:layout_width="81dp"
+                android:layout_height="36dp"
+                grid:layout_gravity="fill_horizontal|bottom|left"
+                style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
+                android:id="@+id/tasto5"
+                android:clickable="true"
+                android:onClick="input"
+                android:tag="5"
+                grid:layout_row="1"
+                grid:layout_column="2"
+                android:text="5" />
+            <Button android:background="@drawable/tasto6"
+                android:layout_width="81dp"
+                android:layout_height="36dp"
+                grid:layout_gravity="fill_horizontal|bottom|left"
+                style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
+                android:id="@+id/tasto6"
+                android:clickable="true"
+                android:onClick="input"
+                android:tag="6"
+                grid:layout_row="1"
+                grid:layout_column="3"
+                android:text="6" />
+            <Button android:background="@drawable/tasto00"
+                android:layout_width="81dp"
+                android:layout_height="36dp"
+                grid:layout_gravity="fill_horizontal|bottom|left"
+                style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
+                android:id="@+id/tasto00"
+                android:clickable="true"
+                android:onClick="input"
+                android:tag="00"
+                grid:layout_row="1"
+                grid:layout_column="4"
+                android:text="00" />
+            <Button android:background="@drawable/tasto7"
+                android:layout_width="81dp"
+                android:layout_height="36dp"
+                grid:layout_gravity="fill_horizontal|bottom|left"
+                style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
+                android:id="@+id/tasto7"
+                android:clickable="true"
+                android:onClick="input"
+                android:tag="7"
+                grid:layout_row="3"
+                grid:layout_column="0"
+                android:text="7" />
+            <Button android:background="@drawable/tasto8"
+                android:layout_width="81dp"
+                android:layout_height="36dp"
+                grid:layout_gravity="fill_horizontal|bottom|left"
+                style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
+                android:id="@+id/tasto8"
+                android:clickable="true"
+                android:onClick="input"
+                android:tag="8"
+                grid:layout_row="3"
+                grid:layout_column="2"
+                android:text="8" />
+            <Button android:background="@drawable/tasto9"
+                android:layout_width="81dp"
+                android:layout_height="36dp"
+                grid:layout_gravity="fill_horizontal|bottom|left"
+                style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
+                android:id="@+id/tasto9"
+                android:clickable="true"
+                android:onClick="input"
+                android:tag="9"
+                grid:layout_row="3"
+                grid:layout_column="3"
+                android:text="9" />
+            <Button android:background="@drawable/tastoc"
+                android:layout_width="81dp"
+                android:layout_height="36dp"
+                grid:layout_gravity="fill_horizontal|bottom|left"
+                style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
+                android:id="@+id/tastoC"
+                android:clickable="true"
+                android:onClick="input"
+                grid:layout_row="3"
+                grid:layout_column="4"
+                android:text="C" />
+        </android.support.v7.widget.GridLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:text="@string/inserisci"
+            android:gravity="center"
+            android:textColor="#483c32"
+            android:textSize="20dp"
+            android:id="@+id/textView"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-356dp" />
+
+
+    </RelativeLayout>
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="44dp"
+        android:id="@+id/tastpowerbutton"
+        android:layout_gravity="center_horizontal"
+        android:onClick="tastiera_powerup"
+        android:background="@drawable/power2" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Indietro"
+        android:id="@+id/indietro"
+        android:onClick="Indietro" />
+
+    <com.franz.indovinailnumero.app.util.LabeledImageView
+        android:layout_width="wrap_content"
+        android:layout_height="104dp"
+        android:id="@+id/lanterna"
+        android:background="@drawable/lanternasi"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginLeft="55dp"
+        android:onClick="PowerUp"
+        android:focusableInTouchMode="false"
+        android:visibility="invisible"
+        android:clickable="true"
+        custom:labelPosition="topCenter"
+        custom:text="400"
+        custom:textColor="#EE4747"
+        custom:textStyle="bold"
+        custom:textSizePx="65"/>
+
+    <com.franz.indovinailnumero.app.util.LabeledImageView
+        android:layout_width="wrap_content"
+        android:layout_height="103dp"
+        android:id="@+id/manididio"
+        android:background="@drawable/manisi"
+        android:layout_gravity="bottom"
+        android:onClick="PowerUp"
+        android:focusableInTouchMode="false"
+        android:visibility="invisible"
+        android:clickable="true"
+        android:adjustViewBounds="false"
+        custom:labelPosition="topCenter"
+        custom:text="400"
+        custom:textColor="#EE4747"
+        custom:textStyle="bold"
+        custom:textSizePx="65"/>
+
+    <com.franz.indovinailnumero.app.util.LabeledImageView
+        android:layout_width="63dp"
+        android:layout_height="105dp"
+        android:id="@+id/terzoocchio"
+        android:background="@drawable/occhiosi"
+        android:layout_gravity="center_horizontal|bottom|right"
+        android:onClick="PowerUp"
+        android:focusableInTouchMode="false"
+        android:visibility="invisible"
+        android:clickable="true"
+        custom:labelPosition="topCenter"
+        custom:text="400"
+        custom:textColor="#EE4747"
+        custom:textStyle="bold"
+        custom:textSizePx="65"/>
+
+    <com.franz.indovinailnumero.app.util.LabeledImageView
+        android:layout_width="wrap_content"
+        android:layout_height="105dp"
+        android:id="@+id/pergamena"
+        android:background="@drawable/pergamenasi"
+        android:layout_gravity="center_horizontal|bottom"
+        android:onClick="PowerUp"
+        android:focusableInTouchMode="false"
+        android:visibility="invisible"
+        android:clickable="true"
+        android:layout_marginLeft="-50dp"
+        android:contentDescription=""
+        custom:labelPosition="topCenter"
+        custom:text="400"
+        custom:textColor="#EE4747"
+        custom:textStyle="bold"
+        custom:textSizePx="65"/>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/sfondofine"
+        android:background="@drawable/sfondofine"
+        android:visibility="invisible" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:keepScreenOn="true"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:textSize="60sp"
+        android:gravity="center"
+        android:text="Hai Vinto!!!"
+        android:textIsSelectable="false"
+        android:id="@+id/textView3"
+        android:clickable="true"
+        android:visibility="invisible"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:singleLine="false" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Hai ottenuto tot punti"
+        android:id="@+id/punteggio"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="70dp"
+        android:textSize="25dp"
+        android:textColor="#FFFFFF"
+        android:visibility="invisible" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Indietro"
+        android:id="@+id/vaiindietro"
+        android:layout_gravity="bottom|left"
+        android:onClick="ricomincia"
+        android:visibility="invisible" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Troppo Alto"
+        android:id="@+id/altobassogoloso"
+        android:layout_gravity="center"
+        android:phoneNumber="false"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:textColor="#228b22"
+        android:visibility="invisible" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Riprova"
+        android:id="@+id/riprova"
+        android:layout_gravity="center_horizontal|bottom"
+        android:visibility="invisible"
+        android:onClick="ricomincia" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Continua"
+        android:id="@+id/continua"
+        android:layout_gravity="bottom|right"
+        android:visibility="invisible"
+        android:onClick="ricomincia" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/textView4"
+        android:textSize="25dp"
+        android:textColor="#FFFFFF"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:visibility="invisible" />
+
+</FrameLayout>
