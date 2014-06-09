@@ -35,8 +35,8 @@
         android:layout_marginTop="60dp">
 
         <EditText
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
+            android:layout_width="70dp"
+            android:layout_height="35dp"
             android:inputType="number"
             android:ems="10"
             android:id="@+id/editText3"
@@ -56,12 +56,11 @@
             android:id="@+id/estremi"
             android:gravity="center|right"
             android:textColor="#54497B"
-            android:textSize="18dp"
+            android:textSize="15dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:layout_marginRight="20dp"
-            android:textStyle="bold"
             android:layout_marginLeft="51dp"
             android:layout_alignLeft="@+id/editText3"
             android:layout_alignStart="@+id/editText3"
@@ -69,8 +68,8 @@
 
         <Button
             style="@android:style/ButtonBar"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
             android:text="@string/bottoneInserisci"
             android:id="@+id/button"
             android:textColor="#000000"
@@ -81,7 +80,8 @@
             android:layout_alignLeft="@+id/editText3"
             android:layout_alignStart="@+id/editText3"
             android:gravity="center_vertical|center_horizontal"
-            android:layout_marginTop="-30dp" />
+            android:layout_marginTop="-30dp"
+            android:textSize="15dp" />
 
         <TextView
             android:layout_width="200dp"
@@ -91,11 +91,12 @@
             android:gravity="center"
             android:textColor="#483c32"
             android:textStyle="bold|italic"
-            android:textSize="15dp"
+            android:textSize="13dp"
             android:layout_below="@+id/button"
             android:layout_alignParentLeft="false"
             android:layout_alignParentStart="false"
-            android:layout_marginLeft="60dp" />
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="7dp" />
 
         <TextView
             android:layout_width="100dp"
@@ -162,13 +163,11 @@
             grid:columnCount="5"
             grid:orientation="horizontal"
             android:layout_alignWithParentIfMissing="false"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
             android:visibility="visible">
 
             <Button android:background="@drawable/tasto1"
-                android:layout_width="81dp"
-                android:layout_height="36dp"
+                android:layout_width="71dp"
+                android:layout_height="33dp"
                 grid:layout_gravity="fill_horizontal|bottom|left"
                 style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
                 android:id="@+id/tasto1"
@@ -177,10 +176,11 @@
                 android:tag="1"
                 grid:layout_row="0"
                 grid:layout_column="0"
-                android:text="1" />
+                android:text="1"
+                android:layout_marginLeft="6dp" />
             <Button android:background="@drawable/tasto2"
-                android:layout_width="81dp"
-                android:layout_height="36dp"
+                android:layout_width="71dp"
+                android:layout_height="33dp"
                 grid:layout_gravity="fill_horizontal|bottom|left"
                 style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
                 android:id="@+id/tasto2"
@@ -189,10 +189,11 @@
                 android:tag="2"
                 grid:layout_row="0"
                 grid:layout_column="2"
-                android:text="2" />
+                android:text="2"
+                android:layout_marginLeft="6dp" />
             <Button
-                android:layout_width="81dp"
-                android:layout_height="36dp"
+                android:layout_width="71dp"
+                android:layout_height="33dp"
                 grid:layout_gravity="fill_horizontal|bottom|left"
                 style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
                 android:id="@+id/tasto3"
@@ -203,10 +204,11 @@
                 grid:layout_column="3"
                 android:background="@drawable/tasto3"
                 android:longClickable="false"
-                android:text="3" />
+                android:text="3"
+                android:layout_marginLeft="6dp" />
             <Button android:background="@drawable/tasto0"
-                android:layout_width="81dp"
-                android:layout_height="36dp"
+                android:layout_width="71dp"
+                android:layout_height="33dp"
                 grid:layout_gravity="fill_horizontal|bottom|left"
                 style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
                 android:id="@+id/tasto0"
@@ -215,10 +217,11 @@
                 android:tag="0"
                 grid:layout_row="0"
                 grid:layout_column="4"
-                android:text="0" />
+                android:text="0"
+                android:layout_marginLeft="6dp" />
             <Button android:background="@drawable/tasto4"
-                android:layout_width="81dp"
-                android:layout_height="36dp"
+                android:layout_width="71dp"
+                android:layout_height="33dp"
                 grid:layout_gravity="fill_horizontal|bottom|left"
                 style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
                 android:id="@+id/tasto4"
@@ -227,11 +230,12 @@
                 android:tag="5"
                 grid:layout_row="1"
                 grid:layout_column="0"
-                android:text="4" />
+                android:text="4"
+                android:layout_marginLeft="6dp" />
 
             <Button android:background="@drawable/tasto5"
-                android:layout_width="81dp"
-                android:layout_height="36dp"
+                android:layout_width="71dp"
+                android:layout_height="33dp"
                 grid:layout_gravity="fill_horizontal|bottom|left"
                 style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
                 android:id="@+id/tasto5"
@@ -240,10 +244,11 @@
                 android:tag="5"
                 grid:layout_row="1"
                 grid:layout_column="2"
-                android:text="5" />
+                android:text="5"
+                android:layout_marginLeft="6dp" />
             <Button android:background="@drawable/tasto6"
-                android:layout_width="81dp"
-                android:layout_height="36dp"
+                android:layout_width="71dp"
+                android:layout_height="33dp"
                 grid:layout_gravity="fill_horizontal|bottom|left"
                 style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
                 android:id="@+id/tasto6"
@@ -252,10 +257,11 @@
                 android:tag="6"
                 grid:layout_row="1"
                 grid:layout_column="3"
-                android:text="6" />
+                android:text="6"
+                android:layout_marginLeft="6dp" />
             <Button android:background="@drawable/tasto00"
-                android:layout_width="81dp"
-                android:layout_height="36dp"
+                android:layout_width="71dp"
+                android:layout_height="33dp"
                 grid:layout_gravity="fill_horizontal|bottom|left"
                 style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
                 android:id="@+id/tasto00"
@@ -264,10 +270,11 @@
                 android:tag="00"
                 grid:layout_row="1"
                 grid:layout_column="4"
-                android:text="00" />
+                android:text="00"
+                android:layout_marginLeft="6dp" />
             <Button android:background="@drawable/tasto7"
-                android:layout_width="81dp"
-                android:layout_height="36dp"
+                android:layout_width="71dp"
+                android:layout_height="33dp"
                 grid:layout_gravity="fill_horizontal|bottom|left"
                 style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
                 android:id="@+id/tasto7"
@@ -276,10 +283,11 @@
                 android:tag="7"
                 grid:layout_row="3"
                 grid:layout_column="0"
-                android:text="7" />
+                android:text="7"
+                android:layout_marginLeft="6dp" />
             <Button android:background="@drawable/tasto8"
-                android:layout_width="81dp"
-                android:layout_height="36dp"
+                android:layout_width="71dp"
+                android:layout_height="33dp"
                 grid:layout_gravity="fill_horizontal|bottom|left"
                 style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
                 android:id="@+id/tasto8"
@@ -288,10 +296,11 @@
                 android:tag="8"
                 grid:layout_row="3"
                 grid:layout_column="2"
-                android:text="8" />
+                android:text="8"
+                android:layout_marginLeft="6dp" />
             <Button android:background="@drawable/tasto9"
-                android:layout_width="81dp"
-                android:layout_height="36dp"
+                android:layout_width="71dp"
+                android:layout_height="33dp"
                 grid:layout_gravity="fill_horizontal|bottom|left"
                 style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
                 android:id="@+id/tasto9"
@@ -300,10 +309,11 @@
                 android:tag="9"
                 grid:layout_row="3"
                 grid:layout_column="3"
-                android:text="9" />
+                android:text="9"
+                android:layout_marginLeft="6dp" />
             <Button android:background="@drawable/tastoc"
-                android:layout_width="81dp"
-                android:layout_height="36dp"
+                android:layout_width="71dp"
+                android:layout_height="33dp"
                 grid:layout_gravity="fill_horizontal|bottom|left"
                 style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
                 android:id="@+id/tastoC"
@@ -311,20 +321,9 @@
                 android:onClick="input"
                 grid:layout_row="3"
                 grid:layout_column="4"
-                android:text="C" />
+                android:text="C"
+                android:layout_marginLeft="6dp" />
         </android.support.v7.widget.GridLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="25dp"
-            android:text="@string/inserisci"
-            android:gravity="center"
-            android:textColor="#483c32"
-            android:textSize="20dp"
-            android:id="@+id/textView"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="-356dp" />
 
 
     </RelativeLayout>
@@ -336,6 +335,20 @@
         android:layout_gravity="center_horizontal"
         android:onClick="tastiera_powerup"
         android:background="@drawable/power2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:text="@string/inserisci"
+        android:gravity="center"
+        android:textColor="#483c32"
+        android:textSize="16dp"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginTop="40dp"
+        android:textStyle="bold" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
