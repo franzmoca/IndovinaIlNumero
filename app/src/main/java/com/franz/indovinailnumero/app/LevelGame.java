@@ -865,28 +865,28 @@ public class LevelGame extends Activity {
         LabeledImageView terzoocchio=(LabeledImageView)findViewById(R.id.terzoocchio);
         LabeledImageView manididio=(LabeledImageView)findViewById(R.id.manididio);
         if(monousoManiDiDIo) {
-            manididio.setText("" + costoManiDiDio());
+            manididio.setText("" + costoManiDiDio()+"$");
         }
         else {
             manididio.setText("");
         }
 
         if(monousoLanterna) {
-            lanterna.setText("" + costoLanterna());
+            lanterna.setText("" + costoLanterna()+"$");
         }
         else {
             lanterna.setText("");
         }
 
         if(monousoGuardone) {
-            terzoocchio.setText("" + costoGuardone());
+            terzoocchio.setText("" + costoGuardone()+"$");
         }
         else {
             terzoocchio.setText("");
         }
 
         if(monousoPergamena) {
-            pergamena.setText("" + costoPergamena());
+            pergamena.setText("" + costoPergamena()+"$");
         }
         else {
             pergamena.setText("");

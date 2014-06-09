@@ -20,7 +20,8 @@
             android:layout_height="wrap_content"
             android:weightSum="3"
             android:visibility="visible"
-            android:gravity="center">
+            android:gravity="center"
+            android:layout_marginTop="-50dp">
 
             <ImageView
                 android:layout_width="84dp"
@@ -33,7 +34,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:layout_gravity="top"
-                android:layout_marginRight="10dp" />
+                 />
 
             <ImageView
                 android:layout_width="94dp"
@@ -208,9 +209,9 @@
         android:text="Guess The Number"
         android:id="@+id/textView"
         android:layout_gravity="center"
-        android:layout_marginTop="-40dp"
+        android:layout_marginTop="-140dp"
         android:gravity="center"
-        android:textSize="30dp"
+        android:textSize="50dp"
         android:textColor="#483c32" />
 
 

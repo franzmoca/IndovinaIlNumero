@@ -360,10 +360,10 @@
         android:visibility="invisible"
         android:clickable="true"
         custom:labelPosition="topCenter"
-        custom:text="400"
+        custom:text="400$"
         custom:textColor="#EE4747"
         custom:textStyle="bold"
-        custom:textSizePx="65"/>
+        custom:textSizePx="60"/>
 
     <com.franz.indovinailnumero.app.util.LabeledImageView
         android:layout_width="wrap_content"
@@ -377,10 +377,10 @@
         android:clickable="true"
         android:adjustViewBounds="false"
         custom:labelPosition="topCenter"
-        custom:text="400"
+        custom:text="400$"
         custom:textColor="#EE4747"
         custom:textStyle="bold"
-        custom:textSizePx="65"/>
+        custom:textSizePx="60"/>
 
     <com.franz.indovinailnumero.app.util.LabeledImageView
         android:layout_width="63dp"
@@ -393,10 +393,10 @@
         android:visibility="invisible"
         android:clickable="true"
         custom:labelPosition="topCenter"
-        custom:text="400"
+        custom:text="400$"
         custom:textColor="#EE4747"
         custom:textStyle="bold"
-        custom:textSizePx="65"/>
+        custom:textSizePx="60"/>
 
     <com.franz.indovinailnumero.app.util.LabeledImageView
         android:layout_width="wrap_content"
@@ -411,10 +411,10 @@
         android:layout_marginLeft="-50dp"
         android:contentDescription=""
         custom:labelPosition="topCenter"
-        custom:text="400"
+        custom:text="400$"
         custom:textColor="#EE4747"
         custom:textStyle="bold"
-        custom:textSizePx="65"/>
+        custom:textSizePx="60"/>
 
     <ImageView
         android:layout_width="fill_parent"
