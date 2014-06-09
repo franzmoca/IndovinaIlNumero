@@ -34,43 +34,28 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp">
 
-        <EditText
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:id="@+id/editText3"
-            android:text="@string/ins"
-            android:textColor="#483c32"
-            android:textSize="30dp"
-            android:layout_above="@+id/button"
-            android:gravity="center"
-            android:layout_alignParentTop="false"
-            android:layout_centerInParent="true" />
-
 
         <TextView
-            android:layout_width="70dp"
+            android:layout_width="220dp"
             android:layout_height="30dp"
             android:text="500000-1000000"
             android:id="@+id/estremi"
             android:gravity="center|right"
             android:textColor="#54497B"
-            android:textSize="18dp"
+            android:textSize="27dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:layout_marginRight="20dp"
-            android:textStyle="bold"
             android:layout_marginLeft="51dp"
             android:layout_alignLeft="@+id/editText3"
             android:layout_alignStart="@+id/editText3"
-            android:layout_marginTop="-5dp" />
+            android:layout_marginTop="60dp" />
 
         <Button
             style="@android:style/ButtonBar"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
+            android:layout_width="150dp"
+            android:layout_height="70dp"
             android:text="@string/bottoneInserisci"
             android:id="@+id/button"
             android:textColor="#000000"
@@ -80,8 +65,9 @@
             android:layout_below="@+id/finenumero"
             android:layout_alignLeft="@+id/editText3"
             android:layout_alignStart="@+id/editText3"
+            android:layout_marginTop="50dp"
             android:gravity="center_vertical|center_horizontal"
-            android:layout_marginTop="-30dp" />
+            android:layout_marginLeft="165dp" />
 
         <TextView
             android:layout_width="200dp"
@@ -91,11 +77,13 @@
             android:gravity="center"
             android:textColor="#483c32"
             android:textStyle="bold|italic"
-            android:textSize="15dp"
+            android:textSize="25dp"
             android:layout_below="@+id/button"
             android:layout_alignParentLeft="false"
             android:layout_alignParentStart="false"
-            android:layout_marginLeft="60dp" />
+            android:layout_marginLeft="60dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="32dp" />
 
         <TextView
             android:layout_width="100dp"
@@ -126,8 +114,8 @@
             android:layout_alignTop="@+id/textView2"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginTop="-20dp"
-            android:textSize="@dimen/activity_vertical_margin" />
+            android:textSize="@dimen/activity_vertical_margin"
+            android:layout_marginTop="-20dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -139,8 +127,9 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_marginLeft="20dp"
-            android:textSize="20dp"
-            android:textColor="#ffff00cd" />
+            android:textSize="30dp"
+            android:textColor="#ffff00cd"
+            android:layout_marginTop="60dp" />
 
 
     </RelativeLayout>
@@ -167,8 +156,8 @@
             android:visibility="visible">
 
             <Button android:background="@drawable/tasto1"
-                android:layout_width="81dp"
-                android:layout_height="36dp"
+                android:layout_width="101dp"
+                android:layout_height="41dp"
                 grid:layout_gravity="fill_horizontal|bottom|left"
                 style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
                 android:id="@+id/tasto1"
@@ -179,8 +168,8 @@
                 grid:layout_column="0"
                 android:text="1" />
             <Button android:background="@drawable/tasto2"
-                android:layout_width="81dp"
-                android:layout_height="36dp"
+                android:layout_width="101dp"
+                android:layout_height="41dp"
                 grid:layout_gravity="fill_horizontal|bottom|left"
                 style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
                 android:id="@+id/tasto2"
@@ -191,8 +180,8 @@
                 grid:layout_column="2"
                 android:text="2" />
             <Button
-                android:layout_width="81dp"
-                android:layout_height="36dp"
+                android:layout_width="101dp"
+                android:layout_height="41dp"
                 grid:layout_gravity="fill_horizontal|bottom|left"
                 style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
                 android:id="@+id/tasto3"
@@ -205,8 +194,8 @@
                 android:longClickable="false"
                 android:text="3" />
             <Button android:background="@drawable/tasto0"
-                android:layout_width="81dp"
-                android:layout_height="36dp"
+                android:layout_width="101dp"
+                android:layout_height="41dp"
                 grid:layout_gravity="fill_horizontal|bottom|left"
                 style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
                 android:id="@+id/tasto0"
@@ -217,8 +206,8 @@
                 grid:layout_column="4"
                 android:text="0" />
             <Button android:background="@drawable/tasto4"
-                android:layout_width="81dp"
-                android:layout_height="36dp"
+                android:layout_width="101dp"
+                android:layout_height="41dp"
                 grid:layout_gravity="fill_horizontal|bottom|left"
                 style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
                 android:id="@+id/tasto4"
@@ -230,8 +219,8 @@
                 android:text="4" />
 
             <Button android:background="@drawable/tasto5"
-                android:layout_width="81dp"
-                android:layout_height="36dp"
+                android:layout_width="101dp"
+                android:layout_height="41dp"
                 grid:layout_gravity="fill_horizontal|bottom|left"
                 style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
                 android:id="@+id/tasto5"
@@ -242,8 +231,8 @@
                 grid:layout_column="2"
                 android:text="5" />
             <Button android:background="@drawable/tasto6"
-                android:layout_width="81dp"
-                android:layout_height="36dp"
+                android:layout_width="101dp"
+                android:layout_height="41dp"
                 grid:layout_gravity="fill_horizontal|bottom|left"
                 style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
                 android:id="@+id/tasto6"
@@ -254,8 +243,8 @@
                 grid:layout_column="3"
                 android:text="6" />
             <Button android:background="@drawable/tasto00"
-                android:layout_width="81dp"
-                android:layout_height="36dp"
+                android:layout_width="101dp"
+                android:layout_height="41dp"
                 grid:layout_gravity="fill_horizontal|bottom|left"
                 style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
                 android:id="@+id/tasto00"
@@ -266,8 +255,8 @@
                 grid:layout_column="4"
                 android:text="00" />
             <Button android:background="@drawable/tasto7"
-                android:layout_width="81dp"
-                android:layout_height="36dp"
+                android:layout_width="101dp"
+                android:layout_height="41dp"
                 grid:layout_gravity="fill_horizontal|bottom|left"
                 style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
                 android:id="@+id/tasto7"
@@ -278,8 +267,8 @@
                 grid:layout_column="0"
                 android:text="7" />
             <Button android:background="@drawable/tasto8"
-                android:layout_width="81dp"
-                android:layout_height="36dp"
+                android:layout_width="101dp"
+                android:layout_height="41dp"
                 grid:layout_gravity="fill_horizontal|bottom|left"
                 style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
                 android:id="@+id/tasto8"
@@ -290,8 +279,8 @@
                 grid:layout_column="2"
                 android:text="8" />
             <Button android:background="@drawable/tasto9"
-                android:layout_width="81dp"
-                android:layout_height="36dp"
+                android:layout_width="101dp"
+                android:layout_height="41dp"
                 grid:layout_gravity="fill_horizontal|bottom|left"
                 style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
                 android:id="@+id/tasto9"
@@ -302,8 +291,8 @@
                 grid:layout_column="3"
                 android:text="9" />
             <Button android:background="@drawable/tastoc"
-                android:layout_width="81dp"
-                android:layout_height="36dp"
+                android:layout_width="101dp"
+                android:layout_height="41dp"
                 grid:layout_gravity="fill_horizontal|bottom|left"
                 style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog"
                 android:id="@+id/tastoC"
@@ -314,24 +303,26 @@
                 android:text="C" />
         </android.support.v7.widget.GridLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="25dp"
-            android:text="@string/inserisci"
-            android:gravity="center"
+        <EditText
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/editText3"
+            android:text="@string/ins"
             android:textColor="#483c32"
-            android:textSize="20dp"
-            android:id="@+id/textView"
+            android:textSize="30dp"
+            android:layout_alignWithParentIfMissing="false"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="-356dp" />
+            android:layout_marginTop="-400dp" />
 
 
     </RelativeLayout>
 
     <Button
-        android:layout_width="50dp"
-        android:layout_height="44dp"
+        android:layout_width="101dp"
+        android:layout_height="82dp"
         android:id="@+id/tastpowerbutton"
         android:layout_gravity="center_horizontal"
         android:onClick="tastiera_powerup"
@@ -412,6 +403,20 @@
         custom:textColor="#EE4747"
         custom:textStyle="bold"
         custom:textSizePx="65"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/inserisci"
+        android:gravity="center"
+        android:textColor="#483c32"
+        android:textSize="40dp"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="77dp" />
 
     <ImageView
         android:layout_width="fill_parent"
