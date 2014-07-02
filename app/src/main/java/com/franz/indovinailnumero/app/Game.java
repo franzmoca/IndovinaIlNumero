@@ -37,6 +37,10 @@ public class Game extends ActionBarActivity {
 
 
 
+
+
+
+
     public void checkWin(View view) {
 
         Button inserisci = (Button) findViewById(R.id.BottoneInserisci);
